@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <link href='test.css' rel='stylesheet'>
+  </head>
+  <body>
+    <div class='hide' id='after_submit'>
+
+
+
+    </div>
+      <div class = "Algorx" id='algorx'>
+        <h3>Algorx</h3>
+          <div class="jumbotron shadow-lg p-3 text-center" id='welcome_page'>
+            <h1 class="display-4">Welcome to Strategic Health!</h1>
+            <p class="lead">This is a 10 minute form about your health & health history.</p>
+            <hr class="my-4">
+            <p>The information you provide here is important for finding the best course of treatment for you. This information will never be shared with anyone other than those <strong>directly</strong> involved in your care. Be open and honest, we are not here to judge. The better the information, the better we can help!</p>
+            <input type='button' class="btn btn-primary btn-lg" role="button" onclick='new_or_old_pt()' value='Get started!'>
+          </div>
+        <div style='display:none' id = new_old_what class="jumbotron shadow-lg p-3">
+          <p class="display-4">Are you new to this system?</p>
+          <p class="lead">If this site looks familiar, please select returning patient.</p>
+          <input type='button' id="new_pt" class="btn btn-primary btn-lg" role="button" onclick='new_pt()' value='New Patient'>
+          <input type='button' id="old_pt" class="btn btn-primary btn-lg" role="button" onclick='old_pt()' value='Returning Patient'>
+        </div>
+        <div style='display:none' id=if_old_pt>
+          <h1>Feature Coming Soon</h1>
+        </div>
+        <div style='display:none' class="jumbotron shadow-lg p-3 text-center" id=if_new_pt>
+          <h1 class="display-4">What best describes why you're here today?</h1><br>
+          <input id="cc" type="button" value="Mood Problems" onclick='mood()' class="btn btn-primary w-auto p-3">
+          <input id="cc" type="button" value="Memory Problems" onclick='memory()' class="btn btn-primary w-auto p-3">
+          <input id="cc" type="button" value="PTSD" onclick='ptsd()' class="btn btn-primary w-auto p-3">
+          <input id="cc" type="button" value="Anxiety" onclick='anxiety()' class="btn btn-primary w-auto p-3">
+          <input id="cc" type="button" value="Something Else" onclick='somethingelse()' class="btn btn-primary w-auto p-3 y-auto m-1">
+        </div>
+        <div style='display:none' id=mood_page class='jumbotron shadow-lg p-3 text-center'>
+          <h1>Over the last 2 weeks, how often have you been bothered by the following problem?</h1><br>
+
+          <div class="ph9q_qs">
+            <p class="lead" id=ph9q_display>Little interest or pleasure in doing things</p>
+          </div>
+
+          <div>
+            <input id='an1' class="btn btn-primary" type="button" value="Not at all" onclick='ph9q_but(1)'>
+            <input id='an2' class="btn btn-primary" type="button" value="Several days" onclick='ph9q_but(2)'>
+            <input id='an3' class="btn btn-primary" type="button" value="More than half the days" onclick='ph9q_but(3)'>
+            <input id='an4' class="btn btn-primary" type="button" value="Nearly everyday" onclick='ph9q_but(4)'>
+          </div>
+
+        </div>
+        <div style='display:none' id=memory_page>
+          <h1>Feature Coming Soon!</h1>
+        </div>
+        <div style='display:none' id=ptsd_page>
+          <h1>Feature Coming Soon!</h1>
+        </div>
+        <div style='display:none' id=anxiety_page>
+          <h1>Feature Coming Soon!</h1>
+        </div>
+        <div style='display:none' id=somethingelse_page>
+          <h1>Feature Coming Soon!</h1>
+        </div>
+
+
+        <div style='display:none' id=history>
+
+          <div class="border border-secondary rounded-bottom m-5 p-3 bg-gray-300">
+
+          <div class='row'>
+            <div class="d-flex align-items-center input-group mb-5 mx-auto col-md-3 mt-5">
+              <div class="input-group-prepend">
+                <span class="input-group-text my-auto">Age: </span>
+              </div>
+              <input id='age' type="text" class="form-control" placeholder="Age" aria-label="Age" aria-describedby="basic-addon1">
+            </div>
+
+              <div class="input-group-prepend mx-auto d-flex align-items-center col-md-4">
+                <span class="input-group-text" id="basic-addon1">Sex: </span>
+
+
+
+              <div class='d-flex align-items-center'>
+                <input class="btn btn-primary ml-1" type="button" value='Male' id="Male"></label>
+                <input class="btn btn-primary ml-2" type="button" value='Female' id="Female"></label>
+              </div>
+            </div>
+
+              <div class='mb-3 col-md-3 mt-4'>
+              <label for="employment">Employment status: </label>
+                <select class="custom-select" id=employment>
+                  <option selected>Select one</option>
+                  <option value="dropdown-item" id='full-time'>Full-time</option>
+                  <option value="dropdown-item" id='part-time'>Part-time</option>
+                  <option value="dropdown-item" id='looking'>Looking</option>
+                  <option value="dropdown-item" id='disability'>Disability</option>
+                  <option value="dropdown-item" id='Retired'>Retired</option>
+                  <option value="dropdown-item" id='Student'>Student</option>
+                  <option value="dropdown-item" id='At_home_homemaker'>At home/homemaker</option>
+                </select>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class='mb-3 mx-auto col-md-5'>
+              <label for="employment">Highest level of education: </label>
+              <select class="custom-select mb-3" id='school'>
+                <option selected>Select one</option>
+                <option value="dropdown-item" id='Not_finished_high_school'>Not finished high school</option>
+                <option value="dropdown-item" id='High_school_or_equivalent'>High school or equivalent</option>
+                <option value="dropdown-item" id='Some_college'>Some college</option>
+                <option value="dropdown-item" id='Bachelors_degree'>Bachelor's degree</option>
+                <option value="dropdown-item" id='Masters_degree_or_higher'>Master's degree or higher</option>
+              </select>
+            </div>
+
+            <div class='mb-2 mx-auto col-md-5'>
+              <label for="employment">Relationship status: </label>
+              <select class="custom-select mb-3" id='pt_relationship'>
+                <option selected>Select one</option>
+                <option value="dropdown-item" id='Single'>Single</option>
+                <option value="dropdown-item" id='Married'>Married</option>
+                <option value="dropdown-item" id='Divorced'>Divorced</option>
+                <option value="dropdown-item" id='Nonmarried_relationship'>Non-married relationship</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+
+
+        <div class="border border-secondary rounded-bottom m-5 p-5 bg-gray-300">
+          <div class="text-center mb-5">
+            <p>Please enter <strong>ALL</strong> current medications <strong>(including non-psychiatric ones)</strong> and all known medication allergies. Spelling is important.</p><hr>
+          </div>
+
+          <div id='add_meds'>
+          <div class="row" id='medication'>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text">Medications:</span>
+              </div>
+              <input id='med_name' type="text" class="form-control" placeholder='Name'>
+              <input id='med_dose' type="text" class="form-control" placeholder='Dose'>
+              <input id='med_freq' type="text" class="form-control" placeholder='How often'>
+            </div>
+          </div>
+
+              <div class='text-center'>
+              <button class="btn btn-outline-primary mb-2" type="button" id="add_med">Add Medication</button>
+            </div>
+
+          <div>
+            <ol class='mb-3' id='added_meds'>
+            </ol>
+          </div>
+        </div>
+
+              <div class='mb-5 text-center'>
+                <input class="form-check-input" type="checkbox" id="no_meds" value="option1">
+                <label class="form-check-label" for="no_med">I don't take medications</label>
+              </div>
+
+
+
+
+              <div id='no_allergy_box'>
+              <div class="input-group-prepend mb-3">
+                <span class="input-group-text">Medication Allergy:</span>
+              <input id='allergy_name' type="text" class="form-control" placeholder='Name'>
+              <input id='allergy_reaction' type="text" class="form-control" placeholder='Reaction'>
+
+            </div>
+              <div class="text-center">
+              <button class="btn btn-outline-primary" type="button" id="add_allergy">Add Allergy</button>
+            </div>
+
+          <div>
+            <ol class='mb-3' id='added_allergy'>
+            </ol>
+          </div>
+          </div>
+
+              <div class='text-center mb-3'>
+                <input class="form-check-input" type="checkbox" id="no_allergy" value="option1">
+                <label class="form-check-label" for="no_allergy">I don't have allergies</label>
+                </div>
+
+
+          </div><!--second box in hx -->
+
+
+
+
+
+          <div class="border border-secondary rounded-bottom m-5 p-5 bg-gray-300">
+            <div class="text-center mb-5">
+              <p>Please select <strong>any</strong> sugery or medical diagnosis you have had. Type out any that are not listed here.</p><hr>
+            </div>
+
+            <div class="text-center mb-3">
+              <h3>Medical Conditions:</h3>
+            </div>
+
+            <div class='row'>
+            <div class="col-md-6 mx-auto text-center">
+            <input class="btn btn-primary px-4" type="checkbox" value='None' id="no_cond"> None</label>
+            </div>
+          </div>
+
+            <div id='cond'>
+            <div class="text-center mt-4 mb-3">
+              <div class="medical_cond" id='medical_cond'>
+
+                      <label><input class='cond_checkbox' type="checkbox" name="cond" value="ADHD"/> ADHD</label>
+                      <label><input class='cond_checkbox' type="checkbox" name="cond" value="Anemia"/> Anemia</label>
+                      <label><input class='cond_checkbox' type="checkbox" name="cond" value="Anxiety"/> Anxiety</label>
+                      <label><input class='cond_checkbox' type="checkbox" name="cond" value="Arthritis"/> Arthritis</label>
+                      <label><input class='cond_checkbox' type="checkbox" name="cond" value="Asthma"/> Asthma</label>
+                      <label><input class='cond_checkbox' type="checkbox" name="cond" value="Bipolar"/> Bipolar</label>
+                      <label><input class='cond_checkbox' type="checkbox" name="cond" value="Cancer"/> Cancer</label>
+                      <label><input class='cond_checkbox' type="checkbox" name="cond" value="Clotting disorder"/> Clotting Disorder</label>
+                      <label><input class='cond_checkbox' type="checkbox" name="cond" value="Congestive heart failure"/> Congestive heart failure</label>
+                      <label><input class='cond_checkbox' type="checkbox" name="cond" value="Depression"/> Depression</label>
+                      <label><input class='cond_checkbox' type="checkbox" name="cond" value="Diabetes" /> Diabetes</label>
+                      <label><input class='cond_checkbox' type="checkbox" name="cond" value="COPD" /> Emphysema/COPD</label>
+                      <label><input class='cond_checkbox' type="checkbox" name="cond" value="GERD"  /> GERD</label>
+                      <label><input class='cond_checkbox' type="checkbox" name="cond" value="Glaucoma" /> Glaucoma</label>
+                      <label><input class='cond_checkbox' type="checkbox" name="cond" value="HIV"  /> HIV/AIDS</label>
+                      <label><input class='cond_checkbox' type="checkbox" name="cond" value="Hyperlipidemia" /> High cholesterol</label>
+                      <label><input class='cond_checkbox' type="checkbox" name="cond" value="Kidney disease" /> Kidney disease</label>
+                      <label><input class='cond_checkbox' type="checkbox" name="cond" value="Nerve/muscle disease" /> Nerve/muscle disease</label>
+                      <label><input class='cond_checkbox' type="checkbox" name="cond" value="OCD"/> OCD</label>
+                      <label><input class='cond_checkbox' type="checkbox" name="cond" value="Osteoporosis"  /> Osteoporosis</label>
+                      <label><input class='cond_checkbox' type="checkbox" name="cond" value="Pain disorder" /> Pain disorder</label>
+                      <label><input class='cond_checkbox' type="checkbox" name="cond" value="PTSD"/> PTSD</label>
+                      <label><input class='cond_checkbox' type="checkbox" name="cond" value="Schizophrenia" /> Schizophrenia</label>
+                      <label><input class='cond_checkbox' type="checkbox" name="cond" value="Seizures" /> Seizures</label>
+                      <label><input class='cond_checkbox' type="checkbox" name="cond" value="Sickle cell anemia" /> Sickle cell anemia</label>
+                      <label><input class='cond_checkbox' type="checkbox" name="cond" value="Substance abuse"  /> Substance abuse</label>
+                      <label><input class='cond_checkbox' type="checkbox" name="cond" value="Thyroid disease" /> Thyroid disease</label>
+
+
+                      <div class="input-group mb-5">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text">Other conditions:</span>
+                        </div>
+                        <input id='list_medical_cond' type="text" class="form-control" placeholder='Conditions (seperate by a "," )'>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+            <div class="text-center mb-3">
+              <h3>Surgeries:</h3>
+            </div>
+
+            <div class='row'>
+            <div class="col-md-6 mx-auto text-center">
+            <input class="btn btn-primary px-4" type="checkbox" value='None' id="no_surg"> None</label>
+            </div>
+          </div>
+
+            <div id='surg'>
+            <div class="text-center mt-4 mb-3">
+              <div class="surgeries" id='surgeries'>
+
+                      <label><input class='surg_checkbox' type="checkbox" name="surg" value="Appendectomy"  /> Appendectomy</label>
+                      <label><input class='surg_checkbox' type="checkbox" name="surg" value="Brain surgery" /> Brain surgery</label>
+                      <label><input class='surg_checkbox' type="checkbox" name="surg" value="Breast surgery" /> Breast surgery</label>
+                      <label><input class='surg_checkbox' type="checkbox" name="surg" value="CABG" /> CABG</label>
+                      <label><input class='surg_checkbox' type="checkbox" name="surg" value="Cardiac stent" /> Cardiac stent</label>
+                      <label><input class='surg_checkbox' type="checkbox" name="surg" value="Cholecystectomy"  /> Cholecystectomy</label>
+                      <label><input class='surg_checkbox' type="checkbox" name="surg" value="Colon surgery" /> Colon surgery</label>
+                      <label><input class='surg_checkbox' type="checkbox" name="surg" value="C-section" /> C-section</label>
+                      <label><input class='surg_checkbox' type="checkbox" name="surg" value="Fracture surgery" /> Fracture surgery</label>
+                      <label><input class='surg_checkbox' type="checkbox" name="surg" value="Hernia repair" /> Hernia repair</label>
+                      <label><input class='surg_checkbox' type="checkbox" name="surg" value="Hysterectomy"  /> Hysterectomy</label>
+                      <label><input class='surg_checkbox' type="checkbox" name="surg" value="Joint surgery" /> Joint surgery</label>
+                      <label><input class='surg_checkbox' type="checkbox" name="surg" value="Lung surgery"  /> Lung surgery</label>
+                      <label><input class='surg_checkbox' type="checkbox" name="surg" value="Spine surgery" /> Spine surgery</label>
+                      <label><input class='surg_checkbox' type="checkbox" name="surg" value="Thyroid surgery" /> Thyroid surgery</label>
+                      <label><input class='surg_checkbox' type="checkbox" name="surg" value="Tonsillectomy" /> Tonsillectomy</label>
+                      <label><input class='surg_checkbox' type="checkbox" name="surg" value="Tubal ligation"  /> Tubal ligation</label>
+                      <label><input class='surg_checkbox' type="checkbox" name="surg" value="Vasectomy" /> Vasectomy</label>
+                      <label><input class='surg_checkbox' type="checkbox" name="surg" value="Weight reduction surgery" /> Weight reduction surgery</label>
+
+                      <div class="input-group mb-5">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text">Other surgeries:</span>
+                        </div>
+                        <input id='list_surgeries' type="text" class="form-control" placeholder='Surgeries (seperate by a "," )'>
+                      </div>
+
+              </div>
+            </div>
+            </div>
+
+
+
+
+
+
+          </div><!--third hx box -->
+
+
+          <div class="border border-secondary rounded-bottom m-5 p-5 bg-gray-300">
+            <div class="text-center mb-5">
+              <p>Alcohol, nicotine, and other substances can <strong>affect the side effects and effectiveness</strong> of many psych meds. Remember, this is protected health information and will <strong>NOT</strong> be shared.</p><hr>
+            </div>
+
+
+            <div class='row'>
+            <div class="input-group">
+              <div class="d-flex align-items-center mx-auto mb-3 text-center">
+                <div class='text-center mb-2'>
+                <h4>Do you use nicotine products?</h4>
+                </div>
+              </div>
+            </div>
+
+            <div class="d-flex align-items-center mx-auto">
+              <input class="btn btn-primary mb-3 px-4 mx-2" type="button" value='Yes' id="yes_nic"></label>
+              <input class="btn btn-primary mb-3 px-4 mx-2" type="button" value='No' id="no_nic"></label>
+            </div>
+          </div>
+
+
+
+
+          <div class='hide' id='nic_box'>
+            <div class="input-group d-flex align-items-center mx-auto mb-2">
+              <div class='mb-3 mx-auto col-md-3'>
+                <label for="employment">Type of product </label>
+                <select id='smoke_type' class="custom-select">
+                  <option selected>Select one</option>
+                  <option value="dropdown-item" id='Cigarette'>Cigarettes</option>
+                  <option value="dropdown-item" id='E_Cigarette'>E-Cigarettes</option>
+                  <option value="dropdown-item" id='Smokeless_Tabacco'>Smokeless Tabacco</option>
+                  <option value="dropdown-item" id='Other'>Other</option>
+                </select>
+              </div>
+            </div>
+
+          <div class='row'>
+              <div class='col-md-6 mb-5'>
+                <div class="d-flex flex-column align-items-center mx-auto">
+              <label for="employment ">How many packs/pulls/dips per day? </label>
+              <input id='nic_freq' type="text" class="form-control" placeholder="How much per day? (If selected other, specify)">
+            </div>
+          </div>
+
+              <div class='col-md-6 mb-5'>
+                <div class="d-flex flex-column align-items-center mx-auto">
+              <label for="employment">For how long? </label>
+              <input id='nic_duration' type="text" class="form-control" placeholder="How long? (years)">
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+
+            <div class="input-group">
+              <div class="d-flex align-items-center mx-auto mb-3 text-center">
+                <div class='text-center mt-5'>
+                <h4>Do you use any other recreational drugs not prescribed to you? (Marjiuana, Cocaine, etc.)</h4>
+                </div>
+              </div>
+
+            <div class="d-flex align-items-center mx-auto">
+              <input class="btn btn-primary mb-3 px-4 mx-2" type="button" value='Yes' id="yes_rec"></label>
+              <input class="btn btn-primary mb-3 px-4 mx-2" type="button" value='No' id="no_rec"></label>
+            </div>
+          </div>
+
+          <div class=hide id='rec_box'>
+            <div class="d-flex align-items-center mx-auto mb-5" id='rec_use'>
+              <div class="input-group mb-5">
+                <input id='rec_type' type="text" class="form-control" placeholder='What do you use? (List if appropriate)'>
+                <input id='rec_freq' type="text" class="form-control" placeholder='How often? '>
+              </div>
+            </div>
+          </div>
+
+
+
+            <div class='row'>
+            <div class="input-group">
+              <div class="d-flex align-items-center mx-auto mb-3 text-center">
+                <div class='text-center mb-2'>
+                <h4>Do you drink alcohol?</h4>
+                </div>
+              </div>
+            </div>
+
+            <div class="d-flex align-items-center mx-auto">
+              <input class="btn btn-primary mb-3 px-4 mx-2" type="button" value='Yes' id="yes_alcohol"></label>
+              <input class="btn btn-primary mb-3 px-4 mx-2" type="button" value='No' id="no_alcohol"></label>
+            </div>
+          </div>
+
+          <div class='hide' id='alcohol_box'
+            <div class="d-flex align-items-center mx-auto mb-2" id='alcohol_use'>
+              <div class="input-group mb-2">
+                <input id='alcohol_freq' type="text" class="form-control" placeholder='On average, how many drinks per week?'>
+              </div>
+            </div>
+                <p class='text-center'>**One drink is 12 ounces of regular beer (5%ABV), 5 ounces of wine, or 1.5 ounces distilled spirits**</p>
+
+            </div> <!-- Fourth hx box -->
+
+
+          <div class='hide' id='if_female'>
+            <div class="border border-secondary rounded-bottom m-5 p-5 bg-gray-300">
+
+              <div class='row'>
+                <div class="input-group">
+                  <div class="d-flex align-items-center mx-auto mb-2 text-center">
+                  <div class='text-center mb-2'>
+                  <h4>Are you currently pregnant?</h4>
+                  </div>
+                  </div>
+                </div>
+
+              <div class="d-flex align-items-center mx-auto">
+                <input class="btn btn-primary mb-5 px-4 mx-2" type="button" value='Yes' id="yes_prego"></label>
+                <input class="btn btn-primary mb-5 px-4 mx-2" type="button" value='No' id="no_prego"></label>
+              </div>
+            </div>
+
+
+          <div id='prego_box' class='hide'>
+            <div class='row'>
+              <div class="input-group">
+                <div class="d-flex align-items-center mx-auto mb-2 text-center">
+                <div class='text-center mb-2'>
+                <h4>Are you sexually active?</h4>
+                </div>
+                </div>
+              </div>
+
+            <div class="d-flex align-items-center mx-auto">
+              <input class="btn btn-primary mb-5 px-4 mx-2" type="button" value='Yes' id="yes_sex"></label>
+              <input class="btn btn-primary mb-5 px-4 mx-2" type="button" value='No' id="no_sex"></label>
+            </div>
+          </div>
+        </div>
+
+
+
+          <div id='sex_active_box' class='hide'>
+            <div class='row'>
+              <div class="input-group">
+                <div class="d-flex align-items-center mx-auto mb-2 text-center">
+                <div class='text-center mb-2'>
+                <h4>Do you use contraception?</h4>
+                </div>
+                </div>
+              </div>
+
+            <div class="d-flex align-items-center mx-auto">
+              <input class="btn btn-primary mb-5 px-4 mx-2" type="button" value='Yes' id="yes_sex_contra"></label>
+              <input class="btn btn-primary mb-5 px-4 mx-2" type="button" value='No' id="no_sex_contra"></label>
+            </div>
+          </div>
+        </div>
+
+
+          <div id='prego_box_2' class='hide'>
+            <div class='row'>
+              <div class="input-group">
+                <div class="d-flex align-items-center mx-auto mb-2 text-center">
+                <div class='text-center mb-2'>
+                <h4>Any chance of becoming pregnant?</h4>
+                </div>
+                </div>
+              </div>
+
+            <div class="d-flex align-items-center mx-auto">
+              <input class="btn btn-primary mb-3 px-4 mx-2" type="button" value='Yes' id="yes_chance"></label>
+              <input class="btn btn-primary mb-3 px-4 mx-2" type="button" value='No' id="no_chance"></label>
+            </div>
+          </div>
+        </div>
+        </div><!--Fifth hx box-->
+      </div> <!--hides box if male -->
+
+
+
+          <div class="border border-secondary rounded-bottom m-5 p-5 bg-gray-300">
+
+
+            <div class="text-center mb-5">
+              <p>Almost done! These next questions are as <strong>important</strong> as they are <strong>personal</strong>.</p><hr>
+            </div>
+
+            <div class='row'>
+              <div class="input-group">
+                <div class="d-flex align-items-center mx-auto mb-2 text-center">
+                <div class='text-center mt-3 mb-2'>
+                <h4>Do you now or have you in the past had legal issues? (Including court, parole, prison etc.)</h4>
+                </div>
+                </div>
+              </div>
+
+              <div class="d-flex align-items-center mx-auto">
+                <input class="btn btn-primary mb-5 px-4 mx-2" type="button" value='Yes' id="yes_legal"></label>
+                <input class="btn btn-primary mb-5 px-4 mx-2" type="button" value='No' id="no_legal"></label>
+              </div>
+            </div>
+
+
+
+
+            <div class='row'>
+              <div class="input-group">
+                <div class="d-flex align-items-center mx-auto mb-2 text-center">
+                <div class='text-center mt-3 mb-2'>
+                <h4>Have you ever experienced abuse <strong>OR</strong> a lingering tramatic event?</h4>
+                </div>
+                </div>
+              </div>
+
+            <div class="d-flex align-items-center mx-auto">
+              <input class="btn btn-primary mb-5 px-4 mx-2" type="button" value='Yes' id="yes_abuse"></label>
+              <input class="btn btn-primary mb-5 px-4 mx-2" type="button" value='No' id="no_abuse"></label>
+            </div>
+          </div>
+
+
+
+
+            <div class='row'>
+              <div class="input-group">
+                <div class="d-flex align-items-center mx-auto mb-2 text-center">
+                <div class='text-center mt-3 mb-2'>
+                <h4>Do you feel safe at home?</h4>
+                </div>
+                </div>
+              </div>
+
+            <div class="d-flex align-items-center mx-auto">
+              <input class="btn btn-primary mb-5 px-4 mx-2" type="button" value='Yes' id="yes_safe"></label>
+              <input class="btn btn-primary mb-5 px-4 mx-2" type="button" value='No' id="no_safe"></label>
+            </div>
+          </div>
+
+
+
+
+
+            <div class='row'>
+              <div class="input-group">
+                <div class="d-flex align-items-center mx-auto mb-2 text-center">
+                <div class='text-center mt-3 mb-2'>
+                <h4>Have you ever attempted or seriously considered suicide?</h4>
+                </div>
+                </div>
+              </div>
+
+              <div class="d-flex align-items-center mx-auto">
+                <input class="btn btn-primary mb-5 px-4 mx-2" type="button" value='Yes' id="yes_suicide"></label>
+                <input class="btn btn-primary mb-5 px-4 mx-2" type="button" value='No' id="no_suicide"></label>
+              </div>
+            </div>
+
+
+
+
+
+            <div class='row'>
+              <div class="input-group">
+                <div class="d-flex align-items-center mx-auto mb-2 text-center">
+                <div class='text-center mt-3 mb-2'>
+                <h4>Do you have a family history of mental health issues or substance abuse?</h4>
+                </div>
+                </div>
+              </div>
+
+            <div class="d-flex align-items-center mx-auto">
+              <input class="btn btn-primary mb-2 px-4 mx-2" type="button" value='Yes' id="yes_family_hx"></label>
+              <input class="btn btn-primary mb-2 px-4 mx-2" type="button" value='No' id="no_family_hx"></label>
+            </div>
+          </div>
+
+            <div id='family_hx_box' class='hide'>
+              <div class="d-flex align-items-center mx-auto input-group mb-2">
+                <div class="input-group">
+                  <input id='who' type="text" class="form-control" placeholder='Who? (Mother, uncles, brothers, etc.)'>
+                  <input id='what' type="text" class="form-control" placeholder='What? (Depression, addiction, suicide, etc.)'>
+                </div>
+              </div>
+
+          <div class="text-center mb-3">
+            <button class="btn btn-outline-primary" type="button" id="add_family">Add Family</button>
+          </div>
+
+            <div>
+              <ol class='mb-3' id='added_family'>
+              </ol>
+            </div>
+            </div>
+
+
+
+
+
+
+
+
+            <div class='row mt-5'>
+              <div class="input-group">
+                <div class="d-flex align-items-center mx-auto mb-2 text-center">
+                <div class='text-center mt-3 mb-2'>
+                <h4>Have you recieved mental health care before?</h4>
+                </div>
+                </div>
+              </div>
+
+            <div class="d-flex align-items-center mx-auto">
+              <input class="btn btn-primary mb-2 px-4 mx-2" type="button" value='Yes' id="yes_mental_care"></label>
+              <input class="btn btn-primary mb-2 px-4 mx-2" type="button" value='No' id="no_mental_care"></label>
+            </div>
+          </div>
+
+            <div id='psych_care_box' class='hide'>
+              <div class="d-flex align-items-center mx-auto input-group mb-2">
+                <div class="input-group">
+                  <input id='what_treatment' type="text" class="form-control" placeholder='Treatment for what?'>
+                  <input id='last_treatment' type="text" class="form-control" placeholder='Last appointment date?'>
+                </div>
+              </div>
+            </div>
+
+
+
+
+
+            <div class='row mt-5'>
+              <div class="input-group">
+                <div class="d-flex align-items-center mx-auto mb-2 text-center">
+                <div class='text-center mt-3 mb-2'>
+                <h4>Have you ever been admitted to a psychiatric hospital?</h4>
+                </div>
+                </div>
+              </div>
+
+              <div class="d-flex align-items-center mx-auto">
+                <input class="btn btn-primary mb-2 px-4 mx-2" type="button" value='Yes' id="psych_hosp_yes"></label>
+                <input class="btn btn-primary mb-2 px-4 mx-2" type="button" value='No' id="psych_hosp_no"></label>
+              </div>
+            </div>
+
+          <div id='psych_hosp_box' class='hide'>
+            <div id='yes_mental_care' class="d-flex align-items-center mx-auto input-group mb-2">
+              <div class="input-group mb-2">
+                <input id='hosp_times' type="text" class="form-control" placeholder='How many times?'>
+                <input id='recent_hosp' type="text" class="form-control" placeholder='Most recent time? (Year)'>
+              </div>
+            </div>
+          </div>
+
+          </div> <!--6th hx box -->
+
+          <div class="border border-secondary rounded-bottom m-5 p-5 bg-gray-300">
+
+            <div class="text-center mb-3">
+              <button class="btn btn-primary" type="button" id="done_hx" onclick='finished()'>Submit</button>
+            </div>
+
+          </div>
+
+        </div> <!-- hisotry -->
+      </div> <!-- algorx -->
+  </body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script
+  src="https://code.jquery.com/jquery-3.5.1.min.js"
+  integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+  crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script src=test.js></script>
+</html>
