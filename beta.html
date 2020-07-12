@@ -37,6 +37,12 @@
           <input id="cc" type="button" value="Anxiety" onclick='anxiety()' class="btn btn-primary w-auto p-3">
           <input id="cc" type="button" value="Something Else" onclick='somethingelse()' class="btn btn-primary w-auto p-3 y-auto m-1">
         </div>
+       
+        
+        
+        
+        
+        
         <div style='display:none' id=mood_page class='jumbotron shadow-lg p-3 text-center'>
           <h1>Over the last 2 weeks, how often have you been bothered by the following problem?</h1><br>
 
@@ -51,20 +57,99 @@
             <input id='an4' class="btn btn-primary mb-3 mt-3" type="button" value="Nearly everyday" onclick='ph9q_but(3)'>
           </div>
 
+        </div> <!--The end of 'mood problems' Chief complaint option -->
+        
+        
+        
+        
+        
+        
+        
+        
+        
+         <div style='display:none' id=memory_page class='jumbotron shadow-lg p-3 text-center'>
+  <!--        <h1>Over the last 2 weeks, how often have you been bothered by the following problem?</h1><br>  -->
+
+          <div class="ph9q_qs">
+            <p class="lead" id=ph9q_display>Are you basically satisfied with your life?</p>
+            <!-- Have you dropped many of your activities and interests?
+            Do you feel that your life is empty?
+            Do you often get bored?
+            Are you in good spirits most of the time? 
+            Are you afraid that something bad is going to happen to you? 
+            Do you feel happy most of the time? 
+            Do you often feel helpless? 
+            Do you prefer to stay at home, rather than going out and doing things?
+            Do you feel that you have more problems with memory than most? 
+            Do you think it is wonderful to be alive now?
+            Do you feel worthless the way you are now?
+            Do you feel full of energy?
+            Do you feel that your situation is hopeless?
+            Do you think that most people are better off than you are?
+
+       ***   > or equal to 5 suggests depression  ***            
+          </div>
+
+
+          <div>
+            <input id='an1' class="btn btn-primary mb-3 mt-3 p-3" type="button" value="Yes" onclick='memory_ans()'>
+            <input id='an2' class="btn btn-primary mb-3 mt-3 p-3" type="button" value="No" onclick='memory_ans()'>
+          </div>
+                  
         </div>
-        <div style='display:none' id=memory_page>
-          <h1>Feature Coming Soon!</h1>
-        </div>
+        <!--The end of 'memory' Chief complaint option. RECCOMENDATIONS INCLUDE LABS AND A NON CONTRAST HEAD CT OR MRI. Geriatric depression score reccomended.
+per: Adelman, A. M., & Daly, M. P. (2005). Initial evaluation of the patient with suspected dementia. American family physician, 71(9), 1745–1750.-->
+        
+        
+            
+        
+        
         <div style='display:none' id=ptsd_page>
           <h1>Feature Coming Soon!</h1>
-        </div>
+          
+ 
+        </div> <!--The end of 'ptsd' Chief complaint option -->
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         <div style='display:none' id=anxiety_page>
           <h1>Feature Coming Soon!</h1>
-        </div>
+        </div> <!--The end of 'anxiety' Chief complaint option -->
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         <div style='display:none' id=somethingelse_page>
           <h1>Feature Coming Soon!</h1>
-        </div>
+        </div> <!--The end of 'something else' Chief complaint option -->
 
+        
+        
+        
+        
+        
+        
+        
+        
 
         <div style='display:none' id=history>
 
@@ -517,6 +602,16 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
             <div class='row'>
               <div class="input-group">
                 <div class="d-flex align-items-center mx-auto mb-2 text-center">
@@ -525,7 +620,8 @@
                 </div>
                 </div>
               </div>
-
+        
+     
             <div class="d-flex align-items-center mx-auto">
               <input class="btn btn-primary mb-5 px-4 mx-2" type="button" value='Yes' id="yes_abuse"></label>
               <input class="btn btn-primary mb-5 px-4 mx-2" type="button" value='No' id="no_abuse"></label>
@@ -533,7 +629,32 @@
           </div>
 
 
+            <div id='abuse_hx_box' class='hide'>
+                  <div id='abuse_survery_questions class="d-flex align-items-center mx-auto input-group mb-2'>
+                      <h4>In the past month, have you...</h4>
+                      <h6> had nightmares about the event(s) or thought about the event(s) when you did not want to? </h6>                                                      
+                  </div>
+                  <input class="btn btn-primary mb-5 px-4 mx-2" type="button" value='Yes' id="yes_abuse_survey"></label>
+                  <input class="btn btn-primary mb-5 px-4 mx-2" type="button" value='No' id="no_abuse_survey"></label>
+              </div>
 
+                                                                                        
+                                                                                        
+<!-- rest of Questions to ask: 
+       tried hard not to think about the event(s) or went out of your way to avoid situations that reminded you of the event(s)? 
+       been constantly on guard, watchful, or easily startled? 
+       felt numb or detached from people, activities, or your surroundings? 
+       felt guilty or unable to stop blaming yourself or others for the event(s) or any problems the event(s) may have caused?  
+        ***  score of 3 or more is trigger for ptsd per https://www.ptsd.va.gov/professional/assessment/documents/pc-ptsd5-screen.pdf  ****
+                      -->
+
+              
+                 
+              
+              
+              
+              
+              
 
             <div class='row'>
               <div class="input-group">
