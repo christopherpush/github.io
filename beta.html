@@ -70,8 +70,8 @@
          <div style='display:none' id=memory_page class='jumbotron shadow-lg p-3 text-center'>
   <!--        <h1>Over the last 2 weeks, how often have you been bothered by the following problem?</h1><br>  -->
 
-          <div class="ph9q_qs">
-            <p class="lead" id=ph9q_display>Are you basically satisfied with your life?</p>
+          <div class="memory_qs">
+            <p class="lead" id=memory_ans>Are you basically satisfied with your life?</p>
             <!-- Have you dropped many of your activities and interests?
             Do you feel that your life is empty?
             Do you often get bored?
@@ -87,7 +87,8 @@
             Do you feel that your situation is hopeless?
             Do you think that most people are better off than you are?
 
-       ***   > or equal to 5 suggests depression  ***            
+       ***   > or equal to 5 suggests depression  ***       -->
+            
           </div>
 
 
@@ -114,15 +115,39 @@ per: Adelman, A. M., & Daly, M. P. (2005). Initial evaluation of the patient wit
         
         
         
-        
-        
-        
-        
-        
-        
-        <div style='display:none' id=anxiety_page>
-          <h1>Feature Coming Soon!</h1>
-        </div> <!--The end of 'anxiety' Chief complaint option -->
+
+          
+          
+          
+          
+        <div style='display:none' id='anxiety_page' class='jumbotron shadow-lg p-3 text-center'> <!-- start of anxiety page -->
+          
+          <h1>Over the last 2 weeks, how often have you been bothered by the following problem?</h1><br>
+
+          <div class="ph9q_qs">
+            <p class="lead" id=ph9q_display>Feeling nervous, anxious, or on edge.</p>
+            <!-- add:
+Not being able to stop or control worrying.
+Worrying too much about different things.
+Trouble relaxing.
+Being so restless that it's hard to sit still.
+Becoming easily annoyed or irritable.
+Feeling afraid as if something awful might happen. 
+
+5-9	Mild	-- Monitor
+10*-14	-- Moderate	Possible clinically significant condition
+>15	Severe	-- Active treatment probably warranted
+*For Panic Disorder, Social Phobia, & PTSD, cutoff score of 8 may be used for optimal sensitivity/specificity  -->
+          </div>
+
+          <div>
+            <input id='an1' class="btn btn-primary mb-3 mt-3" type="button" value="Not at all" onclick='gad_but(0)'>
+            <input id='an2' class="btn btn-primary mb-3 mt-3" type="button" value="Several days" onclick='gad_but(1)'>
+            <input id='an3' class="btn btn-primary mb-3 mt-3" type="button" value="More than half the days" onclick='gad_but(2)'>
+            <input id='an4' class="btn btn-primary mb-3 mt-3" type="button" value="Nearly everyday" onclick='gad_but(3)'>
+          </div>          
+          
+        </div> <!--The end of 'anxiety' Chief complaint option-->
         
         
         
@@ -631,7 +656,7 @@ per: Adelman, A. M., & Daly, M. P. (2005). Initial evaluation of the patient wit
 
             <div id='abuse_hx_box' class='hide'>
                   <div id='abuse_survery_questions class="d-flex align-items-center mx-auto input-group mb-2'>
-                      <h4>In the past month, have you...</h4>
+                      <h4>In the past month, have you...</h4><br>
                       <h6> had nightmares about the event(s) or thought about the event(s) when you did not want to? </h6>                                                      
                   </div>
                   <input class="btn btn-primary mb-5 px-4 mx-2" type="button" value='Yes' id="yes_abuse_survey"></label>
