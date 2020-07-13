@@ -13,14 +13,14 @@
     </div>
       <div class = "Algorx" id='algorx'>
         <h3>Algorx</h3>
-          <div class="jumbotron shadow-lg p-3 text-center" id='welcome_page'>
+          <div class="jumbotron shadow-lg text-center" id='welcome_page'>
             <h1 class="display-4">Welcome to Strategic Health!</h1>
             <p class="lead">This is a 10 minute form about your health & health history.</p>
             <hr class="my-4">
             <p>The information you provide here is important for finding the best course of treatment for you. This information will never be shared with anyone other than those <strong>directly</strong> involved in your care. Be open and honest, we are not here to judge. The better the information, the better we can help!</p>
             <input type='button' class="btn btn-primary btn-lg" role="button" onclick='new_or_old_pt()' value='Get started!'>
           </div>
-        <div style='display:none' id = new_old_what class="jumbotron shadow-lg p-3">
+        <div style='display:none' id = new_old_what class="jumbotron shadow-lg">
           <p class="display-4">Are you new to this system?</p>
           <p class="lead">If this site looks familiar, please select returning patient.</p>
           <input type='button' id="new_pt" class="btn btn-primary btn-lg" role="button" onclick='new_pt()' value='New Patient'>
@@ -29,7 +29,7 @@
         <div style='display:none' id=if_old_pt>
           <h1>Feature Coming Soon</h1>
         </div>
-        <div style='display:none' class="jumbotron shadow-lg p-3 text-center" id=if_new_pt>
+        <div style='display:none' class="jumbotron shadow-lg text-center" id=if_new_pt>
           <h1 class="display-4">What best describes why you're here today?</h1><br>
           <input id="cc" type="button" value="Mood Problems" onclick='mood()' class="btn btn-primary w-auto p-3">
           <input id="cc" type="button" value="Memory Problems" onclick='memory()' class="btn btn-primary w-auto p-3">
@@ -37,12 +37,12 @@
           <input id="cc" type="button" value="Anxiety" onclick='anxiety()' class="btn btn-primary w-auto p-3">
           <input id="cc" type="button" value="Something Else" onclick='somethingelse()' class="btn btn-primary w-auto p-3 y-auto m-1">
         </div>
-       
-        
-        
-        
-        
-        
+
+
+
+
+
+
         <div style='display:none' id=mood_page class='jumbotron shadow-lg p-3 text-center'>
           <h1>Over the last 2 weeks, how often have you been bothered by the following problem?</h1><br>
 
@@ -58,111 +58,127 @@
           </div>
 
         </div> <!--The end of 'mood problems' Chief complaint option -->
-        
-        
-        
-        
-        
-        
-        
-        
-        
+
+
+
+
+
+
+
+
+
          <div style='display:none' id=memory_page class='jumbotron shadow-lg p-3 text-center'>
-  <!--        <h1>Over the last 2 weeks, how often have you been bothered by the following problem?</h1><br>  -->
 
+
+           <div id='age_bar'>
+           <div class="d-flex align-items-center mt-5 mb-2 mx auto">
+             <div class="input-group-prepend">
+               <span class="input-group-text my-auto">How old are you? </span>
+             </div>
+             <input id='age_pre' type="text" class="form-control" placeholder="Age" aria-label="Age" aria-describedby="basic-addon1">
+           </div>
+
+             <div>
+               <input id='age_button' class="btn btn-primary mb-3 mt-3 p-3 px-5" type="button" onclick='age_pre()' value='Next'>
+             </div>
+           </div>
+
+
+
+
+           <div class='hide' id='over_65'>
           <div class="memory_qs">
-            <p class="lead" id=memory_ans>Are you basically satisfied with your life?</p>
-            <!-- Have you dropped many of your activities and interests?
-            Do you feel that your life is empty?
-            Do you often get bored?
-            Are you in good spirits most of the time? 
-            Are you afraid that something bad is going to happen to you? 
-            Do you feel happy most of the time? 
-            Do you often feel helpless? 
-            Do you prefer to stay at home, rather than going out and doing things?
-            Do you feel that you have more problems with memory than most? 
-            Do you think it is wonderful to be alive now?
-            Do you feel worthless the way you are now?
-            Do you feel full of energy?
-            Do you feel that your situation is hopeless?
-            Do you think that most people are better off than you are?
-
-       ***   > or equal to 5 suggests depression  ***       -->
-            
+            <p class="h4" id=memory_display>Are you basically satisfied with your life?</p>
+    <!--   ***   > or equal to 5 suggests depression  ***       -->
           </div>
+          <br>
 
 
           <div>
-            <input id='an1' class="btn btn-primary mb-3 mt-3 p-3" type="button" value="Yes" onclick='memory_ans()'>
-            <input id='an2' class="btn btn-primary mb-3 mt-3 p-3" type="button" value="No" onclick='memory_ans()'>
+            <input id='yes_memory' class="btn btn-primary mb-3 mt-3 p-3 px-5" type="button" value="Yes" onclick='memory_but(1)'>
+            <input id='no_memory' class="btn btn-primary mb-3 mt-3 p-3 px-5" type="button" value="No" onclick='memory_but(0)'>
           </div>
-                  
+
+        </div>
         </div>
         <!--The end of 'memory' Chief complaint option. RECCOMENDATIONS INCLUDE LABS AND A NON CONTRAST HEAD CT OR MRI. Geriatric depression score reccomended.
 per: Adelman, A. M., & Daly, M. P. (2005). Initial evaluation of the patient with suspected dementia. American family physician, 71(9), 1745–1750.-->
-        
-        
-            
-        
-        
-        
-        
-        <div style='display:none' id=ptsd_page>
-         
-          <p>Sometimes things happen to people that are unusually or especially frightening, horrible, or traumatic. For example:</p><br>
-          
-            <li>•	 A serious accident or fire</li>
-<li>•	 A physical or sexual assault or abuse</li>
-<li>•	 An earthquake or flood</li>
-<li>•	 A war</li>
-<li>•	 Seeing someone be killed or seriously injured</li> 
-<li>•	 Having a loved one die through homicide or suicide.</li><br><br>
-         <p> Have you ever experienced this kind of event?</p>
-        
-    </div>
-        <input class="btn btn-primary mb-5 px-4 mx-2" type="button" value='Yes' id="yes_ptsd_start"></label>
-        <input class="btn btn-primary mb-5 px-4 mx-2" type="button" value='No' id="no_ptsd_start"></label>
-    </div>
- 
-        <div id='ptsd_survey' class='d-flex align-items-center mx-auto input-group mb-2' class='hide'>
-                                     
-            <h4>In the past month, have you...</h4><br>
-            <h6> Had nightmares about the event(s) or thought about the event(s) when you did not want to? </h6>                                                  
+
+
+
+
+
+
+
+        <div style='display:none' id=ptsd_page class="jumbotron shadow-lg p-3 text-center">
+
+    <div id='ptsd_1q'>
+
+        <h1 class="h3">Sometimes things happen to people that are unusually or especially frightening, horrible, or traumatic. For example:</h1><br>
+          <!-- <p class="lead" class='text-center'>Sometimes things happen to people that are unusually or especially frightening, horrible, or traumatic. For example:</p><br> -->
+
+            <li class='h6'> A serious accident or fire</li>
+            <li class='h6'> A physical or sexual assault or abuse</li>
+            <li class='h6'> An earthquake or flood</li>
+            <li class='h6'> A war</li>
+            <li class='h6'> Seeing someone be killed or seriously injured</li>
+            <li class='h6'> Having a loved one die through homicide or suicide.</li><br><br>
+
+            <p class='h4'> Have you ever experienced this kind of event?</p>
+
+        <div>
+        <input class="btn btn-primary mb-5 px-4 mx-2" type="button" value='Yes' id="yes_ptsd_start" onclick='yes_ptsd_start()'></label>
+        <input class="btn btn-primary mb-5 px-4 mx-2" type="button" value='No' id="no_ptsd_start" onclick='no_ptsd_start()'></label>
         </div>
-        <input class="btn btn-primary mb-5 px-4 mx-2" type="button" value='Yes' id="yes_ptsd"></label>
-        <input class="btn btn-primary mb-5 px-4 mx-2" type="button" value='No' id="no_ptsd"></label>
     </div>
-          
-          <!-- rest of Questions to ask: 
-       tried hard not to think about the event(s) or went out of your way to avoid situations that reminded you of the event(s)? 
-       been constantly on guard, watchful, or easily startled? 
-       felt numb or detached from people, activities, or your surroundings? 
-       felt guilty or unable to stop blaming yourself or others for the event(s) or any problems the event(s) may have caused?  
+
+  <div class='hide' id='start_ptsd'>
+
+        <div id='ptsd_survey' class='d-flex align-items-center mx-auto input-group mb-2'>
+            <h4>In the past month, have you...</h4>
+          </div><br>
+
+            <div>
+            <h6 id='ptsd_display'> had nightmares about the event(s) or thought about the event(s) when you did not want to? </h6>
+            </div><br>
+
+        <div>
+        <input class="btn btn-primary mb-5 px-4 mx-2" type="button" value='Yes' id="yes_ptsd" onclick='ptsd_answer(1)'></label>
+        <input class="btn btn-primary mb-5 px-4 mx-2" type="button" value='No' id="no_ptsd" onclick='ptsd_answer(0)'></label>
+        </div>
+  </div>
+</div>
+
+          <!-- rest of Questions to ask:
+       tried hard not to think about the event(s) or went out of your way to avoid situations that reminded you of the event(s)?
+       been constantly on guard, watchful, or easily startled?
+       felt numb or detached from people, activities, or your surroundings?
+       felt guilty or unable to stop blaming yourself or others for the event(s) or any problems the event(s) may have caused?
         ***  score of 3 or more is trigger for ptsd per https://www.ptsd.va.gov/professional/assessment/documents/pc-ptsd5-screen.pdf  ****
                       -->
-        </div> <!--The end of 'ptsd' Chief complaint option -->
-        
-        
-        
-        
-        
+         <!--The end of 'ptsd' Chief complaint option -->
 
-          
-          
-          
-          
+
+
+
+
+
+
+
+
+
         <div style='display:none' id='anxiety_page' class='jumbotron shadow-lg p-3 text-center'> <!-- start of anxiety page -->
-          
+
               <div class='d-flex align-items-center' class='hide' id='panic_1'>
                  <p>Does you anxiety ever get so bad that you felt your heart race, got sweaty, had trouble breathing, or faint/shaky?</p>
                 <input class="btn btn-primary ml-1" type="button" value='Male' id="Male"></label>
                 <input class="btn btn-primary ml-2" type="button" value='Female' id="Female"></label>
               </div>
 
-          
- 
+
+
           <div class='hide' id='panic'>
-            
+
             <h1> In the past 7 days have you...</h1>
             <div id='panic_qs'>
             <p>felt moments of sudden terror, fear or fright, sometimes out of the blue (i.e., a panic attack)</p>
@@ -183,7 +199,7 @@ average rounded to the nearest whole number:
 1-mild
 2-moderate
 3-severe
-4- extreme -->        
+4- extreme -->
             </div>
 
           <div>
@@ -192,11 +208,11 @@ average rounded to the nearest whole number:
             <input id='an3' class="btn btn-primary mb-3 mt-3" type="button" value="More than half the days" onclick='ph9q_but(2)'>
             <input id='an4' class="btn btn-primary mb-3 mt-3" type="button" value="Nearly everyday" onclick='ph9q_but(3)'>
             <input id='an4' class="btn btn-primary mb-3 mt-3" type="button" value="Nearly everyday" onclick='ph9q_but(4)'>
-          </div>                      
-           </div>                            
-                            
-         
-       <div class='hide' id='anx'>   
+          </div>
+           </div>
+
+
+       <div class='hide' id='anx'>
           <h1>Over the last 2 weeks, how often have you been bothered by the following problem?</h1><br>
 
           <div class="ph9q_qs">
@@ -207,12 +223,12 @@ Worrying too much about different things.
 Trouble relaxing.
 Being so restless that it's hard to sit still.
 Becoming easily annoyed or irritable.
-Feeling afraid as if something awful might happen. 
+Feeling afraid as if something awful might happen.
 
 5-9	Mild	-- Monitor
 10*-14	-- Moderate	Possible clinically significant condition
 >15	Severe	-- Active treatment probably warranted
-*For Panic Disorder, Social Phobia, & PTSD, cutoff score of 8 may be used for optimal sensitivity/specificity  
+*For Panic Disorder, Social Phobia, & PTSD, cutoff score of 8 may be used for optimal sensitivity/specificity
 
 
 USE THIS TOOL INSTEAD BUT DSM-5 VERSION: https://adaa.org/screening-panic-disorder-->
@@ -223,46 +239,46 @@ USE THIS TOOL INSTEAD BUT DSM-5 VERSION: https://adaa.org/screening-panic-disord
             <input id='an2' class="btn btn-primary mb-3 mt-3" type="button" value="Several days" onclick='gad_but(1)'>
             <input id='an3' class="btn btn-primary mb-3 mt-3" type="button" value="More than half the days" onclick='gad_but(2)'>
             <input id='an4' class="btn btn-primary mb-3 mt-3" type="button" value="Nearly everyday" onclick='gad_but(3)'>
-          </div>          
-          </div> 
+          </div>
+          </div>
         </div> <!--The end of 'anxiety' Chief complaint option-->
-        
-        
-        
-        
-        
-        
-   
-        
-        
+
+
+
+
+
+
+
+
+
         <div style='display:none' id=somethingelse_page>
           <h1>In about 5 words, can you describe your problem?</h1>
-          
-          
+
+
         <div id='something_else_cc_answer' class="d-flex align-items-center mx-auto input-group mb-2">
               <div class="input-group mb-2">
                 <input id='hosp_times' type="text" class="form-control" placeholder=''Eg: "I can't sleep"''>
               </div>
-            </div>   
-     
-                                                                                                        
+            </div>
+
+
         </div> <!--The end of 'something else' Chief complaint option -->
 
-        
-        
-        
-        
-        
-        
-        
-        
+
+
+
+
+
+
+
+
 
         <div style='display:none' id=history>
 
           <div class="border border-secondary rounded-bottom m-5 p-3 bg-gray-300">
 
           <div class='row'>
-            <div class="d-flex align-items-center input-group mb-5 mx-auto col-md-3 mt-5">
+            <div class="d-flex align-items-center input-group mb-5 mx-auto col-md-3 mt-5" id='age_bar'>
               <div class="input-group-prepend">
                 <span class="input-group-text my-auto">Age: </span>
               </div>
@@ -726,8 +742,8 @@ USE THIS TOOL INSTEAD BUT DSM-5 VERSION: https://adaa.org/screening-panic-disord
                 </div>
                 </div>
               </div>
-        
-     
+
+
             <div class="d-flex align-items-center mx-auto">
               <input class="btn btn-primary mb-5 px-4 mx-2" type="button" value='Yes' id="yes_abuse"></label>
               <input class="btn btn-primary mb-5 px-4 mx-2" type="button" value='No' id="no_abuse"></label>
@@ -738,29 +754,29 @@ USE THIS TOOL INSTEAD BUT DSM-5 VERSION: https://adaa.org/screening-panic-disord
             <div id='abuse_hx_box' class='hide'>
                   <div id='abuse_survery_questions class="d-flex align-items-center mx-auto input-group mb-2'>
                       <h4>In the past month, have you...</h4><br>
-                      <h6> had nightmares about the event(s) or thought about the event(s) when you did not want to? </h6>                                                      
+                      <h6> had nightmares about the event(s) or thought about the event(s) when you did not want to? </h6>
                   </div>
                   <input class="btn btn-primary mb-5 px-4 mx-2" type="button" value='Yes' id="yes_abuse_survey"></label>
                   <input class="btn btn-primary mb-5 px-4 mx-2" type="button" value='No' id="no_abuse_survey"></label>
               </div>
 
-                                                                                        
-                                                                                        
-<!-- rest of Questions to ask: 
-       tried hard not to think about the event(s) or went out of your way to avoid situations that reminded you of the event(s)? 
-       been constantly on guard, watchful, or easily startled? 
-       felt numb or detached from people, activities, or your surroundings? 
-       felt guilty or unable to stop blaming yourself or others for the event(s) or any problems the event(s) may have caused?  
+
+
+<!-- rest of Questions to ask:
+       tried hard not to think about the event(s) or went out of your way to avoid situations that reminded you of the event(s)?
+       been constantly on guard, watchful, or easily startled?
+       felt numb or detached from people, activities, or your surroundings?
+       felt guilty or unable to stop blaming yourself or others for the event(s) or any problems the event(s) may have caused?
         ***  score of 3 or more is trigger for ptsd per https://www.ptsd.va.gov/professional/assessment/documents/pc-ptsd5-screen.pdf  ****
                       -->
 
-              
-                 
-              
-              
-              
-              
-              
+
+
+
+
+
+
+
 
             <div class='row'>
               <div class="input-group">
@@ -911,5 +927,5 @@ USE THIS TOOL INSTEAD BUT DSM-5 VERSION: https://adaa.org/screening-panic-disord
   integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
   crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-  <script src=test.js></script>
+  <script src=test_work_patch.js></script>
 </html>
