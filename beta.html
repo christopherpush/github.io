@@ -13,23 +13,23 @@
     </div>
       <div class = "Algorx" id='algorx'>
         <h3>Algorx</h3>
-          <div class="jumbotron shadow-lg p-3 text-center" id='welcome_page'>
+          <div class="jumbotron shadow-lg p-3 text-center" id='welcome_page' style= 'border: 1px solid transparent'>
             <h1 class="display-4">Welcome to Strategic Health!</h1>
             <p class="lead">This is a 10 minute form about your health & health history.</p>
             <hr class="my-4">
             <p>The information you provide here is important for finding the best course of treatment for you. This information will never be shared with anyone other than those <strong>directly</strong> involved in your care. Be open and honest, we are not here to judge. The better the information, the better we can help!</p>
             <input type='button' class="btn btn-primary btn-lg" role="button" onclick='new_or_old_pt()' value='Get started!'>
           </div>
-        <div style='display:none' id = new_old_what class="jumbotron shadow-lg p-3">
+        <div style='display:none; border: 1px solid transparent' id = new_old_what class="jumbotron shadow-lg p-3">
           <p class="display-4">Are you new to this system?</p>
           <p class="lead">If this site looks familiar, please select returning patient.</p>
           <input type='button' id="new_pt" class="btn btn-primary btn-lg" role="button" onclick='new_pt()' value='New Patient'>
           <input type='button' id="old_pt" class="btn btn-primary btn-lg" role="button" onclick='old_pt()' value='Returning Patient'>
         </div>
-        <div style='display:none' id=if_old_pt>
+        <div style='display:none; border: 1px solid transparent' id=if_old_pt>
           <h1>Feature Coming Soon</h1>
         </div>
-        <div style='display:none' class="jumbotron shadow-lg p-3 text-center" id=if_new_pt>
+        <div style='display:none; border: 1px solid transparent' class="jumbotron shadow-lg p-3 text-center" id=if_new_pt>
           <h1 class="display-4">What best describes why you're here today?</h1><br>
           <input id="cc" type="button" value="Mood Problems" onclick='mood()' class="btn btn-primary w-auto p-3">
           <input id="cc" type="button" value="Memory Problems" onclick='memory()' class="btn btn-primary w-auto p-3">
@@ -37,7 +37,7 @@
           <input id="cc" type="button" value="Anxiety" onclick='anxiety()' class="btn btn-primary w-auto p-3">
           <input id="cc" type="button" value="Something Else" onclick='somethingelse()' class="btn btn-primary w-auto p-3 y-auto m-1">
         </div>
-        <div style='display:none' id=mood_page class='jumbotron shadow-lg p-3 text-center'>
+        <div style='display:none; border: 1px solid transparent' id=mood_page class='jumbotron shadow-lg p-3 text-center'>
           <h1>Over the last 2 weeks, how often have you been bothered by the following problem?</h1><br>
 
           <div class="ph9q_qs">
@@ -52,21 +52,21 @@
           </div>
 
         </div>
-        <div style='display:none' id=memory_page>
+        <div style='display:none; border: 1px solid transparent' id=memory_page>
           <h1>Feature Coming Soon!</h1>
         </div>
-        <div style='display:none' id=ptsd_page>
+        <div style='display:none; border: 1px solid transparent' id=ptsd_page>
           <h1>Feature Coming Soon!</h1>
         </div>
-        <div style='display:none' id=anxiety_page>
+        <div style='display:none; border: 1px solid transparent' id=anxiety_page>
           <h1>Feature Coming Soon!</h1>
         </div>
-        <div style='display:none' id=somethingelse_page>
+        <div style='display:none; border: 1px solid transparent' id=somethingelse_page>
           <h1>Feature Coming Soon!</h1>
         </div>
 
 
-        <div style='display:none' id=history>
+        <div style='display:none; border: 1px solid transparent' id=history>
 
           <div class="border border-secondary rounded-bottom m-5 p-3 bg-gray-300">
 
