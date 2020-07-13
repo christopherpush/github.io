@@ -13,14 +13,14 @@
     </div>
       <div class = "Algorx" id='algorx' style= 'border: 1px solid transparent'>
         <h3>Algorx</h3>
-          <div class="jumbotron shadow-lg p-3 text-center" id='welcome_page' style= 'border: 1px solid transparent'>
+          <div class="jumbotron shadow-lg text-center" id='welcome_page' style= 'border: 1px solid transparent'>
             <h1 class="display-4">Welcome to Strategic Health!</h1>
             <p class="lead">This is a 10 minute form about your health & health history.</p>
             <hr class="my-4">
             <p>The information you provide here is important for finding the best course of treatment for you. This information will never be shared with anyone other than those <strong>directly</strong> involved in your care. Be open and honest, we are not here to judge. The better the information, the better we can help!</p>
             <input type='button' class="btn btn-primary btn-lg" role="button" onclick='new_or_old_pt()' value='Get started!'>
           </div>
-        <div style='display:none; border: 1px solid transparent' id = new_old_what class="jumbotron shadow-lg p-3">
+        <div style='display:none; border: 1px solid transparent' id = new_old_what class="jumbotron shadow-lg">
           <p class="display-4">Are you new to this system?</p>
           <p class="lead">If this site looks familiar, please select returning patient.</p>
           <input type='button' id="new_pt" class="btn btn-primary btn-lg" role="button" onclick='new_pt()' value='New Patient'>
@@ -29,7 +29,7 @@
         <div style='display:none; border: 1px solid transparent' id=if_old_pt>
           <h1>Feature Coming Soon</h1>
         </div>
-        <div style='display:none; border: 1px solid transparent' class="jumbotron shadow-lg p-3 text-center" id=if_new_pt>
+        <div style='display:none; border: 1px solid transparent' class="jumbotron shadow-lg text-center" id=if_new_pt>
           <h1 class="display-4">What best describes why you're here today?</h1><br>
           <input id="cc" type="button" value="Mood Problems" onclick='mood()' class="btn btn-primary w-auto p-3">
           <input id="cc" type="button" value="Memory Problems" onclick='memory()' class="btn btn-primary w-auto p-3">
