@@ -1,3 +1,25 @@
 .hide {
   display: none;
 };
+
+
+.autosize {
+  font-size:0.8rem !important;
+}
+
+@media screen and (min-width: 1000px) {
+  .autosize {
+    font-size: 1.3rem !important;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .autosize {
+    font-size: 1rem !important;
+  }
+}
+
+@media screen and (max-width: 599px) {
+  .autosize {
+    font-size: 0.8rem !important;
+  }
