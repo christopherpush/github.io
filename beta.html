@@ -6,72 +6,255 @@
       <link href='test.css' rel='stylesheet'>
   </head>
   <body>
+
     <div class='hide' id='after_submit'>
-
-
-
     </div>
-      <div class = "Algorx" id='algorx' style= 'border: 1px solid transparent'>
+
+      <div class = "Algorx" id='algorx'>
         <h3>Algorx</h3>
-          <div class="jumbotron shadow-lg text-center" id='welcome_page' style= 'border: 1px solid transparent'>
+          <div class="jumbotron shadow-lg text-center" id='welcome_page'>
             <h1 class="display-4">Welcome to Strategic Health!</h1>
             <p class="lead">This is a 10 minute form about your health & health history.</p>
             <hr class="my-4">
             <p>The information you provide here is important for finding the best course of treatment for you. This information will never be shared with anyone other than those <strong>directly</strong> involved in your care. Be open and honest, we are not here to judge. The better the information, the better we can help!</p>
             <input type='button' class="btn btn-primary btn-lg" role="button" onclick='new_or_old_pt()' value='Get started!'>
           </div>
-        <div style='display:none; border: 1px solid transparent' id = new_old_what class="jumbotron shadow-lg">
+        <div style='display:none' id = new_old_what class="jumbotron shadow-lg">
           <p class="display-4">Are you new to this system?</p>
           <p class="lead">If this site looks familiar, please select returning patient.</p>
-          <input type='button' id="new_pt" class="btn btn-primary btn-lg" role="button" onclick='new_pt()' value='New Patient'>
-          <input type='button' id="old_pt" class="btn btn-primary btn-lg" role="button" onclick='old_pt()' value='Returning Patient'>
+          <input type='button' id="new_pt" class="btn btn-primary btn-lg mx-2" role="button" onclick='new_pt()' value='New Patient'>
+          <input type='button' id="old_pt" class="btn btn-primary btn-lg mx-2" role="button" onclick='old_pt()' value='Returning Patient'>
         </div>
-        <div style='display:none; border: 1px solid transparent' id=if_old_pt>
+        <div style='display:none' id=if_old_pt>
           <h1>Feature Coming Soon</h1>
         </div>
-        <div style='display:none; border: 1px solid transparent' class="jumbotron shadow-lg text-center" id=if_new_pt>
+        <div style='display:none' class="jumbotron shadow-lg text-center" id=if_new_pt>
           <h1 class="display-4">What best describes why you're here today?</h1><br>
-          <input id="cc" type="button" value="Mood Problems" onclick='mood()' class="btn btn-primary w-auto p-3">
-          <input id="cc" type="button" value="Memory Problems" onclick='memory()' class="btn btn-primary w-auto p-3">
-          <input id="cc" type="button" value="PTSD" onclick='ptsd()' class="btn btn-primary w-auto p-3">
-          <input id="cc" type="button" value="Anxiety" onclick='anxiety()' class="btn btn-primary w-auto p-3">
-          <input id="cc" type="button" value="Something Else" onclick='somethingelse()' class="btn btn-primary w-auto p-3 y-auto m-1">
+          <input id="cc" type="button" value="Mood Problems" onclick='mood()' class="btn btn-primary w-auto p-3 mb-3 mx-2">
+          <input id="cc" type="button" value="Memory/Cognition Problems" onclick='memory()' class="btn btn-primary w-auto p-3 mb-3 mx-2">
+          <input id="cc" type="button" value="PTSD" onclick='ptsd()' class="btn btn-primary w-auto p-3 mb-3 mx-2">
+          <input id="cc" type="button" value="Anxiety/Panic" onclick='anxiety()' class="btn btn-primary w-auto p-3 mb-3 mx-2">
+          <input id="cc" type="button" value="Something Else" onclick='somethingelse()' class="btn btn-primary w-auto p-3 y-auto m-1 mb-3 mx-2">
+
         </div>
-        <div style='display:none; border: 1px solid transparent' id=mood_page class='jumbotron shadow-lg p-3 text-center'>
-          <h1>Over the last 2 weeks, how often have you been bothered by the following problem?</h1><br>
+
+
+
+
+
+
+        <div style='display:none' id=mood_page>
+          <div  class='jumbotron shadow-lg p-3 text-center'>
+          <h1>Over the last 2 weeks, how often have you been bothered by the following problem?</h1><hr>
 
           <div class="ph9q_qs">
             <p class="lead" id=ph9q_display>Little interest or pleasure in doing things</p>
           </div>
 
           <div>
-            <input id='an1' class="btn btn-primary mb-3 mt-3" type="button" value="Not at all" onclick='ph9q_but(0)'>
-            <input id='an2' class="btn btn-primary mb-3 mt-3" type="button" value="Several days" onclick='ph9q_but(1)'>
-            <input id='an3' class="btn btn-primary mb-3 mt-3" type="button" value="More than half the days" onclick='ph9q_but(2)'>
-            <input id='an4' class="btn btn-primary mb-3 mt-3" type="button" value="Nearly everyday" onclick='ph9q_but(3)'>
+            <input id='an1' class="btn btn-primary mb-3 mt-3 mx-2" type="button" value="Not at all" onclick='ph9q_but(0)'>
+            <input id='an2' class="btn btn-primary mb-3 mt-3 mx-2" type="button" value="Several days" onclick='ph9q_but(1)'>
+            <input id='an3' class="btn btn-primary mb-3 mt-3 mx-2" type="button" value="More than half the days" onclick='ph9q_but(2)'>
+            <input id='an4' class="btn btn-primary mb-3 mt-3 mx-2" type="button" value="Nearly everyday" onclick='ph9q_but(3)'>
           </div>
 
         </div>
-        <div style='display:none; border: 1px solid transparent' id=memory_page>
-          <h1>Feature Coming Soon!</h1>
-        </div>
-        <div style='display:none; border: 1px solid transparent' id=ptsd_page>
-          <h1>Feature Coming Soon!</h1>
-        </div>
-        <div style='display:none; border: 1px solid transparent' id=anxiety_page>
-          <h1>Feature Coming Soon!</h1>
-        </div>
-        <div style='display:none; border: 1px solid transparent' id=somethingelse_page>
-          <h1>Feature Coming Soon!</h1>
-        </div>
+        </div> <!--The end of 'mood problems' Chief complaint option -->
 
 
-        <div style='display:none; border: 1px solid transparent' id=history>
+
+
+
+
+
+
+
+         <div style='display:none' id=memory_page class='jumbotron shadow-lg p-3 text-center'>
+
+
+           <div id='age_bar'>
+           <div class="d-flex align-items-center mt-5 mb-2 mx auto">
+             <div class="input-group-prepend">
+               <span class="input-group-text my-auto">How old are you? </span>
+             </div>
+             <input id='age_pre' type="text" class="form-control" placeholder="Age" aria-label="Age" aria-describedby="basic-addon1">
+           </div>
+
+             <div>
+               <input id='age_button' class="btn btn-primary mb-3 mt-3 p-3 px-5" type="button" onclick='age_pre()' value='Next'>
+             </div>
+           </div>
+
+
+
+
+           <div class='hide' id='over_65'>
+          <div class="memory_qs">
+            <p class="h4" id=memory_display>Are you basically satisfied with your life?</p>
+    <!--   ***   > or equal to 5 suggests depression  ***       -->
+          </div>
+          <br>
+
+
+          <div>
+            <input id='yes_memory' class="btn btn-primary mb-3 mt-3 p-3 px-5" type="button" value="Yes" onclick='memory_but(1)'>
+            <input id='no_memory' class="btn btn-primary mb-3 mt-3 p-3 px-5" type="button" value="No" onclick='memory_but(0)'>
+          </div>
+
+        </div>
+        </div>
+        <!--The end of 'memory' Chief complaint option. RECCOMENDATIONS INCLUDE LABS AND A NON CONTRAST HEAD CT OR MRI. Geriatric depression score reccomended.
+per: Adelman, A. M., & Daly, M. P. (2005). Initial evaluation of the patient with suspected dementia. American family physician, 71(9), 1745–1750.-->
+
+
+
+
+
+
+
+        <div style='display:none' id=ptsd_page class="jumbotron shadow-lg p-3 text-center">
+
+    <div id='ptsd_1q'>
+
+        <h1 class="h3">Sometimes things happen to people that are unusually or especially frightening, horrible, or traumatic. For example:</h1><br>
+          <!-- <p class="lead" class='text-center'>Sometimes things happen to people that are unusually or especially frightening, horrible, or traumatic. For example:</p><br> -->
+
+            <li class='h6'> A serious accident or fire</li>
+            <li class='h6'> A physical or sexual assault or abuse</li>
+            <li class='h6'> An earthquake or flood</li>
+            <li class='h6'> A war</li>
+            <li class='h6'> Seeing someone be killed or seriously injured</li>
+            <li class='h6'> Having a loved one die through homicide or suicide.</li><br><br>
+
+            <p class='h4'> Have you ever experienced this kind of event?</p>
+
+        <div>
+        <input class="btn btn-primary mb-5 px-4 mx-2" type="button" value='Yes' id="yes_ptsd_start" onclick='yes_ptsd_start()'></label>
+        <input class="btn btn-primary mb-5 px-4 mx-2" type="button" value='No' id="no_ptsd_start" onclick='no_ptsd_start()'></label>
+        </div>
+    </div>
+
+  <div class='hide' id='start_ptsd'>
+
+        <div id='ptsd_survey' class='d-flex align-items-center mx-auto input-group mb-2'>
+            <h4>In the past month, have you...</h4><hr>
+          </div><br>
+
+            <div>
+            <h6 id='ptsd_display'> had nightmares about the event(s) or thought about the event(s) when you did not want to? </h6>
+            </div><br>
+
+        <div>
+        <input class="btn btn-primary mb-5 px-4 mx-2" type="button" value='Yes' id="yes_ptsd" onclick='ptsd_answer(1)'></label>
+        <input class="btn btn-primary mb-5 px-4 mx-2" type="button" value='No' id="no_ptsd" onclick='ptsd_answer(0)'></label>
+        </div>
+  </div>
+</div>
+      <!--  ***  score of 3 or more is trigger for ptsd per https://www.ptsd.va.gov/professional/assessment/documents/pc-ptsd5-screen.pdf  ****
+                      -->
+         <!--The end of 'ptsd' Chief complaint option -->
+
+
+
+
+         <div id='anxiety_page' class='hide'>
+        <div class='jumbotron shadow-lg p-3 text-center'> <!-- start of anxiety page -->
+          <div id='anx'>
+
+         <div>
+          <p class='h3'>Over the last 2 weeks, how often have you been bothered by the following problem?</p><hr>
+        </div>
+
+          <div>
+            <p class="h5" id=anxiety_display>Feeling nervous, anxious, or on edge.</p>
+          </div>
+            <!--5-9	Mild	-- Monitor
+10*-14	-- Moderate	Possible clinically significant condition
+>15	Severe	-- Active treatment probably warranted
+*For Panic Disorder, Social Phobia, & PTSD, cutoff score of 8 may be used for optimal sensitivity/specificity
+
+
+USE THIS TOOL INSTEAD BUT DSM-5 VERSION: https://adaa.org/screening-panic-disorder-->
+          <div>
+            <input id='an1' class="btn btn-primary  mt-3" type="button" value="Not at all" onclick="anxiety_answer('Not at all', 0)">
+            <input id='an2' class="btn btn-primary  mt-3" type="button" value="Several days" onclick="anxiety_answer('Several days', 1)">
+            <input id='an3' class="btn btn-primary  mt-3" type="button" value="More than half the days" onclick="anxiety_answer('More than half the days', 2)">
+            <input id='an4' class="btn btn-primary  mt-3" type="button" value="Nearly everyday" onclick="anxiety_answer('Nearly everyday', 3)">
+          </div>
+          </div>
+
+
+
+          <div class='hide' id='panic_pre'>
+          <div class='d-flex align-items-center'>
+             <p>Does you anxiety ever get so bad that you felt your heart race, got sweaty, had trouble breathing, or faint/shaky?</p>
+          </div>
+               <div>
+                <input class="btn btn-primary ml-1" type="button" value='Yes' id="Yes" onclick='panic_or_not(1)'></label>
+                <input class="btn btn-primary ml-2" type="button" value='No' id="No" onclick='panic_or_not(0)'></label>
+              </div>
+        </div>
+
+          <div class='hide' id='panic'>
+            <div>
+            <h1> In the past 7 days have you...</h1><hr>
+          </div>
+
+            <div id='panic_display'>
+            <p>felt moments of sudden terror, fear or fright, sometimes out of the blue (i.e., a panic attack)</p>
+            </div>
+
+          <div>
+            <input id='an11' class="btn btn-primary mb-3 mt-3" type="button" value="Never" onclick="panic_answer(0)">
+            <input id='an21' class="btn btn-primary mb-3 mt-3" type="button" value="Occasionally" onclick="panic_answer(1)">
+            <input id='an31' class="btn btn-primary mb-3 mt-3" type="button" value="Half of the time" onclick="panic_answer(2)">
+            <input id='an41' class="btn btn-primary mb-3 mt-3" type="button" value="Most of the time" onclick="panic_answer(3)">
+            <input id='an51' class="btn btn-primary mb-3 mt-3" type="button" value="All of the time" onclick="panic_answer(4)">
+          </div>
+           </div>
+           <!--*** per file:///C:/Users/UW2001480/Downloads/APA_DSM5_Severity-Measure-For-Panic-Disorder-Adult.pdf
+           average rounded to the nearest whole number:
+           0-none
+           1-mild
+           2-moderate
+           3-severe
+           4- extreme -->
+
+
+        </div>
+      </div><!--The end of 'anxiety' Chief complaint option-->
+
+
+        <div style='display:none' id=somethingelse_page>
+            <div class="jumbotron shadow-lg text-center">
+          <h1>In about 5 words, can you describe your problem?</h1><hr>
+
+
+        <div class="d-flex align-items-center mx-auto input-group mb-2">
+              <div class="input-group mb-2 col-md-6 mx-auto">
+                <input id='something_else_cc_answer' type="text" class="form-control" placeholder="Eg: 'I can't sleep'">
+              </div>
+            </div>
+            <input type="button" class="btn btn-primary mb-5 px-4 mx-2" value='Next' onclick='else_hx()'>
+          </div>
+
+        </div> <!--The end of 'something else' Chief complaint option -->
+
+
+
+
+
+
+
+
+
+
+        <div style='display:none' id=history>
 
           <div class="border border-secondary rounded-bottom m-5 p-3 bg-gray-300">
 
           <div class='row'>
-            <div class="d-flex align-items-center input-group mb-5 mx-auto col-md-3 mt-5">
+            <div class="d-flex align-items-center input-group mb-5 mx-auto col-md-3 mt-5" id='age_bar'>
               <div class="input-group-prepend">
                 <span class="input-group-text my-auto">Age: </span>
               </div>
@@ -138,10 +321,10 @@
           </div>
 
           <div id='add_meds'>
-          <div class="row" id='medication'>
-            <div class="input-group mb-3">
-              <div class="input-group-prepend">
-                <span class="input-group-text">Medications:</span>
+          <div class="text-center">
+            <div class="form-group mb-3">
+              <div class="form-group-prepend">
+                <span class="form-group-text">Medications:</span>
               </div>
               <input id='med_name' type="text" class="form-control" placeholder='Name'>
               <input id='med_dose' type="text" class="form-control" placeholder='Dose'>
@@ -168,12 +351,12 @@
 
 
               <div id='no_allergy_box'>
-              <div class="input-group-prepend mb-3">
-                <span class="input-group-text">Medication Allergy:</span>
+              <div class="form-group-prepend mb-3 text-center">
+                <span class="form-group-text">Medication Allergy:</span>
               <input id='allergy_name' type="text" class="form-control" placeholder='Name'>
               <input id='allergy_reaction' type="text" class="form-control" placeholder='Reaction'>
-
             </div>
+
               <div class="text-center">
               <button class="btn btn-outline-primary" type="button" id="add_allergy">Add Allergy</button>
             </div>
@@ -207,15 +390,15 @@
 
             <div class='row'>
             <div class="col-md-6 mx-auto text-center">
-            <input class="btn btn-primary px-4" type="checkbox" value='None' id="no_cond"> None</label>
+            <input class="btn btn-primary px-4" type="checkbox" value='None' id="no_cond"> <strong>None</strong></label>
             </div>
           </div>
 
             <div id='cond'>
             <div class="text-center mt-4 mb-3">
-              <div class="medical_cond" id='medical_cond'>
+              <div class='autosize' id='medical_cond'>
 
-                      <label><input class='cond_checkbox' type="checkbox" name="cond" value="ADHD"/> ADHD</label>
+                      <label><input type="checkbox" name="cond" value="ADHD"/> ADHD</label>
                       <label><input class='cond_checkbox' type="checkbox" name="cond" value="Anemia"/> Anemia</label>
                       <label><input class='cond_checkbox' type="checkbox" name="cond" value="Anxiety"/> Anxiety</label>
                       <label><input class='cond_checkbox' type="checkbox" name="cond" value="Arthritis"/> Arthritis</label>
@@ -244,11 +427,11 @@
                       <label><input class='cond_checkbox' type="checkbox" name="cond" value="Thyroid disease" /> Thyroid disease</label>
 
 
-                      <div class="input-group mb-5">
-                        <div class="input-group-prepend">
-                          <span class="input-group-text">Other conditions:</span>
-                        </div>
-                        <input id='list_medical_cond' type="text" class="form-control" placeholder='Conditions (seperate by a "," )'>
+                      <div class="form-group mb-5 mt-2">
+                        <div class="form-group-prepend">
+                          <span class="form-group-text"><strong>Other conditions:</strong></span>
+                        </div class='autosize'>
+                        <input id='list_medical_cond' type="text" class="autosize" placeholder='Conditions (seperate by a "," )'>
                       </div>
                     </div>
                   </div>
@@ -260,17 +443,17 @@
 
             <div class='row'>
             <div class="col-md-6 mx-auto text-center">
-            <input class="btn btn-primary px-4" type="checkbox" value='None' id="no_surg"> None</label>
+            <input class="btn btn-primary px-4" type="checkbox" value='None' id="no_surg"> <strong>None</strong></label>
             </div>
           </div>
 
             <div id='surg'>
             <div class="text-center mt-4 mb-3">
-              <div class="surgeries" id='surgeries'>
+              <div class="autosize" id='surgeries'>
 
-                      <label><input class='surg_checkbox' type="checkbox" name="surg" value="Appendectomy"  /> Appendectomy</label>
-                      <label><input class='surg_checkbox' type="checkbox" name="surg" value="Brain surgery" /> Brain surgery</label>
-                      <label><input class='surg_checkbox' type="checkbox" name="surg" value="Breast surgery" /> Breast surgery</label>
+                      <label><input class='label label-primary' type="checkbox" name="surg" value="Appendectomy"/> Appendectomy</label>
+                      <label><input class='label label-primary' type="checkbox" name="surg" value="Brain surgery" /> Brain surgery</label>
+                      <label><input class='label label-primary' type="checkbox" name="surg" value="Breast surgery" /> Breast surgery</label>
                       <label><input class='surg_checkbox' type="checkbox" name="surg" value="CABG" /> CABG</label>
                       <label><input class='surg_checkbox' type="checkbox" name="surg" value="Cardiac stent" /> Cardiac stent</label>
                       <label><input class='surg_checkbox' type="checkbox" name="surg" value="Cholecystectomy"  /> Cholecystectomy</label>
@@ -288,28 +471,28 @@
                       <label><input class='surg_checkbox' type="checkbox" name="surg" value="Vasectomy" /> Vasectomy</label>
                       <label><input class='surg_checkbox' type="checkbox" name="surg" value="Weight reduction surgery" /> Weight reduction surgery</label>
 
-                      <div class="input-group mb-5">
-                        <div class="input-group-prepend">
-                          <span class="input-group-text">Other surgeries:</span>
+                      <div class="form-group mb-5 mt-2">
+                        <div class="form-group-prepend">
+                          <span class="form-group-text"><strong>Other surgeries:</strong></span>
                         </div>
-                        <input id='list_surgeries' type="text" class="form-control" placeholder='Surgeries (seperate by a "," )'>
+                        <input id='list_surgeries' type="text" class="autosize" placeholder='Surgeries (seperate by a "," )'>
                       </div>
 
               </div>
             </div>
             </div>
 
-
-
-
-
+            <hr>
+            <div class="text-center mb-5">
+              <p>Please select <strong>none</strong> if you have no existing medical conditions or surgical history.</p>
+            </div>
 
           </div><!--third hx box -->
 
 
           <div class="border border-secondary rounded-bottom m-5 p-5 bg-gray-300">
             <div class="text-center mb-5">
-              <p>Alcohol, nicotine, and other substances can <strong>affect the side effects and effectiveness</strong> of many psych meds. Remember, this is protected health information and will <strong>NOT</strong> be shared.</p><hr>
+              <p>Alcohol, nicotine, and other substances can <strong>alter the side effects and effectiveness</strong> certain psych meds. Remember, this is protected health information and will <strong>NOT</strong> be shared.</p><hr>
             </div>
 
 
@@ -317,7 +500,7 @@
             <div class="input-group">
               <div class="d-flex align-items-center mx-auto mb-3 text-center">
                 <div class='text-center mb-2'>
-                <h4>Do you use nicotine products?</h4>
+                <h4>Do you smoke nicotine products?</h4>
                 </div>
               </div>
             </div>
@@ -333,35 +516,33 @@
 
           <div class='hide' id='nic_box'>
             <div class="input-group d-flex align-items-center mx-auto mb-2">
-              <div class='mb-3 mx-auto col-md-3'>
+              <div class='mb-3 mx-auto col-md-6'>
                 <label for="employment">Type of product </label>
                 <select id='smoke_type' class="custom-select">
                   <option selected>Select one</option>
-                  <option value="dropdown-item" id='Cigarette'>Cigarettes</option>
-                  <option value="dropdown-item" id='E_Cigarette'>E-Cigarettes</option>
-                  <option value="dropdown-item" id='Smokeless_Tabacco'>Smokeless Tabacco</option>
+                  <option value="dropdown-item" id='Cigarettes'>Cigarettes (Packs)</option>
+                  <option value="dropdown-item" id='E_Cigarettes'>E-Cigarettes (Puffs)</option>
                   <option value="dropdown-item" id='Other'>Other</option>
                 </select>
               </div>
             </div>
 
-          <div class='row'>
-              <div class='col-md-6 mb-5'>
-                <div class="d-flex flex-column align-items-center mx-auto">
-              <label for="employment ">How many packs/pulls/dips per day? </label>
-              <input id='nic_freq' type="text" class="form-control" placeholder="How much per day? (If selected other, specify)">
-            </div>
-          </div>
 
-              <div class='col-md-6 mb-5'>
-                <div class="d-flex flex-column align-items-center mx-auto">
-              <label for="employment">For how long? </label>
-              <input id='nic_duration' type="text" class="form-control" placeholder="How long? (years)">
+              <div class="text-center">
+                <div class="form-group mb-3">
+                  <div class="form-group-prepend">
+                    <span class="form-group-text">How many packs/puffs per day?</span>
+                  </div>
+                  <div>
+                  <input style='width: 100%' id='nic_freq' type="text" class="autosize my-2" placeholder='How much? (packs/puffs per day)'>
+                  <div class="form-group-prepend">
+                    <span class="form-group-text">For how long?</span>
+                  </div>
+                  <input style='width: 100%' id='nic_duration' type="text" class="autosize" placeholder='For how long? (years)'>
+                </div>
+              </div>
               </div>
             </div>
-          </div>
-        </div>
-
 
 
 
@@ -378,21 +559,29 @@
             </div>
           </div>
 
-          <div class=hide id='rec_box'>
-            <div class="d-flex align-items-center mx-auto mb-5" id='rec_use'>
-              <div class="input-group mb-5">
-                <input id='rec_type' type="text" class="form-control" placeholder='What do you use? (List if appropriate)'>
-                <input id='rec_freq' type="text" class="form-control" placeholder='How often? '>
-              </div>
-            </div>
-          </div>
 
+      <div class=hide id='rec_box'>
+      <div class="text-center">
+        <div class="form-group mb-3">
+          <div class="form-group-prepend">
+            <span class="form-group-text">What do you use?</span>
+          </div>
+          <div>
+          <input style='width: 100%' id='rec_type' type="text" class="autosize my-2" placeholder='(List if appropriate)'>
+          <div class="form-group-prepend">
+            <span class="form-group-text">How often?</span>
+          </div>
+          <input style='width: 100%' id='rec_freq' type="text" class="autosize" placeholder='How often?'>
+        </div>
+      </div>
+      </div>
+    </div>
 
 
             <div class='row'>
             <div class="input-group">
               <div class="d-flex align-items-center mx-auto mb-3 text-center">
-                <div class='text-center mb-2'>
+                <div class='text-center mb-2 mt-5'>
                 <h4>Do you drink alcohol?</h4>
                 </div>
               </div>
@@ -404,13 +593,21 @@
             </div>
           </div>
 
-          <div class='hide' id='alcohol_box'
-            <div class="d-flex align-items-center mx-auto mb-2" id='alcohol_use'>
-              <div class="input-group mb-2">
-                <input id='alcohol_freq' type="text" class="form-control" placeholder='On average, how many drinks per week?'>
+
+          <div class='hide' id='alcohol_box'>
+            <div class="text-center">
+              <div class="form-group mb-3">
+                <div class="form-group-prepend">
+                  <span class="form-group-text">On average, how many drinks per week?</span>
+                </div>
+                <div>
+                <input style='width: 100%' id='alcohol_freq' type="text" class="autosize my-2" placeholder='Drinks per week?'>
               </div>
             </div>
+            </div>
+          </div>
                 <p class='text-center'>**One drink is 12 ounces of regular beer (5%ABV), 5 ounces of wine, or 1.5 ounces distilled spirits**</p>
+
 
             </div> <!-- Fourth hx box -->
 
@@ -516,7 +713,6 @@
 
 
 
-
             <div class='row'>
               <div class="input-group">
                 <div class="d-flex align-items-center mx-auto mb-2 text-center">
@@ -526,11 +722,37 @@
                 </div>
               </div>
 
+
             <div class="d-flex align-items-center mx-auto">
               <input class="btn btn-primary mb-5 px-4 mx-2" type="button" value='Yes' id="yes_abuse"></label>
               <input class="btn btn-primary mb-5 px-4 mx-2" type="button" value='No' id="no_abuse"></label>
             </div>
           </div>
+
+
+            <div id='abuse_hx_box' class='hide'>
+                  <div id='abuse_survery_questions class="d-flex align-items-center mx-auto input-group mb-2'>
+                      <h4>In the past month, have you...</h4><br>
+                      <h6> had nightmares about the event(s) or thought about the event(s) when you did not want to? </h6>
+                  </div>
+                  <input class="btn btn-primary mb-5 px-4 mx-2" type="button" value='Yes' id="yes_abuse_survey"></label>
+                  <input class="btn btn-primary mb-5 px-4 mx-2" type="button" value='No' id="no_abuse_survey"></label>
+              </div>
+
+
+
+<!-- rest of Questions to ask:
+       tried hard not to think about the event(s) or went out of your way to avoid situations that reminded you of the event(s)?
+       been constantly on guard, watchful, or easily startled?
+       felt numb or detached from people, activities, or your surroundings?
+       felt guilty or unable to stop blaming yourself or others for the event(s) or any problems the event(s) may have caused?
+        ***  score of 3 or more is trigger for ptsd per https://www.ptsd.va.gov/professional/assessment/documents/pc-ptsd5-screen.pdf  ****
+                      -->
+
+
+
+
+
 
 
 
@@ -589,13 +811,21 @@
           </div>
 
             <div id='family_hx_box' class='hide'>
-              <div class="d-flex align-items-center mx-auto input-group mb-2">
-                <div class="input-group">
-                  <input id='who' type="text" class="form-control" placeholder='Who? (Mother, uncles, brothers, etc.)'>
-                  <input id='what' type="text" class="form-control" placeholder='What? (Depression, addiction, suicide, etc.)'>
-                </div>
-              </div>
 
+                <div class="text-center">
+                  <div class="form-group mb-3">
+                    <div class="form-group-prepend">
+                      <span class="form-group-text">Who? (Mother, uncles, brothers, etc.)</span>
+                    </div>
+                    <div>
+                    <input style='width: 100%' id='who' type="text" class="autosize my-2" placeholder='Who?'>
+                    <div class="form-group-prepend">
+                      <span class="form-group-text"> What? (Depression, addiction, suicide, etc.)</span>
+                    </div>
+                    <input style='width: 100%' id='what' type="text" class="autosize" placeholder='What?'>
+                  </div>
+                </div>
+                </div>
           <div class="text-center mb-3">
             <button class="btn btn-outline-primary" type="button" id="add_family">Add Family</button>
           </div>
@@ -604,13 +834,7 @@
               <ol class='mb-3' id='added_family'>
               </ol>
             </div>
-            </div>
-
-
-
-
-
-
+          </div>
 
 
             <div class='row mt-5'>
@@ -629,14 +853,24 @@
           </div>
 
             <div id='psych_care_box' class='hide'>
-              <div class="d-flex align-items-center mx-auto input-group mb-2">
-                <div class="input-group">
-                  <input id='what_treatment' type="text" class="form-control" placeholder='Treatment for what?'>
-                  <input id='last_treatment' type="text" class="form-control" placeholder='Last appointment date?'>
+              <div class="text-center">
+                <div class="form-group mb-3">
+                  <div class="form-group-prepend">
+                    <span class="form-group-text">Have you ever recieved mental health care before?</span>
+                  </div>
+                  <div class="form-group-prepend">
+                    <span class="form-group-text">Treatment for what?</span>
+                  </div>
+                  <div>
+                  <input style='width: 100%' id='what_treatment' type="text" class="autosize my-2" placeholder='For what?'>
+                  <div class="form-group-prepend">
+                    <span class="form-group-text">Last appointment date?</span>
+                  </div>
+                  <input style='width: 100%' id='last_treatment' type="text" class="autosize" placeholder='Last appointment?'>
                 </div>
               </div>
+              </div>
             </div>
-
 
 
 
@@ -657,13 +891,31 @@
             </div>
 
           <div id='psych_hosp_box' class='hide'>
-            <div id='yes_mental_care' class="d-flex align-items-center mx-auto input-group mb-2">
-              <div class="input-group mb-2">
-                <input id='hosp_times' type="text" class="form-control" placeholder='How many times?'>
-                <input id='recent_hosp' type="text" class="form-control" placeholder='Most recent time? (Year)'>
+            <div class="text-center">
+              <div class="form-group mb-3">
+                <div class="form-group-prepend">
+                  <span class="form-group-text">How many times?</span>
+                </div>
+                <div>
+                <input style='width: 100%' id='hosp_times' type="text" class="autosize my-2" placeholder='How many times?'>
+                <div class="form-group-prepend">
+                  <span class="form-group-text">Most recent time? (Year)</span>
+                </div>
+                <input style='width: 100%' id='recent_hosp' type="text" class="autosize" placeholder='Most recent time? (Year)'>
               </div>
             </div>
+            </div>
           </div>
+
+
+
+
+
+
+
+
+
+
 
           </div> <!--6th hx box -->
 
@@ -684,5 +936,5 @@
   integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
   crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-  <script src=test.js></script>
+  <script src=test_work_patch.js></script>
 </html>
