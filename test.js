@@ -567,7 +567,7 @@ normal self or you were so hyper that you got into trouble?</p>
 
 
 
-
+//
 
  var digfast_total = 0;
      var digfast_count = 0;
@@ -674,6 +674,7 @@ if(digfast_count == 13) {
       if (digfast_ans == 0) {
   data.DIGFAST_Flags.push(' AND SEVERAL OF THESE HAPPENED DURING THE SAME PERIOD OF TIME');
 }}
+//No problem Minor problem Moderate problem Serious problem ///
 if(digfast_count == 14) {
     if (digfast_ans == 0) {
   data.DIGFAST_Flags.push(digfast_val);
