@@ -59,16 +59,16 @@
           </div>
 
         </div>
-        
-        
+
+
         <div class='hide' id='digfast_page'>
-          
+
            <div  class='jumbotron shadow-lg p-3 text-center'>
           <h1>Has there ever been a period of time when you were not your usual self and…</h1><hr>
-             
-             
-             
-      <!--       
+
+
+
+      <!--
 …you were so irritable that you shouted at people or started fights or arguments?
 …you felt much more self-confident than usual?
 …you got much less sleep than usual and found you didn’t really miss it?
@@ -84,36 +84,42 @@ telephoned friends in the middle of the night?
 …you did things that were unusual for you or that other people might have
 thought were excessive, foolish, or risky?
 …spending money got you or your family in trouble?
-             
-             -->
-             
 
-          <div class="ph9q_qs">
+             -->
+
+
+          <div>
             <p class="lead" id=digfast_display>…you felt so good or so hyper that other people thought you were not your
 normal self or you were so hyper that you got into trouble?</p>
           </div>
 
-          <div>
-            <input id='yes_digfast' class="btn btn-primary mb-3 mt-3 mx-2" type="button" value="Yes" onclick='digfast_ans(0)'>
-            <input id='no_digfast' class="btn btn-primary mb-3 mt-3 mx-2" type="button" value="No" onclick='digfast_ans(1)'>
+          <div id='first_answers_digfast'>
+            <input id='yes_digfast' class="btn btn-primary mb-3 mt-3 mx-2" type="button" value="Yes" onclick='digfast_ans(0, 1)'>
+            <input id='no_digfast' class="btn btn-primary mb-3 mt-3 mx-2" type="button" value="No" onclick='digfast_ans(1, 1)'>
           </div>
-          
-          
-          
-          
-          
-          
-          </div> <!-- End of DIGFAST -->
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
+
+          <div class='hide' id='last_answers_digfast'>
+            <input id='yes_digfast' class="btn btn-primary mb-3 mt-3 mx-2" type="button" value="No problem" onclick="digfast_ans(0, 'No problem')">
+            <input id='no_digfast' class="btn btn-primary mb-3 mt-3 mx-2" type="button" value="Minor problem" onclick="digfast_ans(1, 'Minor problem')">
+            <input id='yes_digfast' class="btn btn-primary mb-3 mt-3 mx-2" type="button" value="Moderate problem" onclick="digfast_ans(0, 'Moderate problem')">
+            <input id='no_digfast' class="btn btn-primary mb-3 mt-3 mx-2" type="button" value="Serious problem" onclick="digfast_ans(1, 'Serious problem')">
+          </div>
+
+
+
+
+          </div>
+        </div><!-- End of DIGFAST -->
+
+
+
+
+
+
+
+
+
+
         </div> <!--The end of 'mood problems' Chief complaint option -->
 
 
