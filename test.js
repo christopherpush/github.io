@@ -568,17 +568,17 @@ if(digfast_count == 0) {
     data.DIGFAST_Flags.push('felt so good or so hyper that other people thought they were not their normal self or were so hyper that they got into trouble');
   }}
 if(digfast_count == 1) {
-  if (digfast_ans == 1) {
+  if (digfast_ans == 0) {
     digfast_total ++;
     data.DIGFAST_Flags.push('were so irritable that they shouted at people or started fights or arguments');
   }}
 if(digfast_count == 2) {
-  if (digfast_ans == 1) {
+  if (digfast_ans == 0) {
     digfast_total ++;
     data.DIGFAST_Flags.push('felt much more self-confident than usual?');
   }}
 if(digfast_count == 3) {
-    if (digfast_ans == 1) {
+    if (digfast_ans == 0) {
   digfast_total ++;
   data.DIGFAST_Flags.push('got much less sleep than usual and found you didn’t really miss it');
 }}
@@ -588,7 +588,7 @@ if(digfast_count == 4) {
   data.DIGFAST_Flags.push('were much more talkative or spoke faster than usual');
 }}
 if(digfast_count == 5) {
-    if (digfast_ans == 1) {
+    if (digfast_ans == 0) {
   digfast_total ++;
   data.DIGFAST_Flags.push('thoughts raced through their head or they couldn’t slow their mind down');
 }}
@@ -598,17 +598,17 @@ if(digfast_count == 6) {
   data.DIGFAST_Flags.push('were so easily distracted by things around them that they had trouble concentrating or staying on track?');
 }}
 if(digfast_count == 7) {
-    if (digfast_ans == 1) {
+    if (digfast_ans == 0) {
   digfast_total ++;
   data.DIGFAST_Flags.push('had much more energy than usual');
 }}
 if(digfast_count == 8) {
-    if (digfast_ans == 1) {
+    if (digfast_ans == 0) {
   digfast_total ++;
   data.DIGFAST_Flags.push(' were much more active or did many more things than usual');
 }}
 if(digfast_count == 9) {
-    if (digfast_ans == 1) {
+    if (digfast_ans == 0) {
   digfast_total ++;
   data.DIGFAST_Flags.push('were much more social or outgoing than usual, for example, telephoning friends in the middle of the night');
 }}
@@ -618,7 +618,7 @@ if(digfast_count == 10) {
   data.DIGFAST_Flags.push('were much more interested in sex than usual');
 }}
 if(digfast_count == 11) {
-    if (digfast_ans == 1) {
+    if (digfast_ans == 0) {
   digfast_total ++;
   data.DIGFAST_Flags.push('did things that were unusual for them or that other people might have thought were excessive, foolish, or risky');
 }}
