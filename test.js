@@ -527,6 +527,14 @@ $('#an51').delay(500).css('color','white');
 
 })
 
+
+
+function done_ph9q() {
+    jQuery(function($) {
+        $("#mood_page").slideUp(750);
+        $( "#digfast_page" ).delay(1000).slideDown(750);})
+      };
+
 /////Start DIGFAST
 
 
@@ -705,7 +713,7 @@ else if (('ph9q' in data)) {
         })}
 
   else if (ph9q_count > 8) {
-    start_hx('#mood_page')}
+    done_ph9q()}
   else {
        jQuery(function($) {
          $('#ph9q_display').fadeOut(500, function() {
