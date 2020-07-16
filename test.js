@@ -528,46 +528,8 @@ $('#an51').delay(500).css('color','white');
 })
 
 /////Start DIGFAST
-        <div class='hide' id='digfast_page'>
-          
-           <div  class='jumbotron shadow-lg p-3 text-center'>
-          <h1>Has there ever been a period of time when you were not your usual self and…</h1><hr>
-             
-             
-             
-      <!--       
-…you were so irritable that you shouted at people or started fights or arguments?
-…you felt much more self-confident than usual?
-…you got much less sleep than usual and found you didn’t really miss it?
-…you were much more talkative or spoke faster than usual?
-…thoughts raced through your head or you couldn’t slow your mind down?
-…you were so easily distracted by things around you that you had trouble
-concentrating or staying on track?
-…you had much more energy than usual?
-…you were much more active or did many more things than usual?
-…you were much more social or outgoing than usual, for example, you
-telephoned friends in the middle of the night?
-…you were much more interested in sex than usual?
-…you did things that were unusual for you or that other people might have
-thought were excessive, foolish, or risky?
-…spending money got you or your family in trouble?
-             
-             -->
-             
-
-          <div class="ph9q_qs">
-            <p class="lead" id=digfast_display>…you felt so good or so hyper that other people thought you were not your
-normal self or you were so hyper that you got into trouble?</p>
-          </div>
-
-          <div>
-            <input id='yes_digfast' class="btn btn-primary mb-3 mt-3 mx-2" type="button" value="Yes" onclick='digfast_ans(0)'>
-            <input id='no_digfast' class="btn btn-primary mb-3 mt-3 mx-2" type="button" value="No" onclick='digfast_ans(1)'>
-          </div>
 
 
-
-//
 
  var digfast_total = 0;
      var digfast_count = 0;
@@ -590,7 +552,7 @@ normal self or you were so hyper that you got into trouble?</p>
      function digfast_but(digfast_ans, digfast_val) {
 
 if (!('DIGFAST_Depression_Flags' in data)) {
-  data.DIGFAST_Flags = ['Reports: ']}
+  data.DIGFAST_Flags = ['Reports periods where they: ']}
 
 if(digfast_count == 0) {
   if (digfast_ans == 0) {
@@ -600,7 +562,7 @@ if(digfast_count == 0) {
 if(digfast_count == 1) {
   if (digfast_ans == 1) {
     digfast_total ++;
-    data.DIGFAST_Flags.push('was so irritable that they shouted at people or started fights or arguments');
+    data.DIGFAST_Flags.push('were so irritable that they shouted at people or started fights or arguments');
   }}
 if(digfast_count == 2) {
   if (digfast_ans == 1) {
@@ -625,7 +587,7 @@ if(digfast_count == 5) {
 if(digfast_count == 6) {
     if (digfast_ans == 0) {
   digfast_total ++;
-  data.DIGFAST_Flags.push('was so easily distracted by things around them that they had trouble concentrating or staying on track?');
+  data.DIGFAST_Flags.push('were so easily distracted by things around them that they had trouble concentrating or staying on track?');
 }}
 if(digfast_count == 7) {
     if (digfast_ans == 1) {
@@ -657,7 +619,7 @@ if(digfast_count == 12) {
   digfast_total ++;
   data.DIGFAST_Flags.push('spending money got them or their family in trouble');
 }}
- 
+
 if (digfast_count > 12) {
     if (digfast_total > 0) {
 jQuery(function($) {
@@ -666,23 +628,34 @@ jQuery(function($) {
          })})}}
 else {
   start_hx('#digfast_page')
-  data.DIGFAST = [digfast_total]}}
-}}
+  data.DIGFAST = [digfast_total]}
+
 
 if(digfast_count == 13) {
     if (digfast_total > 1) {
       if (digfast_ans == 0) {
   data.DIGFAST_Flags.push(' AND SEVERAL OF THESE HAPPENED DURING THE SAME PERIOD OF TIME');
 }}
-//No problem Minor problem Moderate problem Serious problem ///
+//change answer type to last question ones
+function somethingelse() {
+    jQuery(function($) {
+        $("#first_answers_digfast").slideUp(750);
+        $( "#last_answers_digfast" ).delay(1000).slideDown(750);})
+      };};
+//pushes the answer to the 4 answer type to flags
 if(digfast_count == 14) {
     if (digfast_ans == 0) {
   data.DIGFAST_Flags.push(digfast_val);
 }}
 if (digfast_count == 15) {
-        
+
   start_hx('#digfast_page')
   data.DIGFAST = [digfast_total]}
+
+  jQuery(function($) {
+       $('#digfast_display').fadeOut(500, function() {
+             $(this).text(digfast_questions[digfast_count]).fadeIn(500);
+           })});
 
  digfast_count ++;};
 
