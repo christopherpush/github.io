@@ -16,7 +16,7 @@ function new_pt() {
 function old_pt() {
     jQuery(function($) {
         $("#new_old_what").slideUp(750);
-        $( "#if_old_pt" ).delay(1000).slideDown(750);})
+        $( "#if_new_pt" ).delay(1000).slideDown(750);})
         data.Patient_Type = ['Returning Patient'];
       };
 
@@ -28,38 +28,47 @@ function new_or_old_pt() {
 
 function mood() {
     jQuery(function($) {
-        $("#if_new_pt").slideUp(750);
+      var cc_var = $("#something_else_cc_answer").val();
+      data.CC = [cc_var];
+      data.Survey = ['PHQ-9']
+        $("#somethingelse_page").slideUp(750);
         $( "#mood_page" ).delay(1000).slideDown(750);})
         data.Cheif_Complaint = ['Mood issues'];
       };
 
 function memory() {
     jQuery(function($) {
-        $("#if_new_pt").slideUp(750);
+      var cc_var = $("#something_else_cc_answer").val();
+      data.CC = [cc_var];
+        $("#somethingelse_page").slideUp(750);
         $( "#memory_page" ).delay(1000).slideDown(750);})
         data.Cheif_Complaint = ['Memory issues'];
       };
 
 function ptsd() {
     jQuery(function($) {
-        $("#if_new_pt").slideUp(750);
+      var cc_var = $("#something_else_cc_answer").val();
+      data.CC = [cc_var];
+        $("#somethingelse_page").slideUp(750);
         $( "#ptsd_page" ).delay(1000).slideDown(750);})
         data.Cheif_Complaint = ['PTSD'];
       };
 
 function anxiety() {
     jQuery(function($) {
-        $("#if_new_pt").slideUp(750);
+      var cc_var = $("#something_else_cc_answer").val();
+      data.CC = [cc_var];
+        $("#somethingelse_page").slideUp(750);
         $( "#anxiety_page" ).delay(1000).slideDown(750);})
         data.Cheif_Complaint = ['Anxiety'];
       };
 
-function somethingelse() {
+function somethingelse(site) {
     jQuery(function($) {
         $("#if_new_pt").slideUp(750);
-        $( "#somethingelse_page" ).delay(1000).slideDown(750);})
-        data.Cheif_Complaint = ['Something else'];
-      };
+        $( "#somethingelse_page" ).delay(1000).slideDown(750);
+        $(site).delay(1000).slideDown(750);
+      })};
 
 function yes_ptsd_start() {
     jQuery(function($) {
@@ -246,42 +255,42 @@ $(document).ready(function() {
 
         $('#yes_legal').click(function(){
         $('#no_legal').css('color','white');
-          data.Legal = ['Yes']
+          data.Legal = ['has past/present legal troubles']
           });
 
         $('#no_legal').click(function(){
         $('#yes_legal').css('color','white');
-          data.Legal = ['No']
+          data.Legal = ['denies any past or present legal hisotry']
           });
 
             $('#yes_abuse').click(function(){
             $('#no_abuse').css('color','white');
-              data.Abuse_Or_Trauma = ['Yes']
+              data.Abuse_Or_Trauma = ['a past history of abuse/lingering trauma']
               });
 
             $('#no_abuse').click(function(){
             $('#yes_abuse').css('color','white');
-              data.Abuse_Or_Trauma = ['Yes']
+              data.Abuse_Or_Trauma = ['no history of abuse or lingering trauma']
           });
 
         $('#no_safe').click(function(){
         $('#yes_safe').css('color','white');
-          data.Safe = ['No']
+          data.Safe = ['reports not feeling safe at home']
           });
 
         $('#yes_safe').click(function(){
         $('#no_safe').css('color','white');
-          data.Safe = ['Yes']
+          data.Safe = ['reports feeling safe at home']
           });
 
             $('#no_suicide').click(function(){
             $('#yes_suicide').css('color','white');
-              data.Suicide = ['No']
+              data.Suicide = ['Denies seriously considering or past suicide attempts']
               });
 
             $('#yes_suicide').click(function(){
             $('#no_suicide').css('color','white');
-            data.Suicide = ['Yes']
+            data.Suicide = ['Agrees to seriously considering/past suicide attempts']
           });
 
       $('#yes_chance').click(function(){
@@ -306,7 +315,7 @@ $(document).ready(function() {
 
       $('#no_nic').click(function(){
       $('#yes_nic').css('color','white');
-      data.Smoker = ['Denies smoking'];
+      data.Smoker = ['Denies'];
         });
 
       $('#yes_nic').click(function(){
@@ -316,7 +325,7 @@ $(document).ready(function() {
 
             $('#no_alcohol').click(function(){
             $('#yes_alcohol').css('color','white');
-            data.Alcohol = ['Denies alcohol use'];
+            data.Alcohol = ['Denies'];
               });
 
             $('#yes_alcohol').click(function(){
@@ -326,7 +335,7 @@ $(document).ready(function() {
 
       $('#no_rec').click(function(){
       $('#yes_rec').css('color','white');
-      data.RecDrugs = ['Denies recreational drug use'];
+      data.RecDrugs = ['Denies'];
         });
 
       $('#yes_rec').click(function(){
@@ -355,12 +364,12 @@ $(document).ready(function() {
 
       $('#psych_hosp_no').click(function(){
       $('#psych_hosp_yes').css('color','white');
-        data.Hospital = ['Denies any psych hospital admissions'];
+        data.Hospital = ['Denies any psychiatric hospital admits'];
         });
 
             $('#no_mental_care').click(function(){
             $('#yes_mental_care').css('color','white');
-                  data.Psych_Care = ['Denies previous psych care']
+                  data.Psych_Care = ['Denies previous psychiatric care']
               });
 
             $('#yes_mental_care').click(function(){
@@ -370,6 +379,7 @@ $(document).ready(function() {
 
       $('#no_family_hx').click(function(){
       $('#yes_family_hx').css('color','white');
+      data.Family_History = ['no family history of mental illness']
         });
 
       $('#yes_family_hx').click(function(){
@@ -515,10 +525,10 @@ $('#an51').delay(500).css('color','white');
             family_to_push = who + ' - ' + what
 
             if (!('Family_History' in data)) {
-              data.Family_History = [family_to_push]}
+              data.Family_History = ["family history of mental illness" + family_to_push]}
 
             else if (('Family_History' in data)) {
-              data.Family_History.push(family_to_push)};
+              data.Family_History.push("\ and\ " + family_to_push)};
           });
 
 
@@ -533,6 +543,7 @@ function done_ph9q() {
     jQuery(function($) {
         $("#mood_page").slideUp(750);
         $( "#digfast_page" ).delay(1000).slideDown(750);})
+        data.Survey.push('Mood Disorder Questionnaire')
       };
 
 /////Start DIGFAST
@@ -541,7 +552,9 @@ function done_ph9q() {
 
  var digfast_total = 0;
      var digfast_count = 0;
+     var flags_to_push = []
      var digfast_questions = [
+       '…you felt so good or so hyper that other people thought you were not your normal self or you were so hyper that you got into trouble?',
      '…you were so irritable that you shouted at people or started fights or arguments?',
      '…you felt much more self-confident than usual?',
      '…you got much less sleep than usual and found you didn’t really miss it',
@@ -554,78 +567,79 @@ function done_ph9q() {
      "…you were much more interested in sex than usual?",
      "…you did things that were unusual for you or that other people might have thought were excessive, foolish, or risky?",
      "…spending money got you or your family in trouble?",
-    " Have several of these ever happened during the same period of time?",
+    " Think about these last 12 questions-- have several of these ever happened during the same period of time?",
     "How much of a problem did any of these cause you — like being able to work; having family, money, or legal troubles; getting into arguments or fights?",
 ];
      function digfast_but(digfast_ans, digfast_val) {
 
+
 if (!('DIGFAST_Depression_Flags' in data)) {
-  data.DIGFAST_Flags = ['Reports periods where they: ']}
+  data.DIGFAST_Flags = []}
 
 if(digfast_count == 0) {
   if (digfast_ans == 0) {
     digfast_total ++;
-    data.DIGFAST_Flags.push('felt so good or so hyper that other people thought they were not their normal self or were so hyper that they got into trouble');
+    flags_to_push.push('felt so good or so hyper that other people thought they were not their normal self or were so hyper that they got into trouble');
   }}
 if(digfast_count == 1) {
   if (digfast_ans == 0) {
     digfast_total ++;
-    data.DIGFAST_Flags.push('were so irritable that they shouted at people or started fights or arguments');
+    flags_to_push.push('were so irritable that they shouted at people or started fights or arguments');
   }}
 if(digfast_count == 2) {
   if (digfast_ans == 0) {
     digfast_total ++;
-    data.DIGFAST_Flags.push('felt much more self-confident than usual?');
+    flags_to_push.push('felt much more self-confident than usual?');
   }}
 if(digfast_count == 3) {
     if (digfast_ans == 0) {
   digfast_total ++;
-  data.DIGFAST_Flags.push('got much less sleep than usual and found you didn’t really miss it');
+  flags_to_push.push('got much less sleep than usual and found you didn’t really miss it');
 }}
 if(digfast_count == 4) {
     if (digfast_ans == 0) {
   digfast_total ++;
-  data.DIGFAST_Flags.push('were much more talkative or spoke faster than usual');
+  flags_to_push.push('were much more talkative or spoke faster than usual');
 }}
 if(digfast_count == 5) {
     if (digfast_ans == 0) {
   digfast_total ++;
-  data.DIGFAST_Flags.push('thoughts raced through their head or they couldn’t slow their mind down');
+  flags_to_push.push('thoughts raced through their head or they couldn’t slow their mind down');
 }}
 if(digfast_count == 6) {
     if (digfast_ans == 0) {
   digfast_total ++;
-  data.DIGFAST_Flags.push('were so easily distracted by things around them that they had trouble concentrating or staying on track?');
+flags_to_push.push('were so easily distracted by things around them that they had trouble concentrating or staying on track?');
 }}
 if(digfast_count == 7) {
     if (digfast_ans == 0) {
   digfast_total ++;
-  data.DIGFAST_Flags.push('had much more energy than usual');
+  flags_to_push.push('had much more energy than usual');
 }}
 if(digfast_count == 8) {
     if (digfast_ans == 0) {
   digfast_total ++;
-  data.DIGFAST_Flags.push(' were much more active or did many more things than usual');
+flags_to_push.push(' were much more active or did many more things than usual');
 }}
 if(digfast_count == 9) {
     if (digfast_ans == 0) {
   digfast_total ++;
-  data.DIGFAST_Flags.push('were much more social or outgoing than usual, for example, telephoning friends in the middle of the night');
+  flags_to_push.push('were much more social or outgoing than usual, for example, telephoning friends in the middle of the night');
 }}
 if(digfast_count == 10) {
     if (digfast_ans == 0) {
   digfast_total ++;
-  data.DIGFAST_Flags.push('were much more interested in sex than usual');
+  flags_to_push.push('were much more interested in sex than usual');
 }}
 if(digfast_count == 11) {
     if (digfast_ans == 0) {
   digfast_total ++;
-  data.DIGFAST_Flags.push('did things that were unusual for them or that other people might have thought were excessive, foolish, or risky');
+  flags_to_push.push('did things that were unusual for them or that other people might have thought were excessive, foolish, or risky');
 }}
 if(digfast_count == 12) {
     if (digfast_ans == 0) {
   digfast_total ++;
-  data.DIGFAST_Flags.push('spending money got them or their family in trouble');
+flags_to_push.push("spending money got them or their family in trouble");
 }}
 
 if (digfast_count > 12) {
@@ -633,39 +647,38 @@ if (digfast_count > 12) {
 jQuery(function($) {
      $('#digfast_display').fadeOut(500, function() {
            $(this).text(digfast_questions[digfast_count]).fadeIn(500);
-         })})}}
+         })})
+         jQuery(function($) {
+             $("#first_answers_digfast").slideUp(750);
+             $( "#last_answers_digfast" ).delay(1000).slideDown(750);});
+       }
 else {
   start_hx('#digfast_page')
-  data.DIGFAST = [digfast_total]}
-
+  data.DIGFAST = [digfast_total]
+  data.DIGFAST_Flags.push(flags_to_push)}}
 
 if(digfast_count == 13) {
     if (digfast_total > 1) {
       if (digfast_ans == 0) {
-  data.DIGFAST_Flags.push(' AND SEVERAL OF THESE HAPPENED DURING THE SAME PERIOD OF TIME');
+  flags_to_push.push(' AND SEVERAL OF THESE HAPPENED DURING THE SAME PERIOD OF TIME');
 }}
 //change answer type to last question ones
-function somethingelse() {
-    jQuery(function($) {
-        $("#first_answers_digfast").slideUp(750);
-        $( "#last_answers_digfast" ).delay(1000).slideDown(750);})
-      };};
+};
 //pushes the answer to the 4 answer type to flags
 if(digfast_count == 14) {
-    if (digfast_ans == 0) {
-  data.DIGFAST_Flags.push(digfast_val);
-}}
-if (digfast_count == 15) {
-
+  flags_to_push.push(digfast_val);
   start_hx('#digfast_page')
-  data.DIGFAST = [digfast_total]}
-
+  data.DIGFAST = [digfast_total]
+  data.DIGFAST_Flags.push(flags_to_push)
   jQuery(function($) {
        $('#digfast_display').fadeOut(500, function() {
              $(this).text(digfast_questions[digfast_count]).fadeIn(500);
-           })});
-
- digfast_count ++;};
+           })})}
+ digfast_count ++;
+ jQuery(function($) {
+      $('#digfast_display').fadeOut(500, function() {
+            $(this).text(digfast_questions[digfast_count]).fadeIn(500);
+          })})}
 
 ////////End DIGFAST    https://www.ohsu.edu/sites/default/files/2019-06/cms-quality-bipolar_disorder_mdq_screener.pdf
 
@@ -675,6 +688,7 @@ if (digfast_count == 15) {
 
 ////Start PH9Q
 var ph9q_count = 0;
+var flags_to_push_ph9q = []
 var ph9q_questions = [
 'Little interest or pleasure in doing things',
 'Feeling down, depressed, or hopeless',
@@ -685,13 +699,54 @@ var ph9q_questions = [
 "Trouble concentrating on things, such as reading the newspaper or watching television",
 "Moving or speaking so slowly that other people could have noticed. Or the opposite; being so fidgety or restless that you have been moving around a lot more than usual",
 "Thoughts that you would be better off dead or of hurting yourself in some way"];
-function ph9q_but(ph9q_ans) {
+function ph9q_but(ph9q_ans, typed_ans) {
+
 
 if (!('ph9q' in data)) {
   data.ph9q = [ph9q_ans]}
 
 else if (('ph9q' in data)) {
   data.ph9q.push(ph9q_ans)};
+
+  if(ph9q_count == 0) {
+    if (ph9q_ans > 0) {
+      flags_to_push_ph9q.push('Little interest or pleasure in doing things--' + typed_ans);
+    }}
+    if(ph9q_count == 1) {
+      if (ph9q_ans > 0) {
+        flags_to_push_ph9q.push('Feeling down, depressed, or hopeless--' + typed_ans);
+      }}
+  if(ph9q_count == 2) {
+    if (ph9q_ans > 0) {
+      flags_to_push_ph9q.push('Trouble falling/staying asleep, sleeping too much--' + typed_ans);
+    }}
+if(ph9q_count == 3) {
+  if (ph9q_ans > 0) {
+    flags_to_push_ph9q.push('Feeling tired or having little energy--' + typed_ans);
+  }}
+  if(ph9q_count == 4) {
+    if (ph9q_ans > 0) {
+      flags_to_push_ph9q.push('Poor appetite or overeating--' + typed_ans);
+    }}
+if(ph9q_count == 5) {
+  if (ph9q_ans > 0) {
+    flags_to_push_ph9q.push('Feeling bad about yourself or that you are a failure or have let yourself or your family down--' + typed_ans);
+  }}
+  if(ph9q_count == 6) {
+    if (ph9q_ans > 0) {
+      flags_to_push_ph9q.push('Trouble concentrating on things, such as reading the newspaper or watching television--' + typed_ans);
+    }}
+if(ph9q_count == 7) {
+  if (ph9q_ans > 0) {
+    flags_to_push_ph9q.push('Moving or speaking so slowly that other people could have noticed. Or the opposite; being so fidgety or restless that you have been moving around a lot more than usual--' + typed_ans);
+  }}
+  if(ph9q_count == 8) {
+    if (ph9q_ans > 0) {
+      flags_to_push_ph9q.push('Thoughts that you would be better off dead or of hurting yourself in some way--' + typed_ans);
+    }}
+
+
+
 
   if(ph9q_count == 8) {
     jQuery(function($) {
@@ -713,6 +768,19 @@ else if (('ph9q' in data)) {
         })}
 
   else if (ph9q_count > 8) {
+    if (ph9q_ans == 1) {
+      data.ph9q_diff = ['Not difficult at all']
+    };
+    if (ph9q_ans == 2) {
+      data.ph9q_diff = ['Somewhat difficult']
+    };
+    if (ph9q_ans == 3) {
+      data.ph9q_diff = ['Very difficult']
+    };
+    if (ph9q_ans == 4) {
+      data.ph9q_diff = ['Extremely difficult']
+    };
+    data.ph9q_Flags = [flags_to_push_ph9q]
     done_ph9q()}
   else {
        jQuery(function($) {
@@ -747,7 +815,7 @@ else if (('ph9q' in data)) {
      function memory_but(memory_ans) {
 
 if (!('Memory_Depression_Flags' in data)) {
-  data.Memory_Depression_Flags = ['Reports: ']}
+  data.Memory_Depression_Flags = []}
 
 if(memory_count == 0) {
   if (memory_ans == 0) {
@@ -854,7 +922,7 @@ var ptsd_questions = [
 function ptsd_answer(ans) {
 
 if (!('PTSD_Flags' in data)) {
-  data.PTSD_Flags = ['Reports: ']}
+  data.PTSD_Flags = []}
 
   if(ptsd_count == 0) {
       if (ans == 1) {
@@ -918,7 +986,7 @@ if (num == 1) {
 
 
 if (!('Anxiety_Flags' in data)) {
-  data.Anxiety_Flags = ['Reports: ']};
+  data.Anxiety_Flags = []};
 
   if(anxiety_count == 0) {
       if (!(ans == 'Not at all')) {
@@ -1005,7 +1073,7 @@ function panic_answer(num) {
             pnc_score = 'all of the time'};
 
 if (!('Panic_Flags' in data)) {
-  data.Panic_Flags = ['Reports: ']}
+  data.Panic_Flags = []}
 
   if(panic_count == 0) {
       if (num > 0) {
@@ -1084,16 +1152,74 @@ function hx_2() {
     };
 
 
+
+
+
+
+
+
+    /////function for callbacks and api to get rxcui and med interactions
+    function get_rxcuis () {
+      var med_list_url = [];
+      var rxcui = []
+      var med_list = data.MedsToCheck;
+      ///going to get rxcui for drugs
+      data.MedsToCheck.forEach(element => med_list_url.push(element));
+      med_list_url.forEach((element) => {
+        if (typeof url_for_rxui === 'undefined') {
+          url_for_rxui = [("https://rxnav.nlm.nih.gov/REST/approximateTerm.json?term=" + element + "&maxEntries=1&option=0")]}
+        else {
+          url_for_rxui.push(("https://rxnav.nlm.nih.gov/REST/approximateTerm.json?term=" + element + "&maxEntries=1&option=0"))}});
+
+    url_for_rxui.forEach((element) => {
+          $(document).ready(function() {
+            $.ajax({
+                url: element,
+                type: 'GET',
+                success: function(returned){
+                  rxcui.push(returned.approximateGroup.candidate[0].rxcui);
+
+                  send_rxcui_list(rxcui, med_list)}
+            });})})}
+
+
+    function send_rxcui_list(rxcui, med_list) {
+      if (rxcui.length == med_list.length) {
+    ///adding drug rxcui and checking interactions
+    rxcui_list = 'https://rxnav.nlm.nih.gov/REST/interaction/list.json?rxcuis=';
+    list_url = rxcui.join('+')
+    var med_interactions = []
+    data.Med_Interactions = ['Interactions: ']
+    rxcui_url_inter = rxcui_list + list_url
+          $(document).ready(function() {
+            $.ajax({
+                url: rxcui_url_inter,
+                type: 'GET',
+                success: function(returned){
+                  for (var i = 0; i < returned.fullInteractionTypeGroup[0].fullInteractionType[0].interactionPair.length; i++) {
+                  data.Med_Interactions.push(returned.fullInteractionTypeGroup[0].fullInteractionType[0].interactionPair[i].description);}
+                  print_data()
+            }});})}}
+
+
+
+
 ///necessary vars
   var listed_num = []
   var ph9q_total = 0;
   var surg_checked = [];
 
 function finished() {
+  var med_list = data.MedsToCheck;
+  if (!(med_list == undefined)) {
+if (med_list.length > 1) {
+get_rxcuis()}}
+else {
+  print_data()
+}}
 
 
-
-
+function print_data() {
 /////////////This is calc total ph9q score
 if (('ph9q' in data)) {
 
@@ -1150,38 +1276,37 @@ data.Relationship = [pt_relation];
   var smoke_type = $("#smoke_type").find('option:selected').attr('id');
   var smoke_freq = $("#nic_freq").val();
   var smoke_dur = $("#nic_duration").val();
- var smoke = smoke_type + " " + smoke_freq + "  **pack(s)/pull(s)/ per day**" + smoke_dur + " **years"
-  if (!(Object.values(data).includes('Denies smoking'))) {
+ var smoke = ",\ smokes\ " + smoke_type + "<br>" + smoke_freq + "\ pack/puff per day\ " + "for\ " + smoke_dur + "\ (years)" ;
+if (data.Smoker == "Yes") {
   data.Smoker.push(smoke);}
 
 
 var rec_type = $("#rec_type").val();
 var rec_freq = $("#rec_freq").val();
-var rec = rec_type + " " + rec_freq
-if (!(Object.values(data).includes('Denies recreational drug use'))) {
+var rec = "Uses\ " + rec_type + "\ " + rec_freq
+if (data.RecDrugs == "Yes") {
 data.RecDrugs.push(rec);}
 
 
 var alcohol_freq = $("#alcohol_freq").val();
-var alcohol_use = alcohol_freq + " drinks per week"
-if (!(Object.values(data).includes('Denies alcohol use'))) {
-data.Alcohol.push(alcohol_use);}
+var alcohol_use = ",\ " + alcohol_freq + "\ (drinks per week)";
+if (data.Alcohol == "Yes") {
+data.Alcohol.push(alcohol_use);};
 
 
 
 var hosp_times = $("#hosp_times").val();
 var recent_hosp = $("#recent_hosp").val();
-var hosp_data = 'visits: ' + hosp_times + ' most recent: ' + recent_hosp
-if (Object.values(data).includes('Denies any psych hospital admissions')) {
-data.Hospital.push(hosp_data);}
-
+var hosp_data = "Has\ " + hosp_times + "prior psychiartic hospital admit(s), most recently" + "\"" + recent_hosp + "\"" ;
+if (data.Hospital == "Yes") {
+data.Hospital = [hosp_data];}
 
 
 var what_treatment = $("#what_treatment").val();
 var last_treatment = $("#last_treatment").val();
-var treatment_push = 'prior treatment for: ' + what_treatment + ' most recent appointment: ' + last_treatment;
-if (Object.values(data).includes('Denies previous psych care')) {
-data.Psych_Care.push(treatment_push);};
+var treatment_push =  "has been previously treated for\ " + "\"" + what_treatment + "\"" + "and their last appointment was\ " + "\"" + last_treatment + "\"" ;
+if (data.Psych_Care == "Yes") {
+data.Psych_Care = [treatment_push];};
 
 
 if ($('#no_allergy').is(":checked")) {
@@ -1205,37 +1330,117 @@ if ($('#no_surg').is(":checked")) {
   jQuery(function($) {
       // $("#algorx").slideUp(750);
       $("#history").slideUp(750);
+      $( "#note" ).delay(1000).slideDown(750);
       $( "#after_submit" ).delay(1000).slideDown(750);})
 
+
     jQuery(document).ready(function(){
-      jQuery.each(data, function(i, val) {
-      $("#after_submit").append(i + " => " + val + "<br/>");
-  })});
 
-const med_list_url = [];
-const rxcui = []
-const med_list = data.MedsToCheck;
+      $("#cc").append(data.CC);
+      $("#1relationship").append(data.Relationship);
+      $("#1age").append(data.Age);
+      $("#1sex").append(data.Sex);
+      $("#1chiefc").append(data.Cheif_Complaint);
 
-data.MedsToCheck.forEach(element => med_list_url.push(element));
-med_list_url.forEach((element) => {
-  if (typeof url_for_rxui === 'undefined') {
-    url_for_rxui = [("https://rxnav.nlm.nih.gov/REST/approximateTerm?term=" + element + "&maxEntries=1&option=0")]}
-  else {
-    url_for_rxui.push(("https://rxnav.nlm.nih.gov/REST/approximateTerm?term=" + element + "&maxEntries=1&option=0"))}});
+      med_data = data.Medications
+      data.Medications.forEach((element) => {
+      $("#1medications").append("   " + element + "<br/>");})
 
 
-url_for_rxui.forEach((element) => {
-      $(document).ready(function() {
-        $.ajax({
-            url: element,
-            type: 'GET',
-            dataType: 'json',
-            contentType: "application/json",
-            success: function(returned){
-              rxcui.push(returned)}
-        });})})
+      data.MedAllergy.forEach((element) => {
+      $("#1allergies").append(element + " , ");})
 
-console.log(rxcui)
+      $("#1medical_cond").append(data.Medical_Condition);
+      $("#1surgeries").append(data.Surgical_History);
+      $("#1employment").append(data.Employment);
+      $("#1education").append(data.School);
+      $("#1smoke").append(data.Smoker);
+      $("#1drink").append(data.Alcohol);
+      $("#1rec").append(data.RecDrugs);
+      $("#1psych").append(data.Psych_Care);
+      $("#1hosp").append(data.Hospital);
+      $("#1legal").append(data.Legal);
+      $("#1abuse").append(data.Abuse_Or_Trauma);
+      $("#1safe").append(data.Safe);
+      $("#1suicide").append(data.Suicide);
+      $("#1family").append("\ " + data.Family_History);
+
+
+      var survery_data = data.Survey
+
+
+      if (data.Cheif_Complaint == "Mood issues"){
+            jQuery(document).ready(function(){
+      var ph9q_data = data.ph9q_Flags;
+      var diff = data.ph9q_diff
+      var digfast_data = data.DIGFAST_Flags;
+      var ph9q_list = [];
+            ph9q_data.forEach((element) => {
+              ph9q_list.push(element)});
+          var digfast_list = [];
+                digfast_data.forEach((element) => {
+                  digfast_list.push(element)});
+
+                  $("#post_questions").append(" <br>---------------<br>Patient scored " + data.ph9q_Total + "on the PH9-Q scale"
+                  + " and agrees to the following symptoms that have made their life\ " + diff + ":");
+                  ph9q_list[0].forEach((element) => {
+                    $("#post_questions").append("   " + element + "<br/>---<br/>")});
+
+
+                  $("#post_questions").append(" <br>---------------<br>Patient scored " + data.DIGFAST + "on the Severity Measure for Panic Disorder—Adult"
+                  + " and agrees to:");
+                  digfast_list.forEach((element) => {
+                  $("#post_questions").append("   " + element + "<br/>---<br/>")
+                })})}
+
+      if (data.Cheif_Complaint == "Anxiety"){
+          jQuery(document).ready(function(){
+      var gad_data = data.Anxiety_Flags
+      var gad_list = [];
+      gad_data.forEach((element) => {
+        gad_list.push(element)});
+        var panic_data = data.Panic_Flags
+        var panic_list = [];
+        panic_data.forEach((element) => {
+          panic_list.push(element)});
+
+          $("#post_questions").append(" <br>---------------<br>Patient scored " + data.Anxiety + "on the General Anxiety Disorder-7 scale"
+          + " and agrees to:");
+          gad_list.forEach((element) => {
+          $("#post_questions").append("   " + element + "<br/>")});
+
+          $("#post_questions").append(" <br>---------------<br>Patient scored " + data.Panic + "on the Severity Measure for Panic Disorder—Adult"
+          + " and agreed to the following statement(s):");
+          panic_list.forEach((element) => {
+          $("#post_questions").append("   " + element + "<br/>");
+        })})}
+
+
+      if (data.Cheif_Complaint == "Memory issues"){
+        jQuery(document).ready(function(){
+      var mem_data = data.Memory_Depression_Flags
+      var mem_list = [];
+      mem_data.forEach((element) => {
+        mem_list.push(element)});
+        $("#post_questions").append(" <br>---------------<br>Patient scored " + data.Memory_Depression + "on the Geriatric Depression Scale"
+       + " and has:");
+      mem_list.forEach((element) => {
+        $("#post_questions").append("   " + element + "<br/>")})})}
+
+
+        if (data.Cheif_Complaint == "PTSD"){
+              jQuery(document).ready(function(){
+        var ptsd_data = data.PTSD_Flags
+        var ptsd_list = [];
+        ptsd_data.forEach((element) => {
+          ptsd_list.push(element)});
+        $("#post_questions").append(" <br>---------------<br>Patient scored " + data.PTSD + "on the Primary Care PTSD Screen for DSM-5"
+        + " and agrees to:");
+      ptsd_list.forEach((element) => {
+        $("#post_questions").append("   " + element + "<br/>")})})}
+
+  });
+
 
 
 
