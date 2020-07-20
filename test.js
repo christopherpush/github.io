@@ -461,9 +461,23 @@ $('#an51').delay(500).css('color','white');
         });
 
 
+      $('#1_digfast').click(function(){
+      $('#1_digfast').delay(500).css('color','white');
+        });
+
+      $('#2_digfast').click(function(){
+      $('#2_digfast').delay(500).css('color','white');
+        });
 
 
+      $('#3_digfast').click(function(){
+      $('#3_digfast').delay(500).css('color','white');
+        });
 
+      $('#4_digfast').click(function(){
+      $('#4_digfast').delay(500).css('color','white');
+        });
+    
 
           var med_num = 1
           $("#add_med").click(function(){
