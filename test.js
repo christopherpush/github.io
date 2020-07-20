@@ -422,6 +422,21 @@ $('#an41').delay(500).css('color','white');
 $('#an51').click(function(){
 $('#an51').delay(500).css('color','white');
   });
+    
+    
+    
+    $('#an12').click(function(){
+$('#an12').delay(500).css('color','white');
+  });
+$('#an22').click(function(){
+$('#an22').delay(500).css('color','white');
+  });
+$('#an32').click(function(){
+$('#an32').delay(500).css('color','white');
+  });
+$('#an42').click(function(){
+$('#an42').delay(500).css('color','white');
+  });
 
 
         $('#an1').click(function(){
