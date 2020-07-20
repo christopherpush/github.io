@@ -407,9 +407,6 @@ $(document).ready(function() {
         });
 
 
-
-
-an11
 $('#an11').click(function(){
 $('#an11').delay(500).css('color','white');
   });
