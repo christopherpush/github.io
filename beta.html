@@ -51,7 +51,7 @@ This patient <span id='1psych'></span>. <span id='1hosp'></span>. Patient <span 
 Notes <span id='1abuse'></span> and <span id='1safe'></span>. <span id='1suicide'></span>. Reports <span id='1family'></span>.
 
 
-<span id='post_questions'></span> <br>
+<div id='post_questions'></div> <br>
 
 </div> <!-- END OF note -->
 
@@ -61,10 +61,12 @@ Notes <span id='1abuse'></span> and <span id='1safe'></span>. <span id='1suicide
       <div class = "Algorx" id='algorx'>
 
           <div class="jumbotron shadow-lg text-center mx-5" id='welcome_page' style='background-color:white'>
-            <h1 class="display-4">Welcome to Strategic Health!</h1>
+            <h1 class="display-4">Welcome!</h1>
             <p class="lead">This is a 10 minute form about your health & health history.</p>
             <hr class="my-4">
-            <p>The information you provide here is important for finding the best course of treatment for you. This information will never be shared with anyone other than those <strong>directly</strong> involved in your care. Be open and honest, we are not here to judge. The better the information, the better we can help!</p>
+            <p>The information you provide here is important for finding the best course of treatment for you.
+               This information will never be shared with anyone other than those <strong>directly</strong> involved in your care.
+                Please be as open and honest as you can-- we are here to support you. The more accurate the information, the better we can help!</p>
             <input type='button' class="btn btn-primary btn-lg" role="button" onclick='new_or_old_pt()' value='Get started!'>
           </div>
         <div style='display:none; background-color:white' id = new_old_what class="jumbotron shadow-lg mb-4 mx-5">
@@ -106,6 +108,10 @@ Notes <span id='1abuse'></span> and <span id='1safe'></span>. <span id='1suicide
             <input id='an4' class="btn btn-primary mb-3 mt-3 mx-2" type="button" value="Nearly everyday" onclick="ph9q_but(3, 'Nearly everyday')">
           </div>
 
+          <div class='text-left'>
+              <input id='back_ph9q' class="btn btn-secondary mb-1 mt-5" type="button" value="Back" onclick="ph9q_back()">
+          </div>
+
         </div>
 
         </div> <!--The end of 'mood problems' Chief complaint option -->
@@ -134,7 +140,9 @@ normal self or you were so hyper that you got into trouble?</p>
             <input id='4_digfast' class="btn btn-primary mb-3 mt-3 mx-2" type="button" value="Serious problem" onclick="digfast_but(1, 'Serious problem')">
           </div>
 
-
+          <div class='text-left'>
+              <input id='back_ph9q' class="btn btn-secondary mb-1 mt-5" type="button" value="Back" onclick="digfast_back()">
+          </div>
 
 
           </div>
@@ -168,8 +176,12 @@ normal self or you were so hyper that you got into trouble?</p>
 
 
           <div>
-            <input id='yes_memory' class="btn btn-primary mb-3 mt-3 p-3 px-5" type="button" value="Yes" onclick='memory_but(1)'>
-            <input id='no_memory' class="btn btn-primary mb-3 mt-3 p-3 px-5" type="button" value="No" onclick='memory_but(0)'>
+            <input id='yes_memory' class="btn btn-primary mx-3 mb-3 mt-3 p-3 px-5" type="button" value="Yes" onclick='memory_but(1)'>
+            <input id='no_memory' class="btn btn-primary mx-3 mb-3 mt-3 p-3 px-5" type="button" value="No" onclick='memory_but(0)'>
+          </div>
+
+          <div class='text-left'>
+              <input id='back_memory' class="btn btn-secondary mb-1 mt-5" type="button" value="Back" onclick="memory_back()">
           </div>
 
         </div>
@@ -219,6 +231,10 @@ per: Adelman, A. M., & Daly, M. P. (2005). Initial evaluation of the patient wit
         <input class="btn btn-primary mb-5 px-4 mx-2" type="button" value='Yes' id="yes_ptsd" onclick='ptsd_answer(1)'></label>
         <input class="btn btn-primary mb-5 px-4 mx-2" type="button" value='No' id="no_ptsd" onclick='ptsd_answer(0)'></label>
         </div>
+
+        <div class='text-left'>
+            <input id='back_ptsd' class="btn btn-secondary mb-1 mt-5" type="button" value="Back" onclick="ptsd_back()">
+        </div>
   </div>
 </div>
       <!--  ***  score of 3 or more is trigger for ptsd per https://www.ptsd.va.gov/professional/assessment/documents/pc-ptsd5-screen.pdf  ****
@@ -252,13 +268,17 @@ USE THIS TOOL INSTEAD BUT DSM-5 VERSION: https://adaa.org/screening-panic-disord
             <input id='an32' class="btn btn-primary  mt-3" type="button" value="More than half the days" onclick="anxiety_answer('More than half the days', 2)">
             <input id='an42' class="btn btn-primary  mt-3" type="button" value="Nearly everyday" onclick="anxiety_answer('Nearly everyday', 3)">
           </div>
+
+          <div class='text-left'>
+              <input id='back_anxiety' class="btn btn-secondary mb-1 mt-5" type="button" value="Back" onclick="anxiety_back()">
+          </div>
           </div>
 
 
 
           <div class='hide' id='panic_pre'>
-          <div class='d-flex align-items-center'>
-             <p>Does you anxiety ever get so bad that you felt your heart race, got sweaty, had trouble breathing, or faint/shaky?</p>
+          <div class='d-flex align-items-center text-center'>
+             <p class='text-center'>Does you anxiety ever get so bad that you felt your heart race, got sweaty, had trouble breathing, or faint/shaky?</p>
           </div>
                <div>
                 <input class="btn btn-primary ml-1" type="button" value='Yes' id="Yes" onclick='panic_or_not(1)'></label>
@@ -281,6 +301,10 @@ USE THIS TOOL INSTEAD BUT DSM-5 VERSION: https://adaa.org/screening-panic-disord
             <input id='an31' class="btn btn-primary mb-3 mt-3" type="button" value="Half of the time" onclick="panic_answer(2)">
             <input id='an41' class="btn btn-primary mb-3 mt-3" type="button" value="Most of the time" onclick="panic_answer(3)">
             <input id='an51' class="btn btn-primary mb-3 mt-3" type="button" value="All of the time" onclick="panic_answer(4)">
+          </div>
+
+          <div class='text-left'>
+              <input id='back_panic' class="btn btn-secondary mb-1 mt-5" type="button" value="Back" onclick="panic_back()">
           </div>
            </div>
            <!--*** per file:///C:/Users/UW2001480/Downloads/APA_DSM5_Severity-Measure-For-Panic-Disorder-Adult.pdf
@@ -340,12 +364,15 @@ USE THIS TOOL INSTEAD BUT DSM-5 VERSION: https://adaa.org/screening-panic-disord
         <div style='display:none' id=history>
           <div class="border border-secondary rounded-bottom mx-5 mb-5 p-3 bg-gray-300 shadow-lg" style='background-color:white'>
 
+
           <div class='row'>
+            <div id='age_q'>
             <div class="d-flex align-items-center input-group mb-5 mx-auto col-md-3 mt-5" id='age_bar'>
               <div class="input-group-prepend">
                 <span class="input-group-text my-auto">Age: </span>
               </div>
               <input id='age' type="text" class="form-control" placeholder="Age" aria-label="Age" aria-describedby="basic-addon1">
+            </div>
             </div>
 
               <div class="input-group-prepend mx-auto d-flex align-items-center col-md-4">
@@ -391,9 +418,9 @@ USE THIS TOOL INSTEAD BUT DSM-5 VERSION: https://adaa.org/screening-panic-disord
               <label for="employment">Relationship status: </label>
               <select class="custom-select mb-3" id='pt_relationship'>
                 <option selected>Select one</option>
-                <option value="dropdown-item" id='Single'>Single</option>
-                <option value="dropdown-item" id='Married'>Married</option>
-                <option value="dropdown-item" id='Divorced'>Divorced</option>
+                <option value="dropdown-item" id='single'>Single</option>
+                <option value="dropdown-item" id='married'>Married</option>
+                <option value="dropdown-item" id='divorced'>Divorced</option>
               </select>
             </div>
           </div>
@@ -403,7 +430,7 @@ USE THIS TOOL INSTEAD BUT DSM-5 VERSION: https://adaa.org/screening-panic-disord
 
         <div class="border border-secondary rounded-bottom m-5 p-5 bg-gray-300 shadow-lg" style='background-color:white'>
           <div class="text-center mb-5">
-            <p>Please enter <strong>ALL</strong> current medications <strong>(including non-psychiatric ones)</strong> and all known medication allergies. Spelling is important.</p><hr>
+            <p>Please enter <strong>ALL</strong> current medications <strong>(including non-psychiatric ones)</strong> and all known allergies to medications. Spelling is important.</p><hr>
           </div>
 
           <div id='add_meds'>
