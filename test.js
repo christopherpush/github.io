@@ -1419,6 +1419,10 @@ data.Relationship = [pt_relation];
 if (data.Smoker == "Yes") {
   data.Smoker.push(smoke);}
 
+    
+    
+var caf_num = $("caffeine_num").val();
+    data.Caffeine = [caf_num]
 
 var rec_type = $("#rec_type").val();
 var rec_freq = $("#rec_freq").val();
@@ -1502,7 +1506,8 @@ if ($('#no_surg').is(":checked")) {
       $("#1abuse").append(data.Abuse_Or_Trauma);
       $("#1safe").append(data.Safe);
       $("#1suicide").append(data.Suicide);
-      $("#1family").append("\ " + data.Family_History);
+      $("#1family").append("\ " + data.Family_History);     
+      $("#caffeine_num_entered").append( data.Caffeine);
     
         if (data.Sex == "female"){
                    
