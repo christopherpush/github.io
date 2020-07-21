@@ -109,12 +109,15 @@ function no_ptsd_start() {
     if (age > 59) {
       jQuery(function($) {
           $("#age_bar").slideUp(750);
-          $( "#over_65" ).delay(1000).slideDown(750);})
+          $( "#over_60" ).delay(1000).slideDown(750);
+        $( "#age_q" ).css("display", "none");})
+
         }
     else {
       jQuery(function($) {
           $("#memory_page").slideUp(750);
-          $( "#history" ).delay(1000).slideDown(750);})
+          $( "#history" ).delay(1000).slideDown(750);
+        $( "#age_q" ).css("display", "none");})
     }};
 
 
@@ -124,6 +127,7 @@ function no_ptsd_start() {
                       $("#somethingelse_page").slideUp(750);
                       $( "#history" ).delay(1000).slideDown(750);
                       data.CC = [cc_var];
+
                     })};
 
 
@@ -132,8 +136,14 @@ $(document).ready(function() {
 
 
   $('input[type="button"]').click(function(){
+  var that = this;
   $(this).css('color','#3299e9');
-    });
+  $(this).prop('disabled', true);
+  setTimeout(function(){
+      $(that).prop('disabled', false);
+    }, 1250)});
+
+// 1250
 
 
 
@@ -345,14 +355,14 @@ $(document).ready(function() {
 
             $('#Male').click(function(){
             $('#Female').css('color','white');
-            data.Sex = ['Male'];
+            data.Sex = ['male'];
             jQuery(function($) {
               $( "#if_female" ).delay(200).slideUp(1000)});
               });
 
             $('#Female').click(function(){
             $('#Male').css('color','white');
-            data.Sex = ['Female']
+            data.Sex = ['female']
             jQuery(function($) {
               $( "#if_female" ).delay(200).slideDown(1000)});
               });
@@ -369,7 +379,7 @@ $(document).ready(function() {
 
             $('#no_mental_care').click(function(){
             $('#yes_mental_care').css('color','white');
-                  data.Psych_Care = ['Denies previous psychiatric care']
+                  data.Psych_Care = ['denies previous psychiatric care']
               });
 
             $('#yes_mental_care').click(function(){
@@ -422,9 +432,9 @@ $('#an41').delay(500).css('color','white');
 $('#an51').click(function(){
 $('#an51').delay(500).css('color','white');
   });
-    
-    
-    
+
+
+
     $('#an12').click(function(){
 $('#an12').delay(500).css('color','white');
   });
@@ -473,23 +483,14 @@ $('#an42').delay(500).css('color','white');
         });
 
 
-      $('#1_digfast').click(function(){
-      $('#1_digfast').delay(500).css('color','white');
+      $('#yes_digfast').click(function(){
+      $('#yes_digfast').delay(500).css('color','white');
         });
 
-      $('#2_digfast').click(function(){
-      $('#2_digfast').delay(500).css('color','white');
+      $('#no_digfast').click(function(){
+      $('#no_digfast').delay(500).css('color','white');
         });
 
-
-      $('#3_digfast').click(function(){
-      $('#3_digfast').delay(500).css('color','white');
-        });
-
-      $('#4_digfast').click(function(){
-      $('#4_digfast').delay(500).css('color','white');
-        });
-    
 
           var med_num = 1
           $("#add_med").click(function(){
@@ -592,7 +593,7 @@ function done_ph9q() {
      "…you were much more social or outgoing than usual, for example, you telephoned friends in the middle of the night?",
      "…you were much more interested in sex than usual?",
      "…you did things that were unusual for you or that other people might have thought were excessive, foolish, or risky?",
-     "…spending money got you or your family in trouble?",
+     "…the act of spending money got you or your family in trouble?",
     " Think about these last 12 questions-- have several of these ever happened during the same period of time?",
     "How much of a problem did any of these cause you — like being able to work; having family, money, or legal troubles; getting into arguments or fights?",
 ];
@@ -605,69 +606,83 @@ if (!('DIGFAST_Depression_Flags' in data)) {
 if(digfast_count == 0) {
   if (digfast_ans == 0) {
     digfast_total ++;
+    last_an = 1;
     flags_to_push.push('felt so good or so hyper that other people thought they were not their normal self or were so hyper that they got into trouble');
-  }}
+  } else {last_an = 0}};
 if(digfast_count == 1) {
   if (digfast_ans == 0) {
     digfast_total ++;
+    last_an = 1;
     flags_to_push.push('were so irritable that they shouted at people or started fights or arguments');
-  }}
+  } else {last_an = 0}};
 if(digfast_count == 2) {
   if (digfast_ans == 0) {
     digfast_total ++;
+    last_an = 1;
     flags_to_push.push('felt much more self-confident than usual?');
-  }}
+  } else {last_an = 0}};
 if(digfast_count == 3) {
     if (digfast_ans == 0) {
   digfast_total ++;
+  last_an = 1;
   flags_to_push.push('got much less sleep than usual and found you didn’t really miss it');
-}}
+} else {last_an = 0}};
 if(digfast_count == 4) {
     if (digfast_ans == 0) {
   digfast_total ++;
+  last_an = 1;
   flags_to_push.push('were much more talkative or spoke faster than usual');
-}}
+} else {last_an = 0}};
 if(digfast_count == 5) {
     if (digfast_ans == 0) {
   digfast_total ++;
+  last_an = 1;
   flags_to_push.push('thoughts raced through their head or they couldn’t slow their mind down');
-}}
+} else {last_an = 0}};
 if(digfast_count == 6) {
     if (digfast_ans == 0) {
   digfast_total ++;
+  last_an = 1;
 flags_to_push.push('were so easily distracted by things around them that they had trouble concentrating or staying on track?');
-}}
+} else {last_an = 0}};
 if(digfast_count == 7) {
     if (digfast_ans == 0) {
   digfast_total ++;
+  last_an = 1;
   flags_to_push.push('had much more energy than usual');
-}}
+} else {last_an = 0}};
 if(digfast_count == 8) {
     if (digfast_ans == 0) {
   digfast_total ++;
+  last_an = 1;
 flags_to_push.push(' were much more active or did many more things than usual');
-}}
+} else {last_an = 0}};
 if(digfast_count == 9) {
     if (digfast_ans == 0) {
   digfast_total ++;
-  flags_to_push.push('were much more social or outgoing than usual, for example, telephoning friends in the middle of the night');
-}}
+  last_an = 1;
+  flags_to_push.push('were much more social or outgoing than usual, for example, telephoning friends in the middle of the night');}
+  else {last_an = 0}};
 if(digfast_count == 10) {
     if (digfast_ans == 0) {
   digfast_total ++;
+  last_an = 1;
   flags_to_push.push('were much more interested in sex than usual');
-}}
+} else {last_an = 0}};
 if(digfast_count == 11) {
     if (digfast_ans == 0) {
   digfast_total ++;
+  last_an = 1;
   flags_to_push.push('did things that were unusual for them or that other people might have thought were excessive, foolish, or risky');
-}}
+} else {last_an = 0}}
 if(digfast_count == 12) {
     if (digfast_ans == 0) {
   digfast_total ++;
+  last_an = 1;
 flags_to_push.push("spending money got them or their family in trouble");
-}}
+} else {last_an = 0}};
 
+//change answer type to last question ones if yes to any prior question
 if (digfast_count > 12) {
     if (digfast_total > 0) {
 jQuery(function($) {
@@ -686,10 +701,9 @@ else {
 if(digfast_count == 13) {
     if (digfast_total > 1) {
       if (digfast_ans == 0) {
+        last_an = 1;
   flags_to_push.push(' AND SEVERAL OF THESE HAPPENED DURING THE SAME PERIOD OF TIME');
-}}
-//change answer type to last question ones
-};
+}}};
 //pushes the answer to the 4 answer type to flags
 if(digfast_count == 14) {
   flags_to_push.push(digfast_val);
@@ -708,13 +722,21 @@ if(digfast_count == 14) {
 
 ////////End DIGFAST    https://www.ohsu.edu/sites/default/files/2019-06/cms-quality-bipolar_disorder_mdq_screener.pdf
 
+function digfast_back() {
+if (last_an = 1) {
+flags_to_push.splice(-1,1);}
+digfast_count --;
+jQuery(function($) {
+     $('#digfast_display').fadeOut(500, function() {
+           $(this).text(digfast_questions[digfast_count]).fadeIn(500);})})}
 
 
 
 
 ////Start PH9Q
 var ph9q_count = 0;
-var flags_to_push_ph9q = []
+var flags_to_push_ph9q = [];
+var ph9q_all = [];
 var ph9q_questions = [
 'Little interest or pleasure in doing things',
 'Feeling down, depressed, or hopeless',
@@ -727,51 +749,57 @@ var ph9q_questions = [
 "Thoughts that you would be better off dead or of hurting yourself in some way"];
 function ph9q_but(ph9q_ans, typed_ans) {
 
+  ph9q_all.push(ph9q_ans);
 
-if (!('ph9q' in data)) {
-  data.ph9q = [ph9q_ans]}
 
-else if (('ph9q' in data)) {
-  data.ph9q.push(ph9q_ans)};
-
+  /// For each question in the set, if it flags as positive, add 1 to total
+  ///score AND marks it to minus the answer if back button pressed after (last_an=1).
+  ///else last_an=0 does not take away answer in list.
   if(ph9q_count == 0) {
     if (ph9q_ans > 0) {
+      last_an = 1;
       flags_to_push_ph9q.push('Little interest or pleasure in doing things--' + typed_ans);
-    }}
+    }  else {last_an = 0}}
     if(ph9q_count == 1) {
       if (ph9q_ans > 0) {
+        last_an = 1;
         flags_to_push_ph9q.push('Feeling down, depressed, or hopeless--' + typed_ans);
-      }}
+    }  else {last_an = 0}}
   if(ph9q_count == 2) {
     if (ph9q_ans > 0) {
+      last_an = 1;
       flags_to_push_ph9q.push('Trouble falling/staying asleep, sleeping too much--' + typed_ans);
-    }}
+    }  else {last_an = 0}}
 if(ph9q_count == 3) {
   if (ph9q_ans > 0) {
+    last_an = 1;
     flags_to_push_ph9q.push('Feeling tired or having little energy--' + typed_ans);
-  }}
+    }  else {last_an = 0}}
   if(ph9q_count == 4) {
     if (ph9q_ans > 0) {
+      last_an = 1;
       flags_to_push_ph9q.push('Poor appetite or overeating--' + typed_ans);
-    }}
+    }  else {last_an = 0}}
 if(ph9q_count == 5) {
   if (ph9q_ans > 0) {
+    last_an = 1;
     flags_to_push_ph9q.push('Feeling bad about yourself or that you are a failure or have let yourself or your family down--' + typed_ans);
-  }}
+    }  else {last_an = 0}}
   if(ph9q_count == 6) {
     if (ph9q_ans > 0) {
+      last_an = 1;
       flags_to_push_ph9q.push('Trouble concentrating on things, such as reading the newspaper or watching television--' + typed_ans);
-    }}
+    }  else {last_an = 0}}
 if(ph9q_count == 7) {
   if (ph9q_ans > 0) {
+    last_an = 1;
     flags_to_push_ph9q.push('Moving or speaking so slowly that other people could have noticed. Or the opposite; being so fidgety or restless that you have been moving around a lot more than usual--' + typed_ans);
-  }}
+    }  else {last_an = 0}}
   if(ph9q_count == 8) {
     if (ph9q_ans > 0) {
+      last_an = 1;
       flags_to_push_ph9q.push('Thoughts that you would be better off dead or of hurting yourself in some way--' + typed_ans);
-    }}
-
-
+    }  else {last_an = 0}}
 
 
   if(ph9q_count == 8) {
@@ -790,7 +818,7 @@ if(ph9q_count == 7) {
           });
       $('#an4').fadeOut(500, function() {
             $(this).prop('value', 'Extremely difficult').fadeIn(500);
-          });
+        });
         })}
 
   else if (ph9q_count > 8) {
@@ -806,7 +834,8 @@ if(ph9q_count == 7) {
     if (ph9q_ans == 4) {
       data.ph9q_diff = ['Extremely difficult']
     };
-    data.ph9q_Flags = [flags_to_push_ph9q]
+    data.ph9q_Flags = [flags_to_push_ph9q];
+    data.ph9q = [ph9q_all]
     done_ph9q()}
   else {
        jQuery(function($) {
@@ -816,13 +845,36 @@ if(ph9q_count == 7) {
      ph9q_count ++;};
 ////END OF PH9Q
 
+function ph9q_back() {
+if (ph9q_count == 8) {
+  $('#an1').fadeOut(500, function() {
+        $(this).prop('value', 'Not at all').fadeIn(500);
+      });
+  $('#an2').fadeOut(500, function() {
+        $(this).prop('value', 'Several days').fadeIn(500);
+      });
+  $('#an3').fadeOut(500, function() {
+        $(this).prop('value', 'More than half the days').fadeIn(500);
+      });
+  $('#an4').fadeOut(500, function() {
+        $(this).prop('value', 'Nearly everyday').fadeIn(500);
+    });}
+if (last_an = 1) {
+flags_to_push_ph9q.splice(-1,1);}
+ph9q_all.splice(-1,1);
+ph9q_count --;
+jQuery(function($) {
+  $('#ph9q_display').fadeOut(500, function() {
+        $(this).text(ph9q_questions[ph9q_count]).fadeIn(500);})})}
 
 
 ///Start memory
-
+     var flags_to_push_memory = []
      var memory_total = 0;
      var memory_count = 0;
+     var last_an = 0
      var memory_questions = [
+       'Are you basically satisfied with your life?',
      'Have you dropped many of your activities and interests?',
      'Do you feel that your life is empty?',
      'Do you often get bored?',
@@ -840,141 +892,181 @@ if(ph9q_count == 7) {
 ];
      function memory_but(memory_ans) {
 
-if (!('Memory_Depression_Flags' in data)) {
-  data.Memory_Depression_Flags = []}
+/// For each question in the set, if it flags as positive, add 1 to total
+///score AND marks it to minus the answer if back button pressed after (last_an=1).
+///else last_an=0 does not take away answer in list.
 
 if(memory_count == 0) {
   if (memory_ans == 0) {
     memory_total ++;
-    data.Memory_Depression_Flags.push('not basically satisfied with life');
-  }}
+    last_an = 1
+    flags_to_push_memory.push('not basically satisfied with life');
+  } else {
+    last_an = 0}}
 if(memory_count == 1) {
   if (memory_ans == 1) {
     memory_total ++;
-    data.Memory_Depression_Flags.push('has dropped many of thier activities and interests');
-  }}
+    last_an = 1
+    flags_to_push_memory.push('has dropped many of thier activities and interests');
+  } else {
+    last_an = 0}}
 if(memory_count == 2) {
   if (memory_ans == 1) {
     memory_total ++;
-    data.Memory_Depression_Flags.push('feels life is empty');
-  }}
+    last_an = 1
+    flags_to_push_memory.push('feels life is empty');
+  } else {
+    last_an = 0}}
 if(memory_count == 3) {
     if (memory_ans == 1) {
   memory_total ++;
-  data.Memory_Depression_Flags.push('is often bored');
-}}
+  last_an = 1
+  flags_to_push_memory.push('is often bored');
+} else {
+  last_an = 0}}
 if(memory_count == 4) {
     if (memory_ans == 0) {
   memory_total ++;
-  data.Memory_Depression_Flags.push('is not in good spirits most of the time');
-}}
+  last_an = 1
+  flags_to_push_memory.push('is not in good spirits most of the time');
+} else {
+  last_an = 0}}
 if(memory_count == 5) {
     if (memory_ans == 1) {
   memory_total ++;
-  data.Memory_Depression_Flags.push('feels afraid something bad is going to happen to them');
-}}
+  last_an = 1
+  flags_to_push_memory.push('feels afraid something bad is going to happen to them');
+} else {
+  last_an = 0}}
 if(memory_count == 6) {
     if (memory_ans == 0) {
   memory_total ++;
-  data.Memory_Depression_Flags.push('does not feel happy most of the time');
-}}
+  last_an = 1
+  flags_to_push_memory.push('does not feel happy most of the time');
+} else {
+  last_an = 0}}
 if(memory_count == 7) {
     if (memory_ans == 1) {
   memory_total ++;
-  data.Memory_Depression_Flags.push('often feels helpless');
-}}
+  last_an = 1
+  flags_to_push_memory.push('often feels helpless');
+} else {
+  last_an = 0}}
 if(memory_count == 8) {
     if (memory_ans == 1) {
   memory_total ++;
-  data.Memory_Depression_Flags.push('prefers to stay home rather than going out and doing things');
-}}
+  last_an = 1
+  flags_to_push_memory.push('prefers to stay home rather than going out and doing things');
+} else {
+  last_an = 0}}
 if(memory_count == 9) {
     if (memory_ans == 1) {
   memory_total ++;
-  data.Memory_Depression_Flags.push('feels like they have more problems with memory than most');
-}}
+  last_an = 1
+  flags_to_push_memory.push('feels like they have more problems with memory than most');
+} else {
+  last_an = 0}}
 if(memory_count == 10) {
     if (memory_ans == 0) {
   memory_total ++;
-  data.Memory_Depression_Flags.push('does not think it is wonderful to be alive now');
-}}
+  last_an = 1
+  flags_to_push_memory.push('does not think it is wonderful to be alive now');
+} else {
+  last_an = 0}}
 if(memory_count == 11) {
     if (memory_ans == 1) {
   memory_total ++;
-  data.Memory_Depression_Flags.push('feels worthless the way they are now');
-}}
+  last_an = 1
+  flags_to_push_memory.push('feels worthless the way they are now');
+} else {
+  last_an = 0}}
 if(memory_count == 12) {
     if (memory_ans == 0) {
   memory_total ++;
-  data.Memory_Depression_Flags.push('does not feel full of energy');
-}}
+  last_an = 1
+  flags_to_push_memory.push('does not feel full of energy');
+} else {
+  last_an = 0}}
 if(memory_count == 13) {
     if (memory_ans == 1) {
   memory_total ++;
-  data.Memory_Depression_Flags.push('feels that their situation is hopeless');
-}}
+  last_an = 1
+  flags_to_push_memory.push('feels that their situation is hopeless');
+} else {
+  last_an = 0}}
 if(memory_count == 14) {
     if (memory_ans == 1) {
   memory_total ++;
-  data.Memory_Depression_Flags.push('feels that most people are better off than they are');
-}}
+  last_an = 1
+  flags_to_push_memory.push('feels that most people are better off than they are');
+} else {last_an = 0};
 
-
-
-if (memory_count == 15) {
   start_hx('#memory_page')
+  data.Memory_Depression_Flags = [flags_to_push_memory]
+  data.Memory_Depression = [memory_total];}
 
-  if (!('Memory_Depression' in data)) {
-    data.Memory_Depression = [memory_total]}}
-
-   jQuery(function($) {
-     $('#memory_display').fadeOut(500, function() {
-           $(this).text(memory_questions[memory_count]).fadeIn(500);
-         })});
+ jQuery(function($) {
+   $('#memory_display').fadeOut(500, function() {
+         $(this).text(memory_questions[memory_count]).fadeIn(500);
+       })});
  memory_count ++;};
 /// END OF MEMORY COUNTER////
 
+function memory_back() {
+  if (last_an == 1) {
+flags_to_push_memory.splice(-1,1);
+memory_total --}
+memory_count --;
+jQuery(function($) {
+  $('#memory_display').fadeOut(500, function() {
+        $(this).text(memory_questions[memory_count]).fadeIn(500);})})}
 
 
 
 ///Start PTSD
 var ptsd_total = 0;
 var ptsd_count = 0;
+var flags_to_push_ptsd = []
 var ptsd_questions = [
+  'had nightmares about the event(s) or thought about the event(s) when you did not want to?',
   'tried hard not to think about the event(s) or went out of your way to avoid situations that reminded you of the event(s)?',
   'been constantly on guard, watchful, or easily startled?',
   'felt numb or detached from people, activities, or your surroundings?',
   'felt guilty or unable to stop blaming yourself or others for the event(s) or any problems the event(s) may have caused?',];
 function ptsd_answer(ans) {
 
-if (!('PTSD_Flags' in data)) {
-  data.PTSD_Flags = []}
 
   if(ptsd_count == 0) {
       if (ans == 1) {
     ptsd_total ++;
-    data.PTSD_Flags.push('had nightmares about the trauma or thought about the trauma when they did not want to');
-  }}
+    last_an = 1;
+    flags_to_push_ptsd.push('had nightmares about the trauma or thought about the trauma when they did not want to');
+  } else {last_an = 0}}
   if(ptsd_count == 1) {
       if (ans == 1) {
     ptsd_total ++;
-    data.PTSD_Flags.push('tried hard not to think about the trauma or went out of their way to avoid situations that reminded them of the trauma');
-  }}
+    last_an = 1;
+    flags_to_push_ptsd.push('tried hard not to think about the trauma or went out of their way to avoid situations that reminded them of the trauma');
+  } else {last_an = 0}}
   if(ptsd_count == 2) {
       if (ans == 1) {
     ptsd_total ++;
-    data.PTSD_Flags.push('has been constantly on guard, watchful, or easily startled');
-  }}
+    last_an = 1;
+    flags_to_push_ptsd.push('has been constantly on guard, watchful, or easily startled');
+  } else {last_an = 0}}
   if(ptsd_count == 3) {
       if (ans == 1) {
     ptsd_total ++;
-    data.PTSD_Flags.push('felt numb or detached from people, activities, or their surroundings');
-  }}
+    last_an = 1;
+    flags_to_push_ptsd.push('felt numb or detached from people, activities, or their surroundings');
+  } else {last_an = 0}}
   if(ptsd_count == 4) {
       if (ans == 1) {
     ptsd_total ++;
-    data.PTSD_Flags.push('felt guilty or unable to stop blaming themself or others for the trauma or any problems the trauma may have caused');};
+    last_an = 1;
+    flags_to_push_ptsd.push('felt guilty or unable to stop blaming themself or others for the trauma or any problems the trauma may have caused');};
     data.PTSD = [ptsd_total];
+    data.PTSD_Flags = [flags_to_push_ptsd]
     start_hx('#ptsd_page');}
 
     jQuery(function($) {
@@ -986,22 +1078,29 @@ if (!('PTSD_Flags' in data)) {
 
 ///END OF PTSD
 
-
-
-
+function ptsd_back() {
+  if (last_an == 1) {
+flags_to_push_ptsd.splice(-1,1);
+ptsd_total --}
+ptsd_count --;
+jQuery(function($) {
+  $('#ptsd_display').fadeOut(500, function() {
+    $(this).text(ptsd_questions[ptsd_count]).fadeIn(500);})})}
 
 
 ///Start Anxiety
 var anxiety_total = 0;
-var anxiety_count = 0;
+var flags_to_push_anxiety = [];
+var anxiety_count = 0
 var anxiety_questions = [
   'Not being able to stop or control worrying.',
   'Worrying too much about different things.',
   'Trouble relaxing.',
   'Being so restless that it\'s hard to sit still.',
-'Becoming easily annoyed or irritable.',
-'Feeling afraid as if something awful might happen.',];
+  'Becoming easily annoyed or irritable.',
+  'Feeling afraid as if something awful might happen.',];
 function anxiety_answer(ans, num) {
+var numvar = num
 
 if (num == 1) {
   anx_score = 'several days'};
@@ -1011,38 +1110,43 @@ if (num == 1) {
       anx_score = 'nearly everyday'};
 
 
-if (!('Anxiety_Flags' in data)) {
-  data.Anxiety_Flags = []};
-
   if(anxiety_count == 0) {
       if (!(ans == 'Not at all')) {
     anxiety_total += num;
-    data.Anxiety_Flags.push('Not being able to stop or control worrying ', anx_score);}}
+    last_an = 1
+    flags_to_push_anxiety.push('Not being able to stop or control worrying ', anx_score);} else {last_an = 0}}
   if(anxiety_count == 1) {
       if (!(ans == 'Not at all')) {
     anxiety_total += num;
-    data.Anxiety_Flags.push('Worrying too much about different things ', anx_score);}}
+    last_an = 1
+    flags_to_push_anxiety.push('Worrying too much about different things ', anx_score);} else {last_an = 0}}
   if(anxiety_count == 2) {
       if (!(ans == 'Not at all')) {
     anxiety_total += num;
-    data.Anxiety_Flags.push('Trouble relaxing ', anx_score);}}
+    last_an = 1
+    flags_to_push_anxiety.push('Trouble relaxing ', anx_score);} else {last_an = 0}}
   if(anxiety_count == 3) {
       if (!(ans == 'Not at all')) {
     anxiety_total += num;
-    data.Anxiety_Flags.push('Being so restless that it\'s hard to sit still ', anx_score);}}
+    last_an = 1
+    flags_to_push_anxiety.push('Being so restless that it\'s hard to sit still ', anx_score);} else {last_an = 0}}
   if(anxiety_count == 4) {
       if (!(ans == 'Not at all')) {
     anxiety_total += num;
-    data.Anxiety_Flags.push('Becoming easily annoyed or irritable ', anx_score);}}
+    last_an = 1
+    flags_to_push_anxiety.push('Becoming easily annoyed or irritable ', anx_score);} else {last_an = 0}}
   if(anxiety_count == 5) {
       if (!(ans == 'Not at all')) {
     anxiety_total += num;
-    data.Anxiety_Flags.push('felt numb or detached from people, activities, or their surroundings ', anx_score);}}
+    last_an = 1
+    flags_to_push_anxiety.push('felt numb or detached from people, activities, or their surroundings ', anx_score);} else {last_an = 0}}
   if(anxiety_count == 6) {
       if (!(ans == 'Not at all')) {
     anxiety_total += num;
-    data.Anxiety_Flags.push('Feeling afraid as if something awful might happen ', anx_score)};
-    data.Anxiety = [anxiety_total]
+    last_an = 1
+    flags_to_push_anxiety.push('Feeling afraid as if something awful might happen ', anx_score)} else {last_an = 0};
+    data.Anxiety = [anxiety_total];
+    data.Anxiety_Flags = [flags_to_push_anxiety]
     open_panic()
   };
 
@@ -1054,30 +1158,23 @@ if (!('Anxiety_Flags' in data)) {
   };
   /////END OF Anxiety
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  function anxiety_back() {
+    if (last_an == 1) {
+  flags_to_push_anxiety.splice(-1,1);
+  anxiety_total --}
+  anxiety_count = anxiety_count - numvar;
+  jQuery(function($) {
+    $('#anxiety_display').fadeOut(500, function() {
+      $(this).text(anxiety_questions[anxiety_count]).fadeIn(500);})})}
 
 
 
 ///Start Panic
 var panic_total = 0;
 var panic_count = 0;
+var flags_to_push_panic = []
 var panic_questions = [
+  'felt moments of sudden terror, fear or fright, sometimes out of the blue (i.e., a panic attack)',
   'felt anxious, worried, or nervous about having more panic attacks',
   'had thoughts of losing control, dying, going crazy, or other bad things happening because of panic attacks',
   'felt a racing heart, sweaty, trouble breathing, faint, or shaky',
@@ -1088,7 +1185,7 @@ var panic_questions = [
 'distracted myself to avoid thinking about panic attacks',
 'needed help to cope with panic attacks (e.g., alcohol or medication, superstitious objects, other people',];
 function panic_answer(num) {
-
+var numvar = num
     if (num == 1) {
       pnc_score = 'occasionally'};
       if (num == 2) {
@@ -1098,60 +1195,69 @@ function panic_answer(num) {
           if (num == 4) {
             pnc_score = 'all of the time'};
 
-if (!('Panic_Flags' in data)) {
-  data.Panic_Flags = []}
 
   if(panic_count == 0) {
       if (num > 0) {
+        last_an = 1;
     panic_total += num;
-    data.Panic_Flags.push('Felt moments of sudden terror, fear or fright, sometimes out of the blue (i.e., a panic attack) ', pnc_score);
-  }}
+    flags_to_push_panic.push('Felt moments of sudden terror, fear or fright, sometimes out of the blue (i.e., a panic attack) ', pnc_score);
+    } else {last_an = 0}}
   if(panic_count == 1) {
       if (num > 0) {
+        last_an = 1;
     panic_total += num;
-    data.Panic_Flags.push('Felt anxious, worried, or nervous about having more panic attacks ', pnc_score);
-  }}
+    flags_to_push_panic.push('Felt anxious, worried, or nervous about having more panic attacks ', pnc_score);
+    } else {last_an = 0}}
   if(panic_count == 2) {
       if (num > 0) {
+        last_an = 1;
     panic_total += num;
-    data.Panic_Flags.push('Had thoughts of losing control, dying, going crazy, or other bad things happening because of panic attacks ', pnc_score);
-  }}
+    flags_to_push_panic.push('Had thoughts of losing control, dying, going crazy, or other bad things happening because of panic attacks ', pnc_score);
+    } else {last_an = 0}}
   if(panic_count == 3) {
       if (num > 0) {
+        last_an = 1;
     panic_total += num;
-    data.Panic_Flags.push('Felt a racing heart, sweaty, trouble breathing, faint, or shaky ', pnc_score);
-  }}
+    flags_to_push_panic.push('Felt a racing heart, sweaty, trouble breathing, faint, or shaky ', pnc_score);
+    } else {last_an = 0}}
   if(panic_count == 4) {
       if (num > 0) {
+        last_an = 1;
     panic_total += num;
-    data.Panic_Flags.push('Felt tense muscles, felt on edge or restless, or had trouble relaxing or trouble sleeping ', pnc_score);
-  }}
+    flags_to_push_panic.push('Felt tense muscles, felt on edge or restless, or had trouble relaxing or trouble sleeping ', pnc_score);
+    } else {last_an = 0}}
   if(panic_count == 5) {
       if (num > 0) {
+        last_an = 1;
     panic_total += num;
-    data.Panic_Flags.push('Avoided, or did not approach or enter, situations in which panic attacks might occur ', pnc_score);
-  }}
+    flags_to_push_panic.push('Avoided, or did not approach or enter, situations in which panic attacks might occur ', pnc_score);
+    } else {last_an = 0}}
   if(panic_count == 6) {
       if (num > 0) {
+        last_an = 1;
     panic_total += num;
-    data.Panic_Flags.push('Left situations early, or participated only minimally, because of panic attacks ', pnc_score);
-  }}
+    flags_to_push_panic.push('Left situations early, or participated only minimally, because of panic attacks ', pnc_score);
+    } else {last_an = 0}}
   if(panic_count == 7) {
       if (num > 0) {
+        last_an = 1;
     panic_total += num;
-    data.Panic_Flags.push('Spent a lot of time preparing for, or procrastinating about (putting off), situations in which panic attacks might occur ', pnc_score);
-  }}
+    flags_to_push_panic.push('Spent a lot of time preparing for, or procrastinating about (putting off), situations in which panic attacks might occur ', pnc_score);
+  } else {last_an = 0}}
   if(panic_count == 8) {
       if (num > 0) {
+        last_an = 1;
     panic_total += num;
-    data.Panic_Flags.push('Distracted myself to avoid thinking about panic attacks ', pnc_score);
-  }}
+    flags_to_push_panic.push('Distracted myself to avoid thinking about panic attacks ', pnc_score);
+  } else {last_an = 0}}
   if(panic_count == 9) {
       if (num > 0) {
+        last_an = 1;
     panic_total += num;
-    data.Panic_Flags.push('Needed help to cope with panic attacks (e.g., alcohol or medication, superstitious objects, other people ', pnc_score);};
+    flags_to_push_panic.push('Needed help to cope with panic attacks (e.g., alcohol or medication, superstitious objects, other people ', pnc_score);};
     data.Panic = [panic_total];
-    start_hx('#anxiety_page');}
+    start_hx('#anxiety_page');
+  data.Panic_Flags = [flags_to_push_panic];}
 
     jQuery(function($) {
      $('#panic_display').fadeOut(500, function() {
@@ -1162,14 +1268,21 @@ if (!('Panic_Flags' in data)) {
 
   /////END OF Panic
 
-
+  function panic_back() {
+    if (last_an == 1) {
+  flags_to_push_panic.splice(-1,1);
+  panic_total = panic_total - numvar}
+  panic_count --;
+  jQuery(function($) {
+   $('#panic_display').fadeOut(500, function() {
+   $(this).text(panic_questions[panic_count]).fadeIn(500);})})}
 
 
 function start_hx(page) {
   jQuery(function($) {
       $(page).slideUp(750);
-      $( "#history" ).delay(1000).slideDown(750);})
-    };
+      $( "#history" ).delay(1000).slideDown(750);
+    })};
 
 function hx_2() {
   jQuery(function($) {
@@ -1407,16 +1520,16 @@ if ($('#no_surg').is(":checked")) {
                 digfast_data.forEach((element) => {
                   digfast_list.push(element)});
 
-                  $("#post_questions").append(" <br>---------------<br>Patient scored " + data.ph9q_Total + "on the PH9-Q scale"
-                  + " and agrees to the following symptoms that have made their life\ " + diff + ":");
+                  $("#post_questions").append(" <br>---------------<br>Patient scored " + data.ph9q_Total + " on the PH9-Q scale"
+                  + " and agrees to the following symptoms that have made their life\ " + diff + ": <br>");
                   ph9q_list[0].forEach((element) => {
-                    $("#post_questions").append("   " + element + "<br/>---<br/>")});
+                    $("#post_questions").append("<li>" + element + "</li>")});
 
 
-                  $("#post_questions").append(" <br>---------------<br>Patient scored " + data.DIGFAST + "on the Severity Measure for Panic Disorder—Adult"
-                  + " and agrees to:");
-                  digfast_list.forEach((element) => {
-                  $("#post_questions").append("   " + element + "<br/>---<br/>")
+                  $("#post_questions").append(" <br>---------------<br>Patient scored " + data.DIGFAST + " on the Severity Measure for Panic Disorder—Adult"
+                  + " and agrees to: <br>");
+                  digfast_list[0].forEach((element) => {
+                  $("#post_questions").append("<li>" + element + "</li>")
                 })})}
 
       if (data.Cheif_Complaint == "Anxiety"){
@@ -1430,15 +1543,15 @@ if ($('#no_surg').is(":checked")) {
         panic_data.forEach((element) => {
           panic_list.push(element)});
 
-          $("#post_questions").append(" <br>---------------<br>Patient scored " + data.Anxiety + "on the General Anxiety Disorder-7 scale"
-          + " and agrees to:");
-          gad_list.forEach((element) => {
-          $("#post_questions").append("   " + element + "<br/>")});
+          $("#post_questions").append(" <br>---------------<br>Patient scored " + data.Anxiety + " on the General Anxiety Disorder-7 scale"
+          + " and agrees to: <br>");
+          gad_list[0].forEach((element) => {
+          $("#post_questions").append("<li>" + element + "</li>")});
 
-          $("#post_questions").append(" <br>---------------<br>Patient scored " + data.Panic + "on the Severity Measure for Panic Disorder—Adult"
-          + " and agreed to the following statement(s):");
-          panic_list.forEach((element) => {
-          $("#post_questions").append("   " + element + "<br/>");
+          $("#post_questions").append(" <br>---------------<br>Patient scored " + data.Panic + " on the Severity Measure for Panic Disorder—Adult"
+          + " and agreed to the following statement(s): <br>");
+          panic_list[0].forEach((element) => {
+          $("#post_questions").append("<li>" + element + "</li>");
         })})}
 
 
@@ -1448,10 +1561,10 @@ if ($('#no_surg').is(":checked")) {
       var mem_list = [];
       mem_data.forEach((element) => {
         mem_list.push(element)});
-        $("#post_questions").append(" <br>---------------<br>Patient scored " + data.Memory_Depression + "on the Geriatric Depression Scale"
-       + " and has:");
-      mem_list.forEach((element) => {
-        $("#post_questions").append("   " + element + "<br/>")})})}
+        $("#post_questions").append(" <br>---------------<br>Patient scored a " + data.Memory_Depression + " on the Geriatric Depression Scale"
+       + " and: <br>");
+      mem_list[0].forEach((element) => {
+        $("#post_questions").append("<li>" + element + "</li>")})})}
 
 
         if (data.Cheif_Complaint == "PTSD"){
@@ -1461,9 +1574,9 @@ if ($('#no_surg').is(":checked")) {
         ptsd_data.forEach((element) => {
           ptsd_list.push(element)});
         $("#post_questions").append(" <br>---------------<br>Patient scored " + data.PTSD + "on the Primary Care PTSD Screen for DSM-5"
-        + " and agrees to:");
-      ptsd_list.forEach((element) => {
-        $("#post_questions").append("   " + element + "<br/>")})})}
+        + " and agrees to: <br>");
+      ptsd_list[0].forEach((element) => {
+        $("#post_questions").append("<li>" + element + "</li>")})})}
 
   });
 
