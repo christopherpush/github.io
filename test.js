@@ -315,7 +315,7 @@ $(document).ready(function() {
 
             $('#no_sex_contra').click(function(){
             $('#yes_sex_contra').css('color','white');
-              data.Contraception = ['No']
+              data.Contraception = ['Denies']
               });
 
             $('#yes_sex_contra').click(function(){
@@ -403,7 +403,7 @@ $(document).ready(function() {
 
             $('#no_sex').click(function(){
             $('#yes_sex').css('color','white');
-              data.SexuallyActive = ['No']
+              data.SexuallyActive = ['Denies']
               });
 
       $('#yes_prego').click(function(){
@@ -1503,7 +1503,13 @@ if ($('#no_surg').is(":checked")) {
       $("#1safe").append(data.Safe);
       $("#1suicide").append(data.Suicide);
       $("#1family").append("\ " + data.Family_History);
-
+    
+        if (data.Sex == "female"){
+                   
+      $("#chance_p_q").append(data.PregnantChance);
+      $("#cont_q").append(data.Contraception);
+      $("#sex_act_q").append(data.SexuallyActive);
+      $("#cur_preg_q").append(data.Pregnant);}
 
       var survery_data = data.Survey
 
