@@ -1,11 +1,219 @@
 var data = {};
-
 // data.key1 = ['val1'];create key-value
 // data.key1.push('val2');append value
-//
-// console.log(data.key1);
+
+/////validate long form data
+    $(document).ready(function() {
+      var validator = $("#my_form").validate({
+      ignore:  ":hidden:not(.my_item)",
+
+        rules: {
+          survey_d: {
+            required:
+            function(){
+              var survey = data.Abuse_Or_Trauma;
+              var ptsd_data = data.PTSD;
+              if (survey == 'no history of abuse or lingering trauma') {
+                return false;}
+              else if (ptsd_data == undefined){return true}
+                else { return false;;}}},
+
+           no_meds: {
+                required: function(){
+                  var if_meds = data.MedsToCheck;
+                  if (if_meds == undefined) {
+                    return true}
+                    else {return false}}},
+
+           no_allergy: {
+             required: function(){
+               var if_allergy = data.AllergyToCheck;
+               if (if_allergy == undefined) {
+                 return true}
+                 else {return false}}},
 
 
+          cond: {
+            required: '#list_medical_cond:blank'
+          },
+          surg: {
+            required: '#list_surgeries:blank'
+          },
+
+          who: {
+            required: function(){
+              var if_family = data.Family_History;
+              if (if_family == undefined) {
+                return true}
+                else {return false}}},
+
+          what: {
+            required: function(){
+              var if_family = data.Family_History;
+              if (if_family == undefined) {
+                return true}
+                else {return false}}},
+              },
+
+        messages: {
+            age: "Enter your age in numbers",
+            employment: "Please specify employment",
+            education: "Please specify education",
+            relationship: "Please specify relationship",
+            no_meds: "Add medication or select 'none'-- then submit again",
+            no_allergy: "Add allergy or select 'none'-- then submit again",
+            cond: "Enter medical conditions or select 'none'-- then submit again",
+            surg: "Enter surgeries or select 'none'-- then submit again",
+            caffeine_num: "Enter a number or decimal",
+            smoke_type: "Select type",
+            nic_freq: "Please enter frequency number or decimal",
+            nic_duration: "Please enter how long number or decimal",
+            rec_type: "Please enter drug(s) or select 'No' if none",
+            rec_freq: "Please enter how often or select 'No' if none",
+            alcohol_freq: "Please enter number or decimal or select 'No' if none",
+            who: "Please add family member or select 'No' if none",
+            what: "Please add mental health issue or select 'No' if none",
+            what_treatment: "Please enter reason for treatment or select 'No' if none",
+            last_treatment: "Please enter last appointment date or select 'No' if none",
+            hosp_times: "Please eneter number of times or select 'No' if none",
+            recent_hosp: "Please eneter most recent time or select 'No' if none",
+            sex: "Please select sex before submitting",
+            nic: "Please select one before submitting",
+            rec: "Please select one before submitting",
+            alcohol: "Please select one before submitting",
+            preg: "Please select one before submitting",
+            sex_active: "Please select one before submitting",
+            contra: "Please select one before submitting",
+            preg_c: "Please select one before submitting",
+            legal: "Please select one before submitting",
+            ptsd: "Please select one before submitting",
+            survey: "Please select one before submitting",
+            safe: "Please select one before submitting",
+            suicide: "Please select one before submitting",
+            fam_hx: "Please select one before submitting",
+            psy_hx: "Please select one before submitting",
+            admit: "Please select one before submitting",
+            survey_d: "Please answer all questions-- then submit again",
+            cc: "Please enter an answer",
+          },
+
+        errorPlacement: function(error, element) {
+                if (element.attr("name") == "no_meds") {
+                    error.appendTo("#error_meds")}
+                else if (element.attr("name") == "age") {
+                    error.appendTo("#error_age")}
+                else if (element.attr("name") == "no_allergy") {
+                    error.appendTo("#error_allergy")}
+                else if (element.attr("name") == "age") {
+                    error.appendTo("#error_age")}
+                else if (element.attr("name") == "cond") {
+                    error.appendTo("#error_cond")}
+                else if (element.attr("name") == "surg") {
+                    error.appendTo("#error_surg")}
+                else if (element.attr("name") == "caffeine_num") {
+                    error.appendTo("#error_caffeine")}
+                else if (element.attr("name") == "sex") {
+                    error.appendTo("#error_sex")}
+                else if (element.attr("name") == "nic") {
+                    error.appendTo("#error_nic")}
+                else if (element.attr("name") == "rec") {
+                    error.appendTo("#error_rec")}
+                else if (element.attr("name") == "alcohol") {
+                    error.appendTo("#error_alcohol")}
+                else if (element.attr("name") == "preg") {
+                    error.appendTo("#error_preg")}
+                else if (element.attr("name") == "sex_active") {
+                    error.appendTo("#error_sex_active")}
+                else if (element.attr("name") == "contra") {
+                    error.appendTo("#error_contra")}
+                else if (element.attr("name") == "preg_c") {
+                    error.appendTo("#error_preg_c")}
+                else if (element.attr("name") == "legal") {
+                    error.appendTo("#error_legal")}
+                else if (element.attr("name") == "ptsd") {
+                    error.appendTo("#error_ptsd")}
+                else if (element.attr("name") == "survey") {
+                    error.appendTo("#error_survey")}
+                else if (element.attr("name") == "safe") {
+                    error.appendTo("#error_safe")}
+                else if (element.attr("name") == "suicide") {
+                    error.appendTo("#error_suicide")}
+                else if (element.attr("name") == "fam_hx") {
+                    error.appendTo("#error_fam_hx")}
+                else if (element.attr("name") == "psy_hx") {
+                    error.appendTo("#error_psy_hx")}
+                else if (element.attr("name") == "admit") {
+                    error.appendTo("#error_admit")}
+                else if (element.attr("name") == "survey_d") {
+                  error.appendTo("#error_survey_d")}
+
+                     else {
+                    error.insertAfter(element);}},
+
+        onfocusout: false,
+        invalidHandler: function(form, validator) {
+            var errors = validator.numberOfInvalids();
+            if (errors) {
+                validator.errorList[0].element.focus();
+              if($(validator.errorList[0].element).is(":hidden")) {
+                  // $("#error_survey_d").focus();
+                  $('html, body').animate({
+                      scrollTop: $("#abuse_hx_box").offset().top
+                    });}
+
+            }}});});
+
+
+    $('#done_hx').click(function() {
+        if ($("#my_form").valid()) {
+          // $("#my_form").submit();
+          finished()
+        }
+        else {return false};
+    });
+///end of log form validator
+
+
+
+///validater spelled different tahn other validate form, do I need a unique variable? Who knows.
+    $(document).ready(function() {
+      var validater = $("#cc_form").validate({
+        rules: {},
+        messages: {
+            cc: "Please enter an answer",
+          },
+        errorPlacement: function(error, element) {
+                 if (element.attr("name") == "cc") {
+                  error.appendTo("#cc_error")}
+                     else {
+                    error.insertAfter(element);}},
+        onfocusout: false,
+        invalidHandler: function(form, validater) {
+            var errors = validater.numberOfInvalids();
+            if (errors) {
+                validater.errorList[0].element.focus();}
+        }});});
+
+/////validator for age if memory Problems
+$(document).ready(function() {
+  var validater = $("#age_form").validate({
+    rules: {},
+    messages: {
+        age_60: "Please enter a number",
+      },
+    errorPlacement: function(error, element) {
+             if (element.attr("name") == "age_60") {
+              error.appendTo("#age_error_60")}
+                 else {
+                error.insertAfter(element);}},
+    onfocusout: false,
+    invalidHandler: function(form, validater) {
+        var errors = validater.numberOfInvalids();
+        if (errors) {
+            validater.errorList[0].element.focus();}
+    }});});
+
+///functions for button presses at beginning of survey
 function new_pt() {
     jQuery(function($) {
         $("#new_old_what").slideUp(750);
@@ -30,7 +238,6 @@ function mood() {
     jQuery(function($) {
       var cc_var = $("#something_else_cc_answer").val();
       data.CC = [cc_var];
-      data.Survey = ['PHQ-9']
         $("#somethingelse_page").slideUp(750);
         $( "#mood_page" ).delay(1000).slideDown(750);})
         data.Cheif_Complaint = ['Mood issues'];
@@ -52,6 +259,7 @@ function ptsd() {
         $("#somethingelse_page").slideUp(750);
         $( "#ptsd_page" ).delay(1000).slideDown(750);})
         data.Cheif_Complaint = ['PTSD'];
+        $("#ptsd_in_hx").css("display", "none")
       };
 
 function anxiety() {
@@ -82,6 +290,11 @@ function no_ptsd_start() {
         $( "#start_ptsd" ).delay(1000).slideDown(750);})
       };
 
+      function done_ph9q() {
+          jQuery(function($) {
+              $("#mood_page").slideUp(750);
+              $( "#digfast_page" ).delay(1000).slideDown(750);})
+            };
 
             function open_panic() {
                 jQuery(function($) {
@@ -101,40 +314,57 @@ function no_ptsd_start() {
                       $("#anxiety_page").slideUp(750);
                       $( "#history" ).delay(1000).slideDown(750);})}}
 
-
-
-  function age_pre() {
+//only depression screen for MCI if over 60
+  function age_pre_60() {
     var age = $("#age_pre").val();
     data.Age = [age];
     if (age > 59) {
       jQuery(function($) {
+        console.log('>');
           $("#age_bar").slideUp(750);
           $( "#over_60" ).delay(1000).slideDown(750);
-        $( "#age_q" ).css("display", "none");})
-
-        }
+        $( "#age_q" ).css("display", "none");})}
     else {
+      console.log("<");
       jQuery(function($) {
           $("#memory_page").slideUp(750);
           $( "#history" ).delay(1000).slideDown(750);
-        $( "#age_q" ).css("display", "none");})
-    }};
-
+        $( "#age_q" ).toggle(500);})}};
 
               function else_hx() {
                   jQuery(function($) {
                     var cc_var = $("#something_else_cc_answer").val();
                       $("#somethingelse_page").slideUp(750);
                       $( "#history" ).delay(1000).slideDown(750);
-                      data.CC = [cc_var];
-
-                    })};
+                      data.CC = [cc_var];})};
 
 
+                      function start_hx(page) {
+                        jQuery(function($) {
+                            $(page).slideUp(750);
+                            $( "#history" ).delay(1000).slideDown(750);
+                          })};
+
+                      function hx_2() {
+                        jQuery(function($) {
+                            $("#history").slideUp(750);
+                            $( "#history_2" ).delay(1000).slideDown(750);})
+                          };
+
+//validates "5 words or so CC" is filled out then sends to correct survey
+function sendto(cc) {
+  if ($("#cc_form").valid()) {
+    window[cc]();}
+  else {return false};}
+
+//function called when next, sends to validate an age was input
+  function age_valid(cc) {
+    if ($("#age_form").valid()) {
+      age_pre_60()}
+    else {return false};}
 
 $(document).ready(function() {
-
-
+///disables buttons for 1.25sec so you dont double click
   $('input[type="button"]').click(function(){
   var that = this;
   $(this).css('color','#3299e9');
@@ -143,280 +373,162 @@ $(document).ready(function() {
       $(that).prop('disabled', false);
     }, 1250)});
 
-// 1250
 
+//functionality of all the radiobuttons in the survey
+$("input[name='sex']").change(function(){
+  if ($(this).val() == 'Male') {
+        data.Sex = ['male'];
+          $( "#if_female" ).delay(200).slideUp(1000)}
+       else if ($(this).val() == 'Female') {
+         data.Sex = ['female']
+           $( "#if_female" ).delay(200).slideDown(1000)}});
+
+
+           $("input[name='nic']").change(function(){
+             if ($(this).val() == 'Yes') {
+                   data.Smoker = ['Yes'];
+                   $( "#nic_box" ).delay(200).slideDown(1000)}
+                  else if ($(this).val() == 'No') {
+                    data.Smoker = ['Denies'];
+                      $( "#nic_box" ).delay(200).slideUp(1000)}});
+
+
+$("input[name='rec']").change(function(){
+  if ($(this).val() == 'Yes') {
+        data.RecDrugs = ['Yes'];
+        $( "#rec_box" ).delay(200).slideDown(1000)}
+       else if ($(this).val() == 'No') {
+         data.RecDrugs = ['Denies'];
+          $( "#rec_box" ).delay(200).slideUp(1000)}});
+
+
+          $("input[name='alcohol']").change(function(){
+            if ($(this).val() == 'Yes') {
+                  data.Alcohol = ['Yes'];
+                  $( "#alcohol_box" ).delay(200).slideDown(1000)}
+                 else if ($(this).val() == 'No') {
+                   data.Alcohol = ['Denies'];
+                    $( "#alcohol_box" ).delay(200).slideUp(1000)}});
+
+
+        $("input[name='preg']").change(function(){
+          if ($(this).val() == 'Yes') {
+                data.Pregnant = ['Yes'];
+              $( "#prego_box" ).delay(200).slideUp(1000);
+            $( "#prego_box_2" ).delay(200).slideUp(1000)}
+               else if ($(this).val() == 'No') {
+                 data.Pregnant = ['Denies'];
+                 $( "#prego_box" ).delay(200).slideDown(1000)
+                 $( "#prego_box_2" ).delay(200).slideDown(1000)}});
+
+
+ $("input[name='sex_active']").change(function(){
+   if ($(this).val() == 'Yes') {
+         data.SexuallyActive = ['Yes'];
+       $( "#sex_active_box" ).delay(200).slideDown(1000)}
+        else if ($(this).val() == 'No') {
+          data.SexuallyActive = ['Denies'];
+          $( "#sex_active_box" ).delay(200).slideUp(1000)}});
+
+
+                  $("input[name='contra']").change(function(){
+                    if ($(this).val() == 'Yes') {
+                          data.Contraception = ['Yes']}
+                         else if ($(this).val() == 'No') {
+                           data.Contraception = ['Denies'];}});
+
+
+ $("input[name='preg_c']").change(function(){
+   if ($(this).val() == 'Yes') {
+         data.PregnantChance = ['Yes'];}
+        else if ($(this).val() == 'No') {
+          data.PregnantChance = ['Denies'];}});
+
+
+                    $("input[name='legal']").change(function(){
+                      if ($(this).val() == 'Yes') {
+                            data.Legal = ['has past/present legal troubles'];}
+                           else if ($(this).val() == 'No') {
+                             data.Legal = ['denies any past or present legal history'];}});
+
+
+ $("input[name='ptsd']").change(function(){
+   if ($(this).val() == 'Yes') {
+     data.Abuse_Or_Trauma = ['a past history of abuse/lingering trauma'];
+     $( "#abuse_hx_box" ).delay(200).slideDown(1000)}
+        else if ($(this).val() == 'No') {
+          data.Abuse_Or_Trauma = ['no history of abuse or lingering trauma']
+        $( "#abuse_hx_box" ).delay(200).slideUp(1000)};});
+
+
+                      $("input[name='survey']").change(function(){
+                        if ($(this).val() == 'Yes') {
+                          $("input[name='survey']").attr('checked',false);
+                          $("input[name='survey']").removeClass("selected");
+                              ptsd_answer(1, 'hx');}
+                             else if ($(this).val() == 'No') {
+                               $("#yes_abuse_survey").removeClass("selected");
+                               ptsd_answer(0, 'hx');}});
+
+
+ $("input[name='safe']").change(function(){
+   if ($(this).val() == 'Yes') {
+        data.Safe = ['reports feeling safe at home'];}
+        else if ($(this).val() == 'No') {
+          data.Safe = ['reports not feeling safe at home'];}});
 
 
+                $("input[name='suicide']").change(function(){
+                  if ($(this).val() == 'Yes') {
+                     data.Suicide = ['Agrees to seriously considering/past suicide attempts'];}
+                       else if ($(this).val() == 'No') {
+                         data.Suicide = ['Denies seriously considering or past suicide attempts'];}});
 
-  $("#psych_hosp_yes").click(function(event) {
-    jQuery(function($) {
-      $( "#psych_hosp_box" ).delay(200).slideDown(1000)})});
 
+ $("input[name='fam_hx']").change(function(){
+   if ($(this).val() == 'Yes') {
+    $( "#family_hx_box" ).delay(200).slideDown(1000)}
+        else if ($(this).val() == 'No') {
+        data.Family_History = ['no family history of mental illness'];
+        $( "#family_hx_box" ).delay(200).slideUp(1000)};});
 
-  $("#psych_hosp_no").click(function(event) {
-    jQuery(function($) {
-      $( "#psych_hosp_box" ).delay(200).slideUp(1000)})});
 
+                $("input[name='psy_hx']").change(function(){
+                  if ($(this).val() == 'Yes') {
+                       data.Psych_Care = ['Yes'];
+                  $( "#psych_care_box" ).delay(200).slideDown(1000)}
+                       else if ($(this).val() == 'No') {
+                          data.Psych_Care = ['denies previous psychiatric care'];
+                       $( "#psych_care_box" ).delay(200).slideUp(1000)};});
 
 
-      $("#yes_mental_care").click(function(event) {
-        jQuery(function($) {
-          $( "#psych_care_box" ).delay(200).slideDown(1000)})});
-
-
-      $("#no_mental_care").click(function(event) {
-        jQuery(function($) {
-          $( "#psych_care_box" ).delay(200).slideUp(1000)})});
-
-
-
-
-  $("#yes_family_hx").click(function(event) {
-    jQuery(function($) {
-      $( "#family_hx_box" ).delay(200).slideDown(1000)})});
-
-
-  $("#no_family_hx").click(function(event) {
-    jQuery(function($) {
-      $( "#family_hx_box" ).delay(200).slideUp(1000)})});
-
-
-
-
-      $("#no_prego").click(function(event) {
-        jQuery(function($) {
-          $( "#prego_box" ).delay(200).slideDown(1000)
-          $( "#prego_box_2" ).delay(200).slideDown(1000)
-        })});
-
-
-      $("#yes_prego").click(function(event) {
-        jQuery(function($) {
-          $( "#prego_box" ).delay(200).slideUp(1000)})});
-
-
-
-
-  $("#yes_sex").click(function(event) {
-    jQuery(function($) {
-      $( "#sex_active_box" ).delay(200).slideDown(1000)})});
-
-
-  $("#no_sex").click(function(event) {
-    jQuery(function($) {
-      $( "#sex_active_box" ).delay(200).slideUp(1000)})});
-
-
-
-          $("#yes_nic").click(function(event) {
-            jQuery(function($) {
-              $( "#nic_box" ).delay(200).slideDown(1000)})});
-
-
-          $("#no_nic").click(function(event) {
-            jQuery(function($) {
-              $( "#nic_box" ).delay(200).slideUp(1000)})});
-
-
-    $("#yes_alcohol").click(function(event) {
-      jQuery(function($) {
-        $( "#alcohol_box" ).delay(200).slideDown(1000)})});
-
-
-    $("#no_alcohol").click(function(event) {
-      jQuery(function($) {
-        $( "#alcohol_box" ).delay(200).slideUp(1000)})});
-
-
-            $("#yes_rec").click(function(event) {
-              jQuery(function($) {
-                $( "#rec_box" ).delay(200).slideDown(1000)})});
-
-
-            $("#no_rec").click(function(event) {
-              jQuery(function($) {
-                $( "#rec_box" ).delay(200).slideUp(1000)})});
-
-
-
-
-
-                $('#no_surg').click(function(){
-                $('#surg').toggle(750);
-                  });
-
-                $('#no_cond').click(function(){
-                $('#cond').toggle(750);
-                  });
-
-                      $('#no_meds').click(function(){
-                      $('#add_meds').toggle(750);
-                        });
-
-                      $('#no_allergy').click(function(){
-                      $('#no_allergy_box').toggle(750);
-                        });
-
-
-
-
-
-
-
-        $('#yes_legal').click(function(){
-        $('#no_legal').css('color','white');
-          data.Legal = ['has past/present legal troubles']
-          });
-
-        $('#no_legal').click(function(){
-        $('#yes_legal').css('color','white');
-          data.Legal = ['denies any past or present legal hisotry']
-          });
-
-            $('#yes_abuse').click(function(){
-            $('#no_abuse').css('color','white');
-              data.Abuse_Or_Trauma = ['a past history of abuse/lingering trauma']
-              });
-
-            $('#no_abuse').click(function(){
-            $('#yes_abuse').css('color','white');
-              data.Abuse_Or_Trauma = ['no history of abuse or lingering trauma']
-          });
-
-        $('#no_safe').click(function(){
-        $('#yes_safe').css('color','white');
-          data.Safe = ['reports not feeling safe at home']
-          });
-
-        $('#yes_safe').click(function(){
-        $('#no_safe').css('color','white');
-          data.Safe = ['reports feeling safe at home']
-          });
-
-            $('#no_suicide').click(function(){
-            $('#yes_suicide').css('color','white');
-              data.Suicide = ['Denies seriously considering or past suicide attempts']
-              });
-
-            $('#yes_suicide').click(function(){
-            $('#no_suicide').css('color','white');
-            data.Suicide = ['Agrees to seriously considering/past suicide attempts']
-          });
-
-      $('#yes_chance').click(function(){
-      $('#no_chance').css('color','white');
-        data.PregnantChance = ['Yes']
-        });
-
-      $('#no_chance').click(function(){
-      $('#yes_chance').css('color','white');
-        data.PregnantChance = ['No']
-        });
-
-            $('#no_sex_contra').click(function(){
-            $('#yes_sex_contra').css('color','white');
-              data.Contraception = ['Denies']
-              });
-
-            $('#yes_sex_contra').click(function(){
-            $('#no_sex_contra').css('color','white');
-              data.Contraception = ['Yes']
-              });
-
-      $('#no_nic').click(function(){
-      $('#yes_nic').css('color','white');
-      data.Smoker = ['Denies'];
-        });
-
-      $('#yes_nic').click(function(){
-      $('#no_nic').css('color','white');
-      data.Smoker = ['Yes'];
-        });
-
-            $('#no_alcohol').click(function(){
-            $('#yes_alcohol').css('color','white');
-            data.Alcohol = ['Denies'];
-              });
-
-            $('#yes_alcohol').click(function(){
-            $('#no_alcohol').css('color','white');
-            data.Alcohol = ['Yes']
-              });
-
-      $('#no_rec').click(function(){
-      $('#yes_rec').css('color','white');
-      data.RecDrugs = ['Denies'];
-        });
-
-      $('#yes_rec').click(function(){
-      $('#no_rec').css('color','white');
-      data.RecDrugs = ['Yes'];
-        });
-
-            $('#Male').click(function(){
-            $('#Female').css('color','white');
-            data.Sex = ['male'];
-            jQuery(function($) {
-              $( "#if_female" ).delay(200).slideUp(1000)});
-              });
-
-            $('#Female').click(function(){
-            $('#Male').css('color','white');
-            data.Sex = ['female']
-            jQuery(function($) {
-              $( "#if_female" ).delay(200).slideDown(1000)});
-              });
-
-      $('#psych_hosp_yes').click(function(){
-      $('#psych_hosp_no').css('color','white');
+ $("input[name='admit']").change(function(){
+   if ($(this).val() == 'Yes') {
       data.Hospital = ['Yes'];
-        });
+   $( "#psych_hosp_box" ).delay(200).slideDown(1000)}
+        else if ($(this).val() == 'No') {
+           data.Hospital = ['Denies any psychiatric hospital admits'];
+        $( "#psych_hosp_box" ).delay(200).slideUp(1000)};});
 
-      $('#psych_hosp_no').click(function(){
-      $('#psych_hosp_yes').css('color','white');
-        data.Hospital = ['Denies any psychiatric hospital admits'];
-        });
+//collapses meds allergies surgeires and conditions if clicked 'none'
+    $('#no_surg').click(function(){
+    $('#surg').toggle(750);
+      });
 
-            $('#no_mental_care').click(function(){
-            $('#yes_mental_care').css('color','white');
-                  data.Psych_Care = ['denies previous psychiatric care']
+    $('#no_cond').click(function(){
+    $('#cond').toggle(750);
+      });
+
+            $('#no_meds').click(function(){
+            $('#add_meds').toggle(750);
               });
 
-            $('#yes_mental_care').click(function(){
-            $('#no_mental_care').css('color','white');
-                  data.Psych_Care = ['Yes']
+            $('#no_allergy').click(function(){
+            $('#no_allergy_box').toggle(750);
               });
 
-      $('#no_family_hx').click(function(){
-      $('#yes_family_hx').css('color','white');
-      data.Family_History = ['no family history of mental illness']
-        });
-
-      $('#yes_family_hx').click(function(){
-      $('#no_family_hx').css('color','white');
-        });
-
-            $('#yes_sex').click(function(){
-            $('#no_sex').css('color','white');
-              data.SexuallyActive = ['Yes']
-              });
-
-            $('#no_sex').click(function(){
-            $('#yes_sex').css('color','white');
-              data.SexuallyActive = ['Denies']
-              });
-
-      $('#yes_prego').click(function(){
-      $('#no_prego').css('color','white');
-      data.Pregnant = ['Yes']
-        });
-
-      $('#no_prego').click(function(){
-      $('#yes_prego').css('color','white');
-      data.Pregnant = ['Denies']
-        });
-
-
+//turns button white after clicking so they dont stay gray and look like you cant click again
+//should make a simple function were i a better person
 $('#an11').click(function(){
 $('#an11').delay(500).css('color','white');
   });
@@ -433,8 +545,6 @@ $('#an51').click(function(){
 $('#an51').delay(500).css('color','white');
   });
 
-
-
     $('#an12').click(function(){
 $('#an12').delay(500).css('color','white');
   });
@@ -447,7 +557,6 @@ $('#an32').delay(500).css('color','white');
 $('#an42').click(function(){
 $('#an42').delay(500).css('color','white');
   });
-
 
         $('#an1').click(function(){
         $('#an1').delay(500).css('color','white');
@@ -473,7 +582,6 @@ $('#an42').delay(500).css('color','white');
               $('#no_memory').delay(500).css('color','white');
                 });
 
-
       $('#no_ptsd').click(function(){
       $('#no_ptsd').delay(500).css('color','white');
         });
@@ -481,7 +589,6 @@ $('#an42').delay(500).css('color','white');
       $('#yes_ptsd').click(function(){
       $('#yes_ptsd').delay(500).css('color','white');
         });
-
 
       $('#yes_digfast').click(function(){
       $('#yes_digfast').delay(500).css('color','white');
@@ -491,7 +598,22 @@ $('#an42').delay(500).css('color','white');
       $('#no_digfast').delay(500).css('color','white');
         });
 
+$('#yes_abuse_survey').click(function(){
+$('#yes_abuse_survey').delay(500).css('color','white');
+  $('#yes_abuse_survey').delay(500).css('background-color', '#007bff')
+  });
 
+  $('#no_abuse_survey').click(function(){
+  $('#no_abuse_survey').delay(500).css('color','white');
+  $('#no_abuse_survey').delay(500).css('background-color', '#007bff')
+    });
+
+          $('#done_hx').click(function(){
+          $('#done_hx').delay(500).css('color','white');
+            $('#done_hx').delay(500).css('background-color', '#007bff')
+            });
+
+//takes medication dose frequency and name and shows it to patient when inputed and adds to lists to check and display for provider
           var med_num = 1
           $("#add_med").click(function(){
             var med = $( '#med_name' ).val();
@@ -535,9 +657,7 @@ $('#an42').delay(500).css('color','white');
               data.MedAllergy.push(allergy_to_data);
               data.AllergyToCheck.push(allergy_name);}});
 
-
-
-
+//takes family history of disease and adds them together to show to patient and provider later
           var family_num = 1
           $("#add_family").click(function(){
             var who = $( '#who' ).val();
@@ -552,31 +672,13 @@ $('#an42').delay(500).css('color','white');
             family_to_push = who + ' - ' + what
 
             if (!('Family_History' in data)) {
-              data.Family_History = ["family history of mental illness" + family_to_push]}
+              data.Family_History = ["family history of mental illness: " + family_to_push]}
 
             else if (('Family_History' in data)) {
               data.Family_History.push("\ and\ " + family_to_push)};
-          });
-
-
-
-
-
-})
-
-
-
-function done_ph9q() {
-    jQuery(function($) {
-        $("#mood_page").slideUp(750);
-        $( "#digfast_page" ).delay(1000).slideDown(750);})
-        data.Survey.push('Mood Disorder Questionnaire')
-      };
+          });})
 
 /////Start DIGFAST
-
-
-
  var digfast_total = 0;
      var digfast_count = 0;
      var flags_to_push = []
@@ -597,12 +699,12 @@ function done_ph9q() {
     " Think about these last 12 questions-- have several of these ever happened during the same period of time?",
     "How much of a problem did any of these cause you — like being able to work; having family, money, or legal troubles; getting into arguments or fights?",
 ];
+///called every answer inputted for DIGFAST
      function digfast_but(digfast_ans, digfast_val) {
-
 
 if (!('DIGFAST_Depression_Flags' in data)) {
   data.DIGFAST_Flags = []}
-
+//for each question, if yes adds to total score, marks last answer yes for back button functionality, pushes andwer to provider note
 if(digfast_count == 0) {
   if (digfast_ans == 0) {
     digfast_total ++;
@@ -685,14 +787,14 @@ flags_to_push.push("spending money got them or their family in trouble");
 //change answer type to last question ones if yes to any prior question
 if (digfast_count > 12) {
     if (digfast_total > 0) {
+      //question asked only if answered yes to 1 or more
 jQuery(function($) {
      $('#digfast_display').fadeOut(500, function() {
            $(this).text(digfast_questions[digfast_count]).fadeIn(500);
          })})
          jQuery(function($) {
              $("#first_answers_digfast").slideUp(750);
-             $( "#last_answers_digfast" ).delay(1000).slideDown(750);});
-       }
+             $( "#last_answers_digfast" ).delay(1000).slideDown(750);});}
 else {
   start_hx('#digfast_page')
   data.DIGFAST = [digfast_total]
@@ -720,18 +822,16 @@ if(digfast_count == 14) {
             $(this).text(digfast_questions[digfast_count]).fadeIn(500);
           })})}
 
+
+          //back button for digfast
+          function digfast_back() {
+          if (last_an = 1) {
+          flags_to_push.splice(-1,1);}
+          digfast_count --;
+          jQuery(function($) {
+               $('#digfast_display').fadeOut(500, function() {
+                     $(this).text(digfast_questions[digfast_count]).fadeIn(500);})})}
 ////////End DIGFAST    https://www.ohsu.edu/sites/default/files/2019-06/cms-quality-bipolar_disorder_mdq_screener.pdf
-
-function digfast_back() {
-if (last_an = 1) {
-flags_to_push.splice(-1,1);}
-digfast_count --;
-jQuery(function($) {
-     $('#digfast_display').fadeOut(500, function() {
-           $(this).text(digfast_questions[digfast_count]).fadeIn(500);})})}
-
-
-
 
 ////Start PH9Q
 var ph9q_count = 0;
@@ -820,7 +920,7 @@ if(ph9q_count == 7) {
             $(this).prop('value', 'Extremely difficult').fadeIn(500);
         });
         })}
-
+///last question has different answer buttons
   else if (ph9q_count > 8) {
     if (ph9q_ans == 1) {
       data.ph9q_diff = ['Not difficult at all']
@@ -843,29 +943,30 @@ if(ph9q_count == 7) {
                $(this).text(ph9q_questions[ph9q_count]).fadeIn(500);
              })})};
      ph9q_count ++;};
+     //end//
+     ///back button function for ph9q
+     function ph9q_back() {
+     if (ph9q_count == 8) {
+       $('#an1').fadeOut(500, function() {
+             $(this).prop('value', 'Not at all').fadeIn(500);
+           });
+       $('#an2').fadeOut(500, function() {
+             $(this).prop('value', 'Several days').fadeIn(500);
+           });
+       $('#an3').fadeOut(500, function() {
+             $(this).prop('value', 'More than half the days').fadeIn(500);
+           });
+       $('#an4').fadeOut(500, function() {
+             $(this).prop('value', 'Nearly everyday').fadeIn(500);
+         });}
+     if (last_an = 1) {
+     flags_to_push_ph9q.splice(-1,1);}
+     ph9q_all.splice(-1,1);
+     ph9q_count --;
+     jQuery(function($) {
+       $('#ph9q_display').fadeOut(500, function() {
+             $(this).text(ph9q_questions[ph9q_count]).fadeIn(500);})})}
 ////END OF PH9Q
-
-function ph9q_back() {
-if (ph9q_count == 8) {
-  $('#an1').fadeOut(500, function() {
-        $(this).prop('value', 'Not at all').fadeIn(500);
-      });
-  $('#an2').fadeOut(500, function() {
-        $(this).prop('value', 'Several days').fadeIn(500);
-      });
-  $('#an3').fadeOut(500, function() {
-        $(this).prop('value', 'More than half the days').fadeIn(500);
-      });
-  $('#an4').fadeOut(500, function() {
-        $(this).prop('value', 'Nearly everyday').fadeIn(500);
-    });}
-if (last_an = 1) {
-flags_to_push_ph9q.splice(-1,1);}
-ph9q_all.splice(-1,1);
-ph9q_count --;
-jQuery(function($) {
-  $('#ph9q_display').fadeOut(500, function() {
-        $(this).text(ph9q_questions[ph9q_count]).fadeIn(500);})})}
 
 
 ///Start memory
@@ -1010,18 +1111,17 @@ if(memory_count == 14) {
          $(this).text(memory_questions[memory_count]).fadeIn(500);
        })});
  memory_count ++;};
+
+ //back button for memory
+ function memory_back() {
+   if (last_an == 1) {
+ flags_to_push_memory.splice(-1,1);
+ memory_total --}
+ memory_count --;
+ jQuery(function($) {
+   $('#memory_display').fadeOut(500, function() {
+         $(this).text(memory_questions[memory_count]).fadeIn(500);})})}
 /// END OF MEMORY COUNTER////
-
-function memory_back() {
-  if (last_an == 1) {
-flags_to_push_memory.splice(-1,1);
-memory_total --}
-memory_count --;
-jQuery(function($) {
-  $('#memory_display').fadeOut(500, function() {
-        $(this).text(memory_questions[memory_count]).fadeIn(500);})})}
-
-
 
 ///Start PTSD
 var ptsd_total = 0;
@@ -1033,8 +1133,7 @@ var ptsd_questions = [
   'been constantly on guard, watchful, or easily startled?',
   'felt numb or detached from people, activities, or your surroundings?',
   'felt guilty or unable to stop blaming yourself or others for the event(s) or any problems the event(s) may have caused?',];
-function ptsd_answer(ans) {
-
+function ptsd_answer(ans, loc) {
 
   if(ptsd_count == 0) {
       if (ans == 1) {
@@ -1052,7 +1151,7 @@ function ptsd_answer(ans) {
       if (ans == 1) {
     ptsd_total ++;
     last_an = 1;
-    flags_to_push_ptsd.push('has been constantly on guard, watchful, or easily startled');
+    flags_to_push_ptsd.push('have been constantly on guard, watchful, or easily startled');
   } else {last_an = 0}}
   if(ptsd_count == 3) {
       if (ans == 1) {
@@ -1067,28 +1166,44 @@ function ptsd_answer(ans) {
     flags_to_push_ptsd.push('felt guilty or unable to stop blaming themself or others for the trauma or any problems the trauma may have caused');};
     data.PTSD = [ptsd_total];
     data.PTSD_Flags = [flags_to_push_ptsd]
+    if (loc == 'cc') {
     start_hx('#ptsd_page');}
+    if (loc == 'hx') {
+        jQuery(function($) {
+          $( "#ptsd_in_hx" ).delay(200).slideUp(1000)})};}
 
+    if (loc == 'cc') {
     jQuery(function($) {
      $('#ptsd_display').fadeOut(500, function() {
      $(this).text(ptsd_questions[ptsd_count]).fadeIn(500);
-   })});
+   })});}
+
+   if (loc == 'hx') {
+   jQuery(function($) {
+    $('#abuse_survery_questions_hx').fadeOut(500, function() {
+    $(this).text(ptsd_questions[ptsd_count]).fadeIn(500);
+  })});}
    ptsd_count ++
   };
 
-///END OF PTSD
+//back button for ptsd
+  function ptsd_back(loc) {
+    if (ptsd_count > 0) {
+    if (last_an == 1) {
+  flags_to_push_ptsd.splice(-1,1);
+  ptsd_total --};
+  ptsd_count --};
+  if (loc == 'cc') {
+  jQuery(function($) {
+    $('#ptsd_display').fadeOut(500, function() {
+      $(this).text(ptsd_questions[ptsd_count]).fadeIn(500);})})}
+      else {
+        jQuery(function($) {
+          $('#abuse_survery_questions_hx').fadeOut(500, function() {
+            $(this).text(ptsd_questions[ptsd_count]).fadeIn(500);})})}}
+////////////////////END OF PTSD
 
-function ptsd_back() {
-  if (last_an == 1) {
-flags_to_push_ptsd.splice(-1,1);
-ptsd_total --}
-ptsd_count --;
-jQuery(function($) {
-  $('#ptsd_display').fadeOut(500, function() {
-    $(this).text(ptsd_questions[ptsd_count]).fadeIn(500);})})}
-
-
-///Start Anxiety
+///////////////Start Anxiety
 var anxiety_total = 0;
 var flags_to_push_anxiety = [];
 var anxiety_count = 0
@@ -1156,8 +1271,8 @@ if (num == 1) {
    })});
    anxiety_count ++
   };
-  /////END OF Anxiety
 
+//back button for anxiety
   function anxiety_back() {
     if (last_an == 1) {
   flags_to_push_anxiety.splice(-1,1);
@@ -1166,8 +1281,7 @@ if (num == 1) {
   jQuery(function($) {
     $('#anxiety_display').fadeOut(500, function() {
       $(this).text(anxiety_questions[anxiety_count]).fadeIn(500);})})}
-
-
+  /////END OF Anxiety
 
 ///Start Panic
 var panic_total = 0;
@@ -1255,7 +1369,8 @@ var numvar = num
         last_an = 1;
     panic_total += num;
     flags_to_push_panic.push('Needed help to cope with panic attacks (e.g., alcohol or medication, superstitious objects, other people ', pnc_score);};
-    data.Panic = [panic_total];
+    panic_calc = Math.round(panic_total / 10)
+    data.Panic = [panic_calc];
     start_hx('#anxiety_page');
   data.Panic_Flags = [flags_to_push_panic];}
 
@@ -1266,8 +1381,7 @@ var numvar = num
    panic_count ++
   };
 
-  /////END OF Panic
-
+//back button for panic
   function panic_back() {
     if (last_an == 1) {
   flags_to_push_panic.splice(-1,1);
@@ -1276,25 +1390,9 @@ var numvar = num
   jQuery(function($) {
    $('#panic_display').fadeOut(500, function() {
    $(this).text(panic_questions[panic_count]).fadeIn(500);})})}
+  /////END OF Panic
 
-
-function start_hx(page) {
-  jQuery(function($) {
-      $(page).slideUp(750);
-      $( "#history" ).delay(1000).slideDown(750);
-    })};
-
-function hx_2() {
-  jQuery(function($) {
-      $("#history").slideUp(750);
-      $( "#history_2" ).delay(1000).slideDown(750);})
-    };
-
-
-
-
-
-
+//////////////END OF QUESTIONAIRES
 
 
     /////function for callbacks and api to get rxcui and med interactions
@@ -1324,30 +1422,31 @@ function hx_2() {
 
     function send_rxcui_list(rxcui, med_list) {
       if (rxcui.length == med_list.length) {
-    ///adding drug rxcui and checking interactions
+    ///adding drug rxcui to make a url and checking interactions
     rxcui_list = 'https://rxnav.nlm.nih.gov/REST/interaction/list.json?rxcuis=';
     list_url = rxcui.join('+')
     var med_interactions = []
-    data.Med_Interactions = ['Interactions: ']
+    data.Med_Interactions = []
     rxcui_url_inter = rxcui_list + list_url
           $(document).ready(function() {
             $.ajax({
                 url: rxcui_url_inter,
                 type: 'GET',
+                ///grabbing just the description of each med interaction
                 success: function(returned){
-                  for (var i = 0; i < returned.fullInteractionTypeGroup[0].fullInteractionType[0].interactionPair.length; i++) {
-                  data.Med_Interactions.push(returned.fullInteractionTypeGroup[0].fullInteractionType[0].interactionPair[i].description);}
+                  for (let x of returned.fullInteractionTypeGroup[0].fullInteractionType) {
+                    for (let y of x.interactionPair) {
+                      data.Med_Interactions.push(y.description);
+                    }}
                   print_data()
             }});})}}
 
-
-
-
-///necessary vars
+///necessary vars for finished
   var listed_num = []
   var ph9q_total = 0;
   var surg_checked = [];
 
+///called when sumbitted-- check to see if med interactions available to be checked, if not moves on
 function finished() {
   var med_list = data.MedsToCheck;
   if (!(med_list == undefined)) {
@@ -1357,7 +1456,7 @@ else {
   print_data()
 }}
 
-
+///called after med interactions or if none, creates the note
 function print_data() {
 /////////////This is calc total ph9q score
 if (('ph9q' in data)) {
@@ -1385,19 +1484,20 @@ var pt_school = $("#school").find('option:selected').attr('id');
 data.School = [pt_school];
 
 var pt_relation = $("#pt_relationship").find('option:selected').attr('id');
-data.Relationship = [pt_relation];
-
-
+if (pt_relation == 'unmarried') {
+  var pt_to_relate = "an " + pt_relation}
+  else {pt_to_relate = "a " + pt_relation}
+data.Relationship = [pt_to_relate];
 
   surg_checked = $('input:checkbox:checked.surg_checkbox').map(function(){
     return this.value; }).get().join(", ");
     var list_surgeries = $("#list_surgeries").val();
-    surg_checked = surg_checked + ", " + list_surgeries;
+    surg_checked = surg_checked + ",\ " + list_surgeries;
 
   conds_checked = $('input:checkbox:checked.cond_checkbox').map(function(){
     return this.value; }).get().join(", ");
         var list_medical_cond = $("#list_medical_cond").val();
-    conds_checked = conds_checked + ", " + list_medical_cond;
+    conds_checked = conds_checked + ",\ " + list_medical_cond;
 
       if (!('Medical_Condition' in data)) {
         data.Medical_Condition = [conds_checked]}
@@ -1411,7 +1511,6 @@ data.Relationship = [pt_relation];
       else if (('Surgical_History' in data)) {
         data.Surgical_History.push(surg_checked)};
 
-
   var smoke_type = $("#smoke_type").find('option:selected').attr('id');
   var smoke_freq = $("#nic_freq").val();
   var smoke_dur = $("#nic_duration").val();
@@ -1419,38 +1518,31 @@ data.Relationship = [pt_relation];
 if (data.Smoker == "Yes") {
   data.Smoker.push(smoke);}
 
-    
-    
-var caf_num = $("caffeine_num").val();
+var caf_num = $("#caffeine_num").val();
     data.Caffeine = [caf_num]
 
 var rec_type = $("#rec_type").val();
 var rec_freq = $("#rec_freq").val();
-var rec = "Uses\ " + rec_type + "\ " + rec_freq
+var rec = ", uses\ " + rec_type + "\ " + rec_freq
 if (data.RecDrugs == "Yes") {
 data.RecDrugs.push(rec);}
-
 
 var alcohol_freq = $("#alcohol_freq").val();
 var alcohol_use = ",\ " + alcohol_freq + "\ (drinks per week)";
 if (data.Alcohol == "Yes") {
 data.Alcohol.push(alcohol_use);};
 
-
-
 var hosp_times = $("#hosp_times").val();
 var recent_hosp = $("#recent_hosp").val();
-var hosp_data = "Has\ " + hosp_times + "prior psychiartic hospital admit(s), most recently" + "\"" + recent_hosp + "\"" ;
+var hosp_data = "Has\ " + hosp_times + "\ prior psychiatric hospital admit(s), most recently" + "\ \"" + recent_hosp + "\"" ;
 if (data.Hospital == "Yes") {
 data.Hospital = [hosp_data];}
-
 
 var what_treatment = $("#what_treatment").val();
 var last_treatment = $("#last_treatment").val();
 var treatment_push =  "has been previously treated for\ " + "\"" + what_treatment + "\"" + "and their last appointment was\ " + "\"" + last_treatment + "\"" ;
 if (data.Psych_Care == "Yes") {
 data.Psych_Care = [treatment_push];};
-
 
 if ($('#no_allergy').is(":checked")) {
   data.MedAllergy = ['Denies']
@@ -1460,22 +1552,16 @@ if ($('#no_meds').is(":checked")) {
   data.Medications = ['Denies']
   data.MedsToCheck = ['Denies']};
 
-
-
 if ($('#no_cond').is(":checked")) {
   data.Medical_Condition = ['Denies']};
 
 if ($('#no_surg').is(":checked")) {
   data.Surgical_History = ['Denies']};
 
-
-
+///adding all the final data to a note
   jQuery(function($) {
-      // $("#algorx").slideUp(750);
       $("#history").slideUp(750);
-      $( "#note" ).delay(1000).slideDown(750);
-      $( "#after_submit" ).delay(1000).slideDown(750);})
-
+      $( "#note" ).delay(1000).slideDown(750);})
 
     jQuery(document).ready(function(){
 
@@ -1488,7 +1574,6 @@ if ($('#no_surg').is(":checked")) {
       med_data = data.Medications
       data.Medications.forEach((element) => {
       $("#1medications").append("   " + element + "<br/>");})
-
 
       data.MedAllergy.forEach((element) => {
       $("#1allergies").append(element + " , ");})
@@ -1506,20 +1591,20 @@ if ($('#no_surg').is(":checked")) {
       $("#1abuse").append(data.Abuse_Or_Trauma);
       $("#1safe").append(data.Safe);
       $("#1suicide").append(data.Suicide);
-      $("#1family").append("\ " + data.Family_History);     
+      $("#1family").append("\ " + data.Family_History);
       $("#caffeine_num_entered").append( data.Caffeine);
-    
-        if (data.Sex == "female"){
-                   
+
+        if (data.Sex == "female") {
+  jQuery(document).ready(function(){
+      $( "#preg_disp" ).slideDown(750);
+
       $("#chance_p_q").append(data.PregnantChance);
       $("#cont_q").append(data.Contraception);
       $("#sex_act_q").append(data.SexuallyActive);
-      $("#cur_preg_q").append(data.Pregnant);}
+      $("#cur_preg_q").append(data.Pregnant);})};
 
-      var survery_data = data.Survey
-
-
-      if (data.Cheif_Complaint == "Mood issues"){
+////putting all the questionaire data into a neat format, flagging all the positive answers for each questionaire
+      if (data.Cheif_Complaint == "Mood issues") {
             jQuery(document).ready(function(){
       var ph9q_data = data.ph9q_Flags;
       var diff = data.ph9q_diff
@@ -1531,19 +1616,28 @@ if ($('#no_surg').is(":checked")) {
                 digfast_data.forEach((element) => {
                   digfast_list.push(element)});
 
-                  $("#post_questions").append(" <br>---------------<br>Patient scored " + data.ph9q_Total + " on the PH9-Q scale"
-                  + " and agrees to the following symptoms that have made their life\ " + diff + ": <br>");
+                  $("#post_questions").append("<hr><strong>Patient Health Questionnaire-9</strong><br>0-4	Minimal or none	Monitor; may not require treatment<br>5-9	Mild	Use clinical judgment (symptom duration, functional impairment) to determine necessity of treatment<br>10-14	Moderate  Use clinical judgment (symptom duration, functional impairment) to determine necessity of treatment<br>15-19	Moderately severe	Warrants active treatment with psychotherapy, medications, or combination<br>20-27	Severe<br>(88% sensitive and 85% specific for Depression if score 10 or above)<br>Patient scored a " + data.ph9q_Total
+                  + " and agrees that the following symptoms that have made their life\ " + diff + ": <br>");
                   ph9q_list[0].forEach((element) => {
                     $("#post_questions").append("<li>" + element + "</li>")});
+///sensitivity 88% and specificity 85% -- (Levis 2019)
+/// **Cutoff 10 points**
+///0-4	Minimal or none	Monitor; may not require treatment
+//5-9	Mild	Use clinical judgment (symptom duration, functional impairment) to determine necessity of treatment
+//10-14	Moderate  Use clinical judgment (symptom duration, functional impairment) to determine necessity of treatment
+//15-19	Moderately severe	Warrants active treatment with psychotherapy, medications, or combination
+//20-27	Severe
 
-
-                  $("#post_questions").append(" <br>---------------<br>Patient scored " + data.DIGFAST + " on the Severity Measure for Panic Disorder—Adult"
-                  + " and agrees to: <br>");
+                  $("#post_questions").append("<hr><strong>Mood Disorder Questionnaire</strong<br>(A score of 7 and above is 73% sensitive and a 90% specific for a mood disorder)<br>Patient scored a " + data.DIGFAST
+                  + " and has had the following symptoms in the past: <br>");
                   digfast_list[0].forEach((element) => {
                   $("#post_questions").append("<li>" + element + "</li>")
                 })})}
+///Yes to 7+ AND Yes to question 2 AND moderate/serious problem in question 3
+///https://www.ohsu.edu/sites/default/files/2019-06/cms-quality-bipolar_disorder_mdq_screener.pdf
+///0.73 sensitivity and a 0.90 specificity
 
-      if (data.Cheif_Complaint == "Anxiety"){
+      if (data.Cheif_Complaint == "Anxiety") {
           jQuery(document).ready(function(){
       var gad_data = data.Anxiety_Flags
       var gad_list = [];
@@ -1554,44 +1648,76 @@ if ($('#no_surg').is(":checked")) {
         panic_data.forEach((element) => {
           panic_list.push(element)});
 
-          $("#post_questions").append(" <br>---------------<br>Patient scored " + data.Anxiety + " on the General Anxiety Disorder-7 scale"
+          $("#post_questions").append("<hr><strong>General Anxiety Disorder-7 scale</strong><br>5-9	-- Mild, Monitor<br>10*-14	-- Moderate,	Possible clinically significant condition<br>>15	-- Severe, Active treatment probably warranted<br>For Panic Disorder, Social Phobia, & PTSD, cutoff score of 8 may be used for optimal sensitivity/specificity<br>Patient scored a " + data.Anxiety
           + " and agrees to: <br>");
           gad_list[0].forEach((element) => {
           $("#post_questions").append("<li>" + element + "</li>")});
+///5-9	Mild	-- Monitor
+///10*-14	-- Moderate	Possible clinically significant condition
+///>15	Severe	-- Active treatment probably warranted
+///*For Panic Disorder, Social Phobia, & PTSD, cutoff score of 8 may be used for optimal sensitivity/specificity
 
-          $("#post_questions").append(" <br>---------------<br>Patient scored " + data.Panic + " on the Severity Measure for Panic Disorder—Adult"
+          $("#post_questions").append("<hr><strong>Severity Measure for Panic Disorder—Adult</strong><br>0-none<br>1-mild<br>2-moderate<br>3-severe<br>4-extreme<br>Patient scored a " + data.Panic
           + " and agreed to the following statement(s): <br>");
           panic_list[0].forEach((element) => {
           $("#post_questions").append("<li>" + element + "</li>");
         })})}
+///  per file:///C:/Users/UW2001480/Downloads/APA_DSM5_Severity-Measure-For-Panic-Disorder-Adult.pdf
+///   average rounded to the nearest whole number:
+///   0-none
+///   1-mild
+///   2-moderate
+///   3-severe
+///   4- extreme
 
-
-      if (data.Cheif_Complaint == "Memory issues"){
+      if (data.Cheif_Complaint == "Memory issues") {
         jQuery(document).ready(function(){
       var mem_data = data.Memory_Depression_Flags
       var mem_list = [];
       mem_data.forEach((element) => {
         mem_list.push(element)});
-        $("#post_questions").append(" <br>---------------<br>Patient scored a " + data.Memory_Depression + " on the Geriatric Depression Scale"
-       + " and: <br>");
+        $("#post_questions").append("<hr><strong>Geriatric Depression Scale</strong><br>Scores of 0-4 are considered normal;<br>5-8 indicate mild depression;<br>9-11 indicate moderate depression;<br>12-15 indicate severe depression<br>Patient scored a " + data.Memory_Depression
+       + "<br> and: <br>");
       mem_list[0].forEach((element) => {
         $("#post_questions").append("<li>" + element + "</li>")})})}
+/// 92% sensitivity and a 89% specificity when evaluated against diagnostic criteria.
+///Scores of 0-4 are considered normal, depending on age, education, and complaints;
+///5-8 indicate mild depression; 9-11 indicate moderate depression; and 12-15 indicate severe depression.
+//<!--The end of 'memory' Chief complaint option. RECCOMENDATIONS INCLUDE LABS AND A NON CONTRAST HEAD CT OR MRI. Geriatric depression score reccomended.
+///per: Adelman, A. M., & Daly, M. P. (2005). Initial evaluation of the patient with suspected dementia. American family physician, 71(9), 1745–1750.-->
 
-
-        if (data.Cheif_Complaint == "PTSD"){
-              jQuery(document).ready(function(){
+        if (data.Abuse_Or_Trauma == "a past history of abuse/lingering trauma") {
+              jQuery(document).ready(function() {
         var ptsd_data = data.PTSD_Flags
         var ptsd_list = [];
         ptsd_data.forEach((element) => {
           ptsd_list.push(element)});
-        $("#post_questions").append(" <br>---------------<br>Patient scored " + data.PTSD + "on the Primary Care PTSD Screen for DSM-5"
-        + " and agrees to: <br>");
+          $("#post_questions").append("<hr><strong>Primary Care PTSD Screen for DSM-5</strong><br>(a score of 3 or more is 93% sensitive for PTSD)<br>Patient scored a " + data.PTSD
+          + "\ and marked that they: <br>");
       ptsd_list[0].forEach((element) => {
         $("#post_questions").append("<li>" + element + "</li>")})})}
+        else if (data.Cheif_Complaint == "PTSD") {
+          jQuery(document).ready(function(){
+    var ptsd_data = data.PTSD_Flags
+    var ptsd_list = [];
+    ptsd_data.forEach((element) => {
+      ptsd_list.push(element)});
+    $("#post_questions").append("<hr><strong>Primary Care PTSD Screen for DSM-5</strong><br>(a score of 3 or more is 93% sensitive for PTSD)<br>Patient scored a " + data.PTSD
+    + "\ and marked that they: <br>");
+  ptsd_list[0].forEach((element) => {
+    $("#post_questions").append("<li>" + element + "</li>")})})}
+///3+ for most is indicitive of a diagnosis 93% sensitive
+///***  score of 3 or more is trigger for ptsd per https://www.ptsd.va.gov/professional/assessment/documents/pc-ptsd5-screen.pdf  ****
 
-  });
+var med_interact = data.Med_Interactions;
+var unique_interact = [];
+unique_interact = [...new Set(med_interact)];
+if (unique_interact.length > 0) {
+    jQuery(document).ready(function(){
 
+  unique_interact.forEach((element) => {
+    $("#med_interactions").append("<li><strong>" + element + "</strong></li>")})})}
 
+});
 
-
-  };
+}; ////end of creating note 'finished'
