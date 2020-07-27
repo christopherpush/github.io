@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html>
   <head>
+
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-      <link href='test.css' rel='stylesheet'>
-<style> body, html {
+      <link rel='stylesheet' type='text/css' href='test.css'>
+<style>
+body, html {
   background-color:#e7f3f9;
     height: 100%;
     margin: 0;
@@ -24,46 +26,47 @@
 
   }
 </style>
+<title>Algorx</title>
   </head>
   <body>
-  <div class='bg'>
-  </div>
-  <!-- <img src="Untitled_Artwork.png" class='img-fluid height: auto'> -->
 
+  <div class='bg'></div>
 
-    <div class='hide' id='note'>
+<div class='hide' id='note'>
+
 "<span id='cc'></span>"<br><br>
-This is a <span id='1relationship'></span> <span id="1age"></span> year old  <span id='1sex'></span> presenting with a chielf complaint of "<span id='1chiefc'></span>". <br>
+This is <span id='1relationship'></span> <span id="1age"></span> year old  <span id='1sex'></span> presenting with a chief complaint of "<span id='1chiefc'></span>". <br>
 <hr>
 
 <br>
-Current medications: <span id='1medications'></span> <br>
-Allergies: <span id='1allergies'></span><br>
-Past medical history: <span id='1medical_cond'></span><br>
-Surgical history: <span id='1surgeries'></span><br>
-Employment status: <span id='1employment'></span><br>
-Highest level of education: <span id='1education'></span><br>
-Smoking:<span id='1smoke'></span><br>
-Alcohol use: <span id='1drink'></span><br>
-Recreational drug use: <span id='1rec'></span><br>
-Number of caffeinated drinks per day: <span id='caffeine_num_entered'></span><br>      
-      
-      Currently pregnant: <span id='cur_preg_q'></span><br>
-      Sexually active: <span id='sex_act_q'></span> -- Patient was informed of the teratogenic risks of psychiatric medications.<br>
-      Uses contraception: <span id='cont_q'></span><br>
-      Chance of becoming pregnant: <span id='chance_p_q'></span><br>
+<strong>Current medications:</strong><br> <span id='1medications'></span> <br>
+<strong>Allergies:</strong> <span id='1allergies'></span><br>
+<strong>Past medical history:</strong> <span id='1medical_cond'></span><br>
+<strong>Surgical history:</strong> <span id='1surgeries'></span><br>
+<strong>Employment status:</strong> <span id='1employment'></span><br>
+<strong>Highest level of education:</strong> <span id='1education'></span><br>
+<strong>Smoking:</strong><span id='1smoke'></span><br>
+<strong>Alcohol use:</strong> <span id='1drink'></span><br>
+<strong>Recreational drug use:</strong> <span id='1rec'></span><br>
+<strong>Number of caffeinated drinks per day: </strong><span id='caffeine_num_entered'></span><br>
+
+<div class='hide' id='preg_disp'>
+      <strong>Currently pregnant:</strong> <span id='cur_preg_q'></span><br>
+      <strong>Sexually active:</strong> <span id='sex_act_q'></span> -- Patient was informed of the teratogenic risks of psychiatric medications.<br>
+      <strong>Uses contraception:</strong> <span id='cont_q'></span><br>
+      <strong>Chance of becoming pregnant:</strong> <span id='chance_p_q'></span><br>
+    </div>
 <br>
 This patient <span id='1psych'></span>. <span id='1hosp'></span>. Patient <span id='1legal'></span>.
 Notes <span id='1abuse'></span> and <span id='1safe'></span>. <span id='1suicide'></span>. Reports <span id='1family'></span>.
-
-
+<hr>
+<div id='med_interactions'><strong><h4>Important Medication Interactions:<h4></strong><br></div>
+<br>
 <div id='post_questions'></div> <br>
 
 </div> <!-- END OF note -->
 
 
-    <div class='hide' id='after_submit'>
-    </div>
       <div class = "Algorx" id='algorx'>
 
           <div class="jumbotron shadow-lg text-center mx-5" id='welcome_page' style='background-color:white'>
@@ -78,8 +81,8 @@ Notes <span id='1abuse'></span> and <span id='1safe'></span>. <span id='1suicide
         <div style='display:none; background-color:white' id = new_old_what class="jumbotron shadow-lg mb-4 mx-5">
           <h3 class="display-6">Are you new to this system?</h3>
           <p class="lead">If this site looks familiar, please select returning patient.</p>
-          <input type='button' id="new_pt" class="btn btn-primary btn-lg mx-2" role="button" onclick='new_pt()' value='New Patient'>
-          <input type='button' id="old_pt" class="btn btn-primary btn-lg mx-2" role="button" onclick='old_pt()' value='Returning Patient'>
+          <input type='button' id="new_pt" class="btn btn-primary btn-lg mx-2 my-3" role="button" onclick='new_pt()' value='New Patient'>
+          <input type='button' id="old_pt" class="btn btn-primary btn-lg mx-2 my-3" role="button" onclick='old_pt()' value='Returning Patient'>
         </div>
         <div style='display:none; background-color:white' id=if_old_pt>
           <h1>Feature Coming Soon</h1>
@@ -91,13 +94,7 @@ Notes <span id='1abuse'></span> and <span id='1safe'></span>. <span id='1suicide
           <input id="cc" type="button" value="PTSD" onclick="somethingelse('#ptsd2')" class="btn btn-primary w-auto p-3 mb-3 mx-2">
           <input id="cc" type="button" value="Anxiety/Panic" onclick="somethingelse('#anxiety2')" class="btn btn-primary w-auto p-3 mb-3 mx-2">
           <input id="cc" type="button" value="Something Else" onclick="somethingelse('#history2')" class="btn btn-primary w-auto p-3 y-auto m-1 mb-3 mx-2">
-
         </div>
-
-
-
-
-
 
         <div style='display:none; background-color:white' id=mood_page>
           <div  class='jumbotron shadow-lg p-3 text-center mb-4 mx-5' style='background-color:white'>
@@ -149,34 +146,29 @@ normal self or you were so hyper that you got into trouble?</p>
           <div class='text-left'>
               <input id='back_ph9q' class="btn btn-secondary mb-1 mt-5" type="button" value="Back" onclick="digfast_back()">
           </div>
-
-
           </div>
         </div><!-- End of DIGFAST -->
 
-
-
          <div style='display:none; background-color:white' id=memory_page class='jumbotron shadow-lg p-3 text-center mb-4 mx-5'>
-
+  <form id='age_form' name="contentForm" role="form" data-toggle="validator" novalidate="true">
 
            <div id='age_bar'>
            <div class="d-flex align-items-center mt-5 mb-2 mx auto">
              <div class="input-group-prepend">
                <span class="input-group-text my-auto">How old are you? </span>
              </div>
-             <input id='age_pre' type="text" class="form-control" placeholder="Age" aria-label="Age" aria-describedby="basic-addon1">
+             <input id='age_pre' type="number" class="form-control" placeholder="Age" name='age_60' required>
            </div>
+           <div id='age_error_60'></div>
 
              <div>
-               <input id='age_button' class="btn btn-primary mb-3 mt-3 p-3 px-5" type="button" onclick='age_pre()' value='Next'>
+               <input id='age_button' class="btn btn-primary mb-3 mt-3 p-3 px-5" type="button" onclick='age_valid(age_pre_60)' value='Next'>
              </div>
            </div>
-
 
            <div class='hide' id='over_65'>
           <div class="memory_qs">
             <p class="h4" id=memory_display>Are you basically satisfied with your life?</p>
-    <!--   ***   > or equal to 5 suggests depression  ***       -->
           </div>
           <br>
 
@@ -191,22 +183,14 @@ normal self or you were so hyper that you got into trouble?</p>
           </div>
 
         </div>
+      </form>
         </div>
-        <!--The end of 'memory' Chief complaint option. RECCOMENDATIONS INCLUDE LABS AND A NON CONTRAST HEAD CT OR MRI. Geriatric depression score reccomended.
-per: Adelman, A. M., & Daly, M. P. (2005). Initial evaluation of the patient with suspected dementia. American family physician, 71(9), 1745–1750.-->
-
-
-
-
-
-
 
         <div style='display:none; background-color:white' id=ptsd_page class="jumbotron shadow-lg p-3 text-center mb-4 mx-5">
 
     <div id='ptsd_1q'>
 
         <h1 class="h3">Sometimes things happen to people that are unusually or especially frightening, horrible, or traumatic. For example:</h1><br>
-          <!-- <p class="lead" class='text-center'>Sometimes things happen to people that are unusually or especially frightening, horrible, or traumatic. For example:</p><br> -->
 
             <li class='h6'> A serious accident or fire</li>
             <li class='h6'> A physical or sexual assault or abuse</li>
@@ -234,21 +218,16 @@ per: Adelman, A. M., & Daly, M. P. (2005). Initial evaluation of the patient wit
             </div><br>
 
         <div>
-        <input class="btn btn-primary mb-5 px-4 mx-2" type="button" value='Yes' id="yes_ptsd" onclick='ptsd_answer(1)'></label>
-        <input class="btn btn-primary mb-5 px-4 mx-2" type="button" value='No' id="no_ptsd" onclick='ptsd_answer(0)'></label>
+        <input class="btn btn-primary mb-5 px-4 mx-2" type="button" value='Yes' id="yes_ptsd" onclick="ptsd_answer(1, 'cc')"></label>
+        <input class="btn btn-primary mb-5 px-4 mx-2" type="button" value='No' id="no_ptsd" onclick="ptsd_answer(0, 'cc')"></label>
         </div>
 
         <div class='text-left'>
-            <input id='back_ptsd' class="btn btn-secondary mb-1 mt-5" type="button" value="Back" onclick="ptsd_back()">
+            <input id='back_ptsd' class="btn btn-secondary mb-1 mt-5" type="button" value="Back" onclick="ptsd_back('cc')">
         </div>
   </div>
 </div>
-      <!--  ***  score of 3 or more is trigger for ptsd per https://www.ptsd.va.gov/professional/assessment/documents/pc-ptsd5-screen.pdf  ****
-                      -->
          <!--The end of 'ptsd' Chief complaint option -->
-
-
-
 
          <div id='anxiety_page' class='hide'>
         <div class='jumbotron shadow-lg p-3 text-center mb-4 mx-5' style='background-color:white'> <!-- start of anxiety page -->
@@ -261,13 +240,7 @@ per: Adelman, A. M., & Daly, M. P. (2005). Initial evaluation of the patient wit
           <div>
             <p class="h5" id=anxiety_display>Feeling nervous, anxious, or on edge.</p>
           </div>
-            <!--5-9	Mild	-- Monitor
-10*-14	-- Moderate	Possible clinically significant condition
->15	Severe	-- Active treatment probably warranted
-*For Panic Disorder, Social Phobia, & PTSD, cutoff score of 8 may be used for optimal sensitivity/specificity
-
-
-USE THIS TOOL INSTEAD BUT DSM-5 VERSION: https://adaa.org/screening-panic-disorder-->
+<!-- USE THIS TOOL INSTEAD BUT DSM-5 VERSION: https://adaa.org/screening-panic-disorder-->
           <div>
             <input id='an12' class="btn btn-primary  mt-3" type="button" value="Not at all" onclick="anxiety_answer('Not at all', 0)">
             <input id='an22' class="btn btn-primary  mt-3" type="button" value="Several days" onclick="anxiety_answer('Several days', 1)">
@@ -279,7 +252,6 @@ USE THIS TOOL INSTEAD BUT DSM-5 VERSION: https://adaa.org/screening-panic-disord
               <input id='back_anxiety' class="btn btn-secondary mb-1 mt-5" type="button" value="Back" onclick="anxiety_back()">
           </div>
           </div>
-
 
 
           <div class='hide' id='panic_pre'>
@@ -313,87 +285,82 @@ USE THIS TOOL INSTEAD BUT DSM-5 VERSION: https://adaa.org/screening-panic-disord
               <input id='back_panic' class="btn btn-secondary mb-1 mt-5" type="button" value="Back" onclick="panic_back()">
           </div>
            </div>
-           <!--*** per file:///C:/Users/UW2001480/Downloads/APA_DSM5_Severity-Measure-For-Panic-Disorder-Adult.pdf
-           average rounded to the nearest whole number:
-           0-none
-           1-mild
-           2-moderate
-           3-severe
-           4- extreme -->
-
-
         </div>
       </div><!--The end of 'anxiety' Chief complaint option-->
 
 
         <div style='display:none; background-color:white' id=somethingelse_page>
             <div class="jumbotron shadow-lg text-center mb-4" style='background-color:white'>
+                <form id='cc_form' name="contentForm" role="form" data-toggle="validator" novalidate="true">
           <h3>In 5 words or so, try to describe your problem?</h3><hr>
 
-
-        <div class="d-flex align-items-center mx-auto input-group mb-2">
-              <div class="input-group mb-2 col-md-6 mx-auto">
-                <input id='something_else_cc_answer' type="text" class="form-control" placeholder="Eg: 'I can't sleep'">
+          <div class="d-flex align-items-center mx-auto input-group mb-2">
+                <div class="input-group mb-2 col-md-6 mx-auto">
+                  <input id='something_else_cc_answer' type="text" class="form-control" name='cc' placeholder="Eg: 'I can't sleep'" required>
+                </div>
               </div>
+              <div id='cc_error'></div>
+
+              <div class='hide' id='mood2'>
+              <input type="button" class="btn btn-primary mb-5 px-4 mx-2" value='Next' onclick="sendto('mood')">
             </div>
 
-            <div class='hide' id='mood2'>
-            <input type="button" class="btn btn-primary mb-5 px-4 mx-2" value='Next' onclick='mood()'>
-          </div>
-
-              <div class='hide' id='memory2'>
-              <input type="button" class="btn btn-primary mb-5 px-4 mx-2" value='Next' onclick='memory()'>
-            </div>
-
-                <div class='hide' id='ptsd2'>
-                <input type="button" class="btn btn-primary mb-5 px-4 mx-2" value='Next' onclick='ptsd()'>
+                <div class='hide' id='memory2'>
+                <input type="button" class="btn btn-primary mb-5 px-4 mx-2" value='Next' onclick="sendto('memory')">
               </div>
 
-                  <div class='hide' id='anxiety2'>
-                  <input type="button" class="btn btn-primary mb-5 px-4 mx-2" value='Next' onclick='anxiety()'>
+                  <div class='hide' id='ptsd2'>
+                  <input type="button" class="btn btn-primary mb-5 px-4 mx-2" value='Next' onclick="sendto('ptsd')">
                 </div>
 
-                    <div class='hide' id='history2'>
-                    <input type="button" class="btn btn-primary mb-5 px-4 mx-2" value='Next' onclick='else_hx()'>
+                    <div class='hide' id='anxiety2'>
+                    <input type="button" class="btn btn-primary mb-5 px-4 mx-2" value='Next' onclick="sendto('anxiety')">
                   </div>
 
-          </div>
-
-
-
-
-
+                      <div class='hide' id='history2'>
+                      <input type="button" class="btn btn-primary mb-5 px-4 mx-2" value='Next' onclick="sendto('else_hx')">
+                    </div>
+                  </form>
+            </div>
+</form>
         </div> <!--The end of 'something else' Chief complaint option -->
 
 
-
         <div style='display:none' id=history>
+            <form id='my_form' name="contentForm" role="form" data-toggle="validator" novalidate="true">
           <div class="border border-secondary rounded-bottom mx-5 mb-5 p-3 bg-gray-300 shadow-lg" style='background-color:white'>
 
 
-          <div class='row' id='age_q'>
-            <div class="d-flex align-items-center input-group mb-5 mx-auto col-md-3 mt-5" id='age_bar'>
-              <div class="input-group-prepend">
-                <span class="input-group-text my-auto">Age: </span>
+            <div class='row'>
+              <div id='age_q'>
+                <div class="d-flex align-items-center col-md-6">
+                  <span class="input-group-text mt-5">Age: </span>
+                <input id='age' class="form-control mt-5" name='age' type='number' placeholder="Age" required>
               </div>
-              <input id='age' type="text" class="form-control" placeholder="Age" aria-label="Age" aria-describedby="basic-addon1">
+              <div class='d-flex align-items-left text-left' id='error_age'></div>
             </div>
 
-              <div class="input-group-prepend mx-auto d-flex align-items-center col-md-4">
-                <span class="input-group-text" id="basic-addon1">Sex: </span>
-
-
-
-              <div class='d-flex align-items-center'>
-                <input class="btn btn-primary ml-1" type="button" value='Male' id="Male"></label>
-                <input class="btn btn-primary ml-2" type="button" value='Female' id="Female"></label>
+              <div class="input-group-prepend d-flex align-items-center text-left col-md-6 mt-5">
+                <span class="input-group-text">Sex: </span>
+              <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                <label class="btn btn-primary">
+                  <input type="radio" id="Male" autocomplete="off" name='sex' value='Male' required> Male
+                </label>
+                <label class="btn btn-primary">
+                  <input type="radio" id="Female" autocomplete="off" name='sex' value='Female'> Female
+                </label>
               </div>
             </div>
+          </div>
+          <div class='d-flex align-items-center text-left' id='error_sex'></div>
 
-              <div class='mb-3 col-md-3 mt-4'>
+
+          <div class="form-row">
+              <div class='mb-3 mx-auto col-md-4 mt-4'>
+                <div class='form-group'>
               <label for="employment">Employment status: </label>
-                <select class="custom-select" id=employment>
-                  <option selected>Select one</option>
+                <select class="custom-select" name='employment' id=employment required>
+                  <option selected value="" >Select one</option>
                   <option value="dropdown-item" id='full-time'>Full-time</option>
                   <option value="dropdown-item" id='part-time'>Part-time</option>
                   <option value="dropdown-item" id='looking'>Looking</option>
@@ -405,11 +372,12 @@ USE THIS TOOL INSTEAD BUT DSM-5 VERSION: https://adaa.org/screening-panic-disord
             </div>
           </div>
 
-          <div class="form-row">
-            <div class='mb-3 mx-auto col-md-5'>
+
+
+            <div class='mb-3 mx-auto col-md-4 mt-4'>
               <label for="employment">Highest level of education: </label>
-              <select class="custom-select mb-3" id='school'>
-                <option selected>Select one</option>
+              <select class="custom-select mb-3" name='education' id='school' required>
+                <option selected value="">Select one</option>
                 <option value="dropdown-item" id='Not_finished_high_school'>Not finished high school</option>
                 <option value="dropdown-item" id='High_school_or_equivalent'>High school or equivalent</option>
                 <option value="dropdown-item" id='Some_college'>Some college</option>
@@ -418,14 +386,16 @@ USE THIS TOOL INSTEAD BUT DSM-5 VERSION: https://adaa.org/screening-panic-disord
               </select>
             </div>
 
-            <div class='mb-2 mx-auto col-md-5'>
+            <div class='mb-3 mx-auto col-md-4 mt-4'>
               <label for="employment">Relationship status: </label>
-              <select class="custom-select mb-3" id='pt_relationship'>
-                <option selected>Select one</option>
+              <select class="custom-select mb-3" name='relationship' id='pt_relationship' required>
+                <option selected value="">Select one</option>
                 <option value="dropdown-item" id='single'>Single</option>
                 <option value="dropdown-item" id='married'>Married</option>
                 <option value="dropdown-item" id='divorced'>Divorced</option>
+                <option value="dropdown-item" id='unmarried'>Unmarried</option>
               </select>
+
             </div>
           </div>
         </div>
@@ -443,32 +413,38 @@ USE THIS TOOL INSTEAD BUT DSM-5 VERSION: https://adaa.org/screening-panic-disord
               <div class="form-group-prepend">
                 <span class="form-group-text">Medications:</span>
               </div>
-              <input id='med_name' type="text" class="form-control" placeholder='Name'>
-              <input id='med_dose' type="text" class="form-control" placeholder='Dose'>
-              <input id='med_freq' type="text" class="form-control" placeholder='How often'>
-            </div>
+
+
+
+              <input id='med_name' name='med_name' type="text" class="form-control" placeholder='Name'>
+              <input id='med_dose' name='med_dose' type="text" class="form-control" placeholder='Dose'>
+              <input id='med_freq' name='med_freq' type="text" class="form-control" placeholder='How often'>
+                <!-- </div> -->
+
           </div>
 
               <div class='text-center'>
               <button class="btn btn-outline-primary mb-2" type="button" id="add_med">Add Medication</button>
             </div>
-
+          </div>
           <div>
             <ol class='mb-3' id='added_meds'>
             </ol>
           </div>
-        </div>
+      </div>
 
-              <div class='mb-5 text-center'>
-                <input class="form-check-input" type="checkbox" id="no_meds" value="option1">
-                <label class="form-check-label" for="no_med">I don't take medications</label>
+              <div class='mb-1 text-center'>
+                <label class="form-check-label mx-1 text-center" for="no_med">I don't take medications</label>
+
+                <input class="form-check-input mx-1 text-center" name='no_meds' type="checkbox" id="no_meds" value="option1" required>
               </div>
+              <div class='text-center'id='error_meds'></div>
 
 
 
 
               <div id='no_allergy_box'>
-              <div class="form-group-prepend mb-3 text-center">
+              <div class="form-group-prepend mb-3 mt-5 text-center">
                 <span class="form-group-text">Medication Allergy:</span>
               <input id='allergy_name' type="text" class="form-control" placeholder='Name'>
               <input id='allergy_reaction' type="text" class="form-control" placeholder='Reaction'>
@@ -485,14 +461,14 @@ USE THIS TOOL INSTEAD BUT DSM-5 VERSION: https://adaa.org/screening-panic-disord
           </div>
 
               <div class='text-center mb-3'>
-                <input class="form-check-input" type="checkbox" id="no_allergy" value="option1">
-                <label class="form-check-label" for="no_allergy">I don't have allergies</label>
+                <label class="form-check-label mx-2" for="no_allergy">I don't have allergies</label>
+                <input class="form-check-input mx-2" name='no_allergy' type="checkbox" id="no_allergy" value="option1" required>
                 </div>
+                <div class='text-center'id='error_allergy'></div>
 
 
-          </div><!--second box in hx -->
 
-
+        </div><!--second box in hx -->
 
 
 
@@ -512,7 +488,7 @@ USE THIS TOOL INSTEAD BUT DSM-5 VERSION: https://adaa.org/screening-panic-disord
           </div>
 
             <div id='cond'>
-            <div class="text-center mt-4 mb-3">
+            <div class="text-center mt-4">
               <div class='autosize' id='medical_cond'>
 
                       <label><input type="checkbox" name="cond" value="ADHD"/> ADHD</label>
@@ -544,17 +520,20 @@ USE THIS TOOL INSTEAD BUT DSM-5 VERSION: https://adaa.org/screening-panic-disord
                       <label><input class='cond_checkbox' type="checkbox" name="cond" value="Thyroid disease" /> Thyroid disease</label>
 
 
-                      <div class="form-group mb-5 mt-2">
+                      <div class="form-group mt-2">
                         <div class="form-group-prepend">
                           <span class="form-group-text"><strong>Other conditions:</strong></span>
                         </div class='autosize'>
-                        <input id='list_medical_cond' type="text" class="autosize" placeholder='Conditions (seperate by a "," )'>
+                        <div class='d-flex justify-content-center'>
+                        <input id='list_medical_cond' type="text" class="form-control text-center autosize" placeholder='Conditions (seperate by a "," )'>
+                      </div>
                       </div>
                     </div>
                   </div>
                 </div>
+                  <div class='text-center' id='error_cond'></div>
 
-            <div class="text-center mb-3">
+            <div class="text-center mb-3 mt-4">
               <h3>Surgeries:</h3>
             </div>
 
@@ -564,8 +543,8 @@ USE THIS TOOL INSTEAD BUT DSM-5 VERSION: https://adaa.org/screening-panic-disord
             </div>
           </div>
 
-            <div id='surg'>
-            <div class="text-center mt-4 mb-3">
+            <div id='surg' class='mt-5'>
+            <div class="text-center mb-3">
               <div class="autosize" id='surgeries'>
 
                       <label><input class='label label-primary' type="checkbox" name="surg" value="Appendectomy"/> Appendectomy</label>
@@ -588,19 +567,19 @@ USE THIS TOOL INSTEAD BUT DSM-5 VERSION: https://adaa.org/screening-panic-disord
                       <label><input class='surg_checkbox' type="checkbox" name="surg" value="Vasectomy" /> Vasectomy</label>
                       <label><input class='surg_checkbox' type="checkbox" name="surg" value="Weight reduction surgery" /> Weight reduction surgery</label>
 
-                      <div class="form-group mb-5 mt-2">
+                      <div class="form-group mt-2">
                         <div class="form-group-prepend">
                           <span class="form-group-text"><strong>Other surgeries:</strong></span>
                         </div>
-                        <input id='list_surgeries' type="text" class="autosize" placeholder='Surgeries (seperate by a "," )'>
+                        <input id='list_surgeries' type="text" class="form-control text-center autosize" placeholder='Surgeries (seperate by a "," )'>
                       </div>
-
               </div>
             </div>
             </div>
+            <div class='text-center mb-2'id='error_surg'></div>
 
             <hr>
-            <div class="text-center mb-5">
+            <div class="text-center mb-3">
               <p>Please select <strong>none</strong> if you have no existing medical conditions or surgical history.</p>
             </div>
 
@@ -612,44 +591,29 @@ USE THIS TOOL INSTEAD BUT DSM-5 VERSION: https://adaa.org/screening-panic-disord
               <p>Alcohol, nicotine, and other substances can <strong>alter the side effects and effectiveness</strong> certain psych meds. Remember, this is protected health information and will <strong>NOT</strong> be shared.</p><hr>
             </div>
 
-
-            
-            
-            
-  
-        
-            
              <div class='row'>
             <div class="input-group">
-              <div class="d-flex align-items-center mx-auto mb-3 text-center">
-                <div class='text-center mb-2'>
+              <div class="d-flex align-items-center mx-auto text-center">
+                <div class='text-center'>
                 <h4>On average, how many caffeinated drinks do you have per day?</h4>
-                  <p>One drink is equal to one cup of coffee, one carbonated soda drink, or <strong>half</strong> of an energy drink/energy shot.</p>
+                  <p>One drink is equal to one cup of coffee, one carbonated soda drink, one espresso shot or <strong>half</strong> of an energy drink/energy shot.</p>
                 </div>
               </div>
             </div>
             </div>
 
-
-            
             <div class="text-center">
-        <div class="form-group mb-3">
+        <div class="form-group">
 
-          <div class='mb-5'>
-          <input style='width: 30%' id='rec_type' type="text" class="autosize my-2" placeholder='Enter a number'>
+          <div class='d-flex justify-content-center'>
+          <input style='width: 100%' name='caffeine_num' id='caffeine_num' type="number" class="form-control text-center autosize my-2" placeholder='Enter a number' required>
         </div>
       </div>
-      </div>       
-            
-            
-            
+      <div class='text-center'id='error_caffeine'></div>
+      </div>
 
 
-
-            
-            
-            
-            <div class='row'>
+            <div class='row mt-5'>
             <div class="input-group">
               <div class="d-flex align-items-center mx-auto mb-3 text-center">
                 <div class='text-center mb-2'>
@@ -658,21 +622,23 @@ USE THIS TOOL INSTEAD BUT DSM-5 VERSION: https://adaa.org/screening-panic-disord
               </div>
             </div>
 
-            <div class="d-flex align-items-center mx-auto">
-              <input class="btn btn-primary mb-3 px-4 mx-2" type="button" value='Yes' id="yes_nic"></label>
-              <input class="btn btn-primary mb-3 px-4 mx-2" type="button" value='No' id="no_nic"></label>
+            <div class="btn-group btn-group-toggle d-flex align-items-center mx-auto" data-toggle="buttons">
+              <label class="btn btn-primary mx-2 px-4 mb-3">
+                <input type="radio" id="yes_nic" name='nic' value='Yes' required> Yes
+              </label>
+              <label class="btn btn-primary mx-2 px-4 mb-3">
+                <input type="radio" id="no_nic" name='nic' value='No'> No
+              </label>
             </div>
           </div>
-
-
-
+          <div class='text-center' id='error_nic'></div>
 
           <div class='hide' id='nic_box'>
             <div class="input-group d-flex align-items-center mx-auto mb-2">
               <div class='mb-3 mx-auto col-md-6'>
                 <label for="employment">Type of product </label>
-                <select id='smoke_type' class="custom-select">
-                  <option selected>Select one</option>
+                <select id='smoke_type' class="custom-select" name='smoke_type' required>
+                  <option selected value=''>Select one</option>
                   <option value="dropdown-item" id='Cigarettes'>Cigarettes (Packs)</option>
                   <option value="dropdown-item" id='E_Cigarettes'>E-Cigarettes (Puffs)</option>
                   <option value="dropdown-item" id='Other'>Other</option>
@@ -686,12 +652,12 @@ USE THIS TOOL INSTEAD BUT DSM-5 VERSION: https://adaa.org/screening-panic-disord
                   <div class="form-group-prepend">
                     <span class="form-group-text">How many packs/puffs per day?</span>
                   </div>
-                  <div>
-                  <input style='width: 100%' id='nic_freq' type="text" class="autosize my-2" placeholder='How much? (packs/puffs per day)'>
+                  <div class=''>
+                  <input style='width: 100%' id='nic_freq' name='nic_freq' required type="number" class="form-control text-center autosize my-2" placeholder='How much? (packs/puffs per day)'>
                   <div class="form-group-prepend">
-                    <span class="form-group-text">For how long?</span>
+                    <span class="form-group-text">For how long? (in years)</span>
                   </div>
-                  <input style='width: 100%' id='nic_duration' type="text" class="autosize" placeholder='For how long? (years)'>
+                  <input style='width: 100%' id='nic_duration' name='nic_duration' required type="number" class="form-control text-center autosize" placeholder='For how long? (years)'>
                 </div>
               </div>
               </div>
@@ -706,12 +672,17 @@ USE THIS TOOL INSTEAD BUT DSM-5 VERSION: https://adaa.org/screening-panic-disord
                 </div>
               </div>
           </div>
-              
-            <div class="d-flex align-items-center mx-auto">
-              <input class="btn btn-primary mb-3 px-4 mx-2" type="button" value='Yes' id="yes_rec"></label>
-              <input class="btn btn-primary mb-3 px-4 mx-2" type="button" value='No' id="no_rec"></label>
+
+            <div class="btn-group btn-group-toggle d-flex align-items-center mx-auto" data-toggle="buttons">
+              <label class="btn btn-primary mx-2 px-4 mb-3">
+                <input type="radio" id="yes_rec" name='rec' value='Yes' required> Yes
+              </label>
+              <label class="btn btn-primary mx-2 px-4 mb-3">
+                <input type="radio" id="no_rec" name='rec' value='No'> No
+              </label>
             </div>
           </div>
+          <div class='text-center' id='error_rec'></div>
 
       <div class=hide id='rec_box'>
       <div class="text-center">
@@ -719,12 +690,12 @@ USE THIS TOOL INSTEAD BUT DSM-5 VERSION: https://adaa.org/screening-panic-disord
           <div class="form-group-prepend">
             <span class="form-group-text">What do you use?</span>
           </div>
-          <div>
-          <input style='width: 100%' id='rec_type' type="text" class="autosize my-2" placeholder='(List if appropriate)'>
+          <div class=''>
+          <input style='width: 100%' id='rec_type' name='rec_type' required type="text" class="form-control text-center autosize my-2" placeholder='(List if appropriate)'>
           <div class="form-group-prepend">
             <span class="form-group-text">How often?</span>
           </div>
-          <input style='width: 100%' id='rec_freq' type="text" class="autosize" placeholder='How often?'>
+          <input style='width: 100%' id='rec_freq' name='rec_freq' required type="text" class="form-control text-center autosize" placeholder='How often?'>
         </div>
       </div>
       </div>
@@ -740,11 +711,16 @@ USE THIS TOOL INSTEAD BUT DSM-5 VERSION: https://adaa.org/screening-panic-disord
               </div>
             </div>
 
-            <div class="d-flex align-items-center mx-auto">
-              <input class="btn btn-primary mb-3 px-4 mx-2" type="button" value='Yes' id="yes_alcohol"></label>
-              <input class="btn btn-primary mb-3 px-4 mx-2" type="button" value='No' id="no_alcohol"></label>
+            <div class="btn-group btn-group-toggle d-flex align-items-center mx-auto" data-toggle="buttons">
+              <label class="btn btn-primary mx-2 px-4 mb-3">
+                <input type="radio" id="yes_alcohol" name='alcohol' value='Yes' required> Yes
+              </label>
+              <label class="btn btn-primary mx-2 px-4 mb-3">
+                <input type="radio" id="no_alcohol" name='alcohol' value='No'> No
+              </label>
             </div>
           </div>
+            <div class='text-center' id='error_alcohol'></div>
 
 
           <div class='hide' id='alcohol_box'>
@@ -754,7 +730,7 @@ USE THIS TOOL INSTEAD BUT DSM-5 VERSION: https://adaa.org/screening-panic-disord
                   <span class="form-group-text">On average, how many drinks per week?</span>
                 </div>
                 <div>
-                <input style='width: 100%' id='alcohol_freq' type="text" class="autosize my-2" placeholder='Drinks per week?'>
+                <input style='width: 100%' id='alcohol_freq' name='alcohol_freq' required type="number" class="form-control text-center autosize my-2" placeholder='Drinks per week?'>
               </div>
             </div>
             </div>
@@ -777,12 +753,16 @@ USE THIS TOOL INSTEAD BUT DSM-5 VERSION: https://adaa.org/screening-panic-disord
                   </div>
                 </div>
 
-              <div class="d-flex align-items-center mx-auto">
-                <input class="btn btn-primary mb-5 px-4 mx-2" type="button" value='Yes' id="yes_prego"></label>
-                <input class="btn btn-primary mb-5 px-4 mx-2" type="button" value='No' id="no_prego"></label>
+              <div class="btn-group btn-group-toggle d-flex align-items-center mx-auto" data-toggle="buttons">
+                <label class="btn btn-primary mx-2 px-4 mb-3">
+                  <input type="radio" id="yes_prego" name='preg' value='Yes' required> Yes
+                </label>
+                <label class="btn btn-primary mx-2 px-4 mb-3">
+                  <input type="radio" id="no_prego" name='preg' value='No'> No
+                </label>
               </div>
             </div>
-
+              <div class='text-center' id='error_preg'></div>
 
           <div id='prego_box' class='hide'>
             <div class='row'>
@@ -794,13 +774,17 @@ USE THIS TOOL INSTEAD BUT DSM-5 VERSION: https://adaa.org/screening-panic-disord
                 </div>
               </div>
 
-            <div class="d-flex align-items-center mx-auto">
-              <input class="btn btn-primary mb-5 px-4 mx-2" type="button" value='Yes' id="yes_sex"></label>
-              <input class="btn btn-primary mb-5 px-4 mx-2" type="button" value='No' id="no_sex"></label>
+            <div class="btn-group btn-group-toggle d-flex align-items-center mx-auto" data-toggle="buttons">
+              <label class="btn btn-primary mx-2 px-4 mb-3">
+                <input type="radio" id="yes_sex" name='sex_active' value='Yes' required> Yes
+              </label>
+              <label class="btn btn-primary mx-2 px-4 mb-3">
+                <input type="radio" id="no_sex" name='sex_active' value='No'> No
+              </label>
             </div>
           </div>
+                      <div class='text-center' id='error_sex_active'></div>
         </div>
-
 
 
           <div id='sex_active_box' class='hide'>
@@ -813,11 +797,16 @@ USE THIS TOOL INSTEAD BUT DSM-5 VERSION: https://adaa.org/screening-panic-disord
                 </div>
               </div>
 
-            <div class="d-flex align-items-center mx-auto">
-              <input class="btn btn-primary mb-5 px-4 mx-2" type="button" value='Yes' id="yes_sex_contra"></label>
-              <input class="btn btn-primary mb-5 px-4 mx-2" type="button" value='No' id="no_sex_contra"></label>
+            <div class="btn-group btn-group-toggle d-flex align-items-center mx-auto" data-toggle="buttons">
+              <label class="btn btn-primary mx-2 px-4 mb-3">
+                <input type="radio" id="yes_sex_contra" name='contra' value='Yes' required> Yes
+              </label>
+              <label class="btn btn-primary mx-2 px-4 mb-3">
+                <input type="radio" id="no_sex_contra" name='contra' value='No'> No
+              </label>
             </div>
           </div>
+            <div class='text-center' id='error_contra'></div>
         </div>
 
 
@@ -831,11 +820,16 @@ USE THIS TOOL INSTEAD BUT DSM-5 VERSION: https://adaa.org/screening-panic-disord
                 </div>
               </div>
 
-            <div class="d-flex align-items-center mx-auto">
-              <input class="btn btn-primary mb-3 px-4 mx-2" type="button" value='Yes' id="yes_chance"></label>
-              <input class="btn btn-primary mb-3 px-4 mx-2" type="button" value='No' id="no_chance"></label>
+            <div class="btn-group btn-group-toggle d-flex align-items-center mx-auto" data-toggle="buttons">
+              <label class="btn btn-primary mx-2 px-4 mb-3">
+                <input type="radio" id="yes_chance" name='preg_c' value='Yes' required> Yes
+              </label>
+              <label class="btn btn-primary mx-2 px-4 mb-3">
+                <input type="radio" id="no_chance" name='preg_c' value='No'> No
+              </label>
             </div>
           </div>
+          <div class='text-center' id='error_preg_c'></div>
         </div>
         </div><!--Fifth hx box-->
       </div> <!--hides box if male -->
@@ -858,15 +852,20 @@ USE THIS TOOL INSTEAD BUT DSM-5 VERSION: https://adaa.org/screening-panic-disord
                 </div>
               </div>
 
-              <div class="d-flex align-items-center mx-auto">
-                <input class="btn btn-primary mb-5 px-4 mx-2" type="button" value='Yes' id="yes_legal"></label>
-                <input class="btn btn-primary mb-5 px-4 mx-2" type="button" value='No' id="no_legal"></label>
+              <div class="btn-group btn-group-toggle d-flex align-items-center mx-auto" data-toggle="buttons">
+                <label class="btn btn-primary mx-2 px-4 mb-3">
+                  <input type="radio" id="yes_legal" name='legal' value='Yes' required> Yes
+                </label>
+                <label class="btn btn-primary mx-2 px-4 mb-3">
+                  <input type="radio" id="no_legal" name='legal' value='No'> No
+                </label>
               </div>
             </div>
+                          <div class='text-center' id='error_legal'></div>
 
 
-
-            <div class='row'>
+            <div id='ptsd_in_hx'>
+            <div class='row mt-5'>
               <div class="input-group">
                 <div class="d-flex align-items-center mx-auto mb-2 text-center">
                 <div class='text-center mt-3 mb-2'>
@@ -875,61 +874,75 @@ USE THIS TOOL INSTEAD BUT DSM-5 VERSION: https://adaa.org/screening-panic-disord
                 </div>
               </div>
 
-
-            <div class="d-flex align-items-center mx-auto">
-              <input class="btn btn-primary mb-5 px-4 mx-2" type="button" value='Yes' id="yes_abuse"></label>
-              <input class="btn btn-primary mb-5 px-4 mx-2" type="button" value='No' id="no_abuse"></label>
+            <div class="btn-group btn-group-toggle d-flex align-items-center mx-auto" data-toggle="buttons">
+              <label class="btn btn-primary mx-2 px-4">
+                <input type="radio" id="yes_abuse" name='ptsd' value='Yes' required> Yes
+              </label>
+              <label class="btn btn-primary mx-2 px-4">
+                <input type="radio" id="no_abuse" name='ptsd' value='No'> No
+              </label>
             </div>
           </div>
+  <div class='text-center' id='error_ptsd'></div>
 
 
             <div id='abuse_hx_box' class='hide'>
-                  <div id='abuse_survery_questions class="d-flex align-items-center mx-auto input-group mb-2'>
-                      <h4>In the past month, have you...</h4><br>
-                      <h6> had nightmares about the event(s) or thought about the event(s) when you did not want to? </h6>
+              <div class='row'>
+
+                  <div class="input-group">
+                    <div class="d-flex align-items-center mx-auto mb-2 text-center">
+                    <div class='text-center mt-3'>
+                    <h6>In the past month, have you...</h6>
+                    <p id='abuse_survery_questions_hx'> had nightmares about the event(s) or thought about the event(s) when you did not want to?</p>
+                    </div>
+                    </div>
                   </div>
-                  <input class="btn btn-primary mb-5 px-4 mx-2" type="button" value='Yes' id="yes_abuse_survey"></label>
-                  <input class="btn btn-primary mb-5 px-4 mx-2" type="button" value='No' id="no_abuse_survey"></label>
+<!-- hidden so that I can validate the buttons yes no for ptsd screen -->
+                  <div class='hide'>
+                    <span class="">Age: </span>
+                  <input id='end' class="my_item" name='survey_d' type='number' placeholder="Age" required>
+                </div>
+
+                <div class="btn-group btn-group-toggle d-flex align-items-center mx-auto" data-toggle="buttons">
+                  <input class="btn btn-secondary mx-2 px-4 text-left" type="button" value="Back" name='survey' onclick="ptsd_back('hx')">
+                  <div class="d-flex align-items-center mx-auto">
+                <input class="btn btn-primary px-4 mx-2" name='survey_d' type="button" value='Yes' id="yes_abuse_survey" onclick="ptsd_answer(1, 'hx')"></label>
+                <input class="btn btn-primary px-4 mx-2" name='survey_d' type="button" value='No' id="no_abuse_survey" onclick="ptsd_answer(0, 'hx')"></label>
+                </div>
+                </div>
               </div>
-
-
-
-<!-- rest of Questions to ask:
-       tried hard not to think about the event(s) or went out of your way to avoid situations that reminded you of the event(s)?
-       been constantly on guard, watchful, or easily startled?
-       felt numb or detached from people, activities, or your surroundings?
-       felt guilty or unable to stop blaming yourself or others for the event(s) or any problems the event(s) may have caused?
+              <div class='text-center' id='error_survey'></div>
+              <div class='text-center' id='error_survey_d' focusID="ID_TO_FOCUSTO"></div>
+            </div>
+          </div>
+<!--
         ***  score of 3 or more is trigger for ptsd per https://www.ptsd.va.gov/professional/assessment/documents/pc-ptsd5-screen.pdf  ****
                       -->
 
 
 
-
-
-
-
-
-
-            <div class='row'>
+            <div class='row mt-5'>
               <div class="input-group">
                 <div class="d-flex align-items-center mx-auto mb-2 text-center">
-                <div class='text-center mt-3 mb-2'>
+                <div class='text-center mb-2 mt-3'>
                 <h4>Do you feel safe at home?</h4>
                 </div>
                 </div>
               </div>
 
-            <div class="d-flex align-items-center mx-auto">
-              <input class="btn btn-primary mb-5 px-4 mx-2" type="button" value='Yes' id="yes_safe"></label>
-              <input class="btn btn-primary mb-5 px-4 mx-2" type="button" value='No' id="no_safe"></label>
+            <div class="btn-group btn-group-toggle d-flex align-items-center mx-auto" data-toggle="buttons">
+              <label class="btn btn-primary mx-2 px-4">
+                <input type="radio" id="yes_safe" name='safe' value='Yes' required> Yes
+              </label>
+              <label class="btn btn-primary mx-2 px-4">
+                <input type="radio" id="no_safe" name='safe' value='No'> No
+              </label>
             </div>
           </div>
+                      <div class='text-center' id='error_safe'></div>
 
 
-
-
-
-            <div class='row'>
+            <div class='row mt-5'>
               <div class="input-group">
                 <div class="d-flex align-items-center mx-auto mb-2 text-center">
                 <div class='text-center mt-3 mb-2'>
@@ -938,53 +951,61 @@ USE THIS TOOL INSTEAD BUT DSM-5 VERSION: https://adaa.org/screening-panic-disord
                 </div>
               </div>
 
-              <div class="d-flex align-items-center mx-auto">
-                <input class="btn btn-primary mb-5 px-4 mx-2" type="button" value='Yes' id="yes_suicide"></label>
-                <input class="btn btn-primary mb-5 px-4 mx-2" type="button" value='No' id="no_suicide"></label>
+              <div class="btn-group btn-group-toggle d-flex align-items-center mx-auto" data-toggle="buttons">
+                <label class="btn btn-primary mx-2 px-4 mb-3">
+                  <input type="radio" id="yes_suicide" name='suicide' value='Yes' required> Yes
+                </label>
+                <label class="btn btn-primary mx-2 px-4 mb-3">
+                  <input type="radio" id="no_suicide" name='suicide' value='No'> No
+                </label>
               </div>
             </div>
-
-
-
+<div class='text-center' id='error_suicide'></div>
 
 
             <div class='row'>
               <div class="input-group">
-                <div class="d-flex align-items-center mx-auto mb-2 text-center">
+                <div class="d-flex align-items-center mx-auto mb-2 mt-5 text-center">
                 <div class='text-center mt-3 mb-2'>
                 <h4>Do you have a family history of mental health issues or substance abuse?</h4>
                 </div>
                 </div>
               </div>
 
-            <div class="d-flex align-items-center mx-auto">
-              <input class="btn btn-primary mb-2 px-4 mx-2" type="button" value='Yes' id="yes_family_hx"></label>
-              <input class="btn btn-primary mb-2 px-4 mx-2" type="button" value='No' id="no_family_hx"></label>
+            <div class="btn-group btn-group-toggle d-flex align-items-center mx-auto" data-toggle="buttons">
+              <label class="btn btn-primary mx-2 px-4">
+                <input type="radio" id="yes_family_hx" name='fam_hx' value='Yes' required> Yes
+              </label>
+              <label class="btn btn-primary mx-2 px-4">
+                <input type="radio" id="no_family_hx" name='fam_hx' value='No'> No
+              </label>
             </div>
           </div>
+          <div class='text-center' id='error_fam_hx'></div>
+
 
             <div id='family_hx_box' class='hide'>
 
                 <div class="text-center">
-                  <div class="form-group mb-3">
+                  <div class="form-group">
                     <div class="form-group-prepend">
                       <span class="form-group-text">Who? (Mother, uncles, brothers, etc.)</span>
                     </div>
-                    <div>
-                    <input style='width: 100%' id='who' type="text" class="autosize my-2" placeholder='Who?'>
+                    <div class=''>
+                    <input style='width: 100%' id='who' name='who' type="text" required class="form-control text-center autosize my-2" placeholder='Who?'>
                     <div class="form-group-prepend">
                       <span class="form-group-text"> What? (Depression, addiction, suicide, etc.)</span>
                     </div>
-                    <input style='width: 100%' id='what' type="text" class="autosize" placeholder='What?'>
+                    <input style='width: 100%' id='what' name='what' type="text" required class="form-control text-center autosize" placeholder='What?'>
                   </div>
                 </div>
                 </div>
-          <div class="text-center mb-3">
+          <div class="text-center">
             <button class="btn btn-outline-primary" type="button" id="add_family">Add Family</button>
           </div>
 
             <div>
-              <ol class='mb-3' id='added_family'>
+              <ol class='mt-2' id='added_family'>
               </ol>
             </div>
           </div>
@@ -999,27 +1020,32 @@ USE THIS TOOL INSTEAD BUT DSM-5 VERSION: https://adaa.org/screening-panic-disord
                 </div>
               </div>
 
-            <div class="d-flex align-items-center mx-auto">
-              <input class="btn btn-primary mb-2 px-4 mx-2" type="button" value='Yes' id="yes_mental_care"></label>
-              <input class="btn btn-primary mb-2 px-4 mx-2" type="button" value='No' id="no_mental_care"></label>
+            <div class="btn-group btn-group-toggle d-flex align-items-center mx-auto" data-toggle="buttons">
+              <label class="btn btn-primary mx-2 px-4 mb-3">
+                <input type="radio" id="yes_mental_care" name='psy_hx' value='Yes' required> Yes
+              </label>
+              <label class="btn btn-primary mx-2 px-4 mb-3">
+                <input type="radio" id="no_mental_care" name='psy_hx' value='No'> No
+              </label>
             </div>
           </div>
+            <div class='text-center' id='error_psy_hx'></div>
 
             <div id='psych_care_box' class='hide'>
               <div class="text-center">
-                <div class="form-group mb-3">
+                <div class="form-group">
                   <div class="form-group-prepend">
                     <span class="form-group-text">Have you ever recieved mental health care before?</span>
                   </div>
                   <div class="form-group-prepend">
                     <span class="form-group-text">Treatment for what?</span>
                   </div>
-                  <div>
-                  <input style='width: 100%' id='what_treatment' type="text" class="autosize my-2" placeholder='For what?'>
+                  <div class=''>
+                  <input style='width: 100%' id='what_treatment' name='what_treatment' required type="text" class="form-control text-center autosize mt-2" placeholder='For what?'>
                   <div class="form-group-prepend">
                     <span class="form-group-text">Last appointment date?</span>
                   </div>
-                  <input style='width: 100%' id='last_treatment' type="text" class="autosize" placeholder='Last appointment?'>
+                  <input style='width: 100%' id='last_treatment' name='last_treatment' required type="text" class="form-control text-center autosize mt-2" placeholder='Last appointment?'>
                 </div>
               </div>
               </div>
@@ -1037,11 +1063,16 @@ USE THIS TOOL INSTEAD BUT DSM-5 VERSION: https://adaa.org/screening-panic-disord
                 </div>
               </div>
 
-              <div class="d-flex align-items-center mx-auto">
-                <input class="btn btn-primary mb-2 px-4 mx-2" type="button" value='Yes' id="psych_hosp_yes"></label>
-                <input class="btn btn-primary mb-2 px-4 mx-2" type="button" value='No' id="psych_hosp_no"></label>
+              <div class="btn-group btn-group-toggle d-flex align-items-center mx-auto" data-toggle="buttons">
+                <label class="btn btn-primary mx-2 px-4 mb-3">
+                  <input type="radio" id="psych_hosp_yes" name='admit' value='Yes' required> Yes
+                </label>
+                <label class="btn btn-primary mx-2 px-4 mb-3">
+                  <input type="radio" id="psych_hosp_no" name='admit' value='No'> No
+                </label>
               </div>
             </div>
+              <div class='text-center' id='error_admit'></div>
 
           <div id='psych_hosp_box' class='hide'>
             <div class="text-center">
@@ -1049,45 +1080,36 @@ USE THIS TOOL INSTEAD BUT DSM-5 VERSION: https://adaa.org/screening-panic-disord
                 <div class="form-group-prepend">
                   <span class="form-group-text">How many times?</span>
                 </div>
-                <div>
-                <input style='width: 100%' id='hosp_times' type="text" class="autosize my-2" placeholder='How many times?'>
+                <div class=''>
+                <input style='width: 100%' id='hosp_times' name='hosp_times' required type="text" class="form-control text-center autosize my-2" placeholder='How many times?'>
                 <div class="form-group-prepend">
                   <span class="form-group-text">Most recent time? (Year)</span>
                 </div>
-                <input style='width: 100%' id='recent_hosp' type="text" class="autosize" placeholder='Most recent time? (Year)'>
+                <input style='width: 100%' id='recent_hosp' name='recent_hosp' required type="text" class="form-control text-center autosize" placeholder='Most recent time? (Year)'>
               </div>
             </div>
             </div>
           </div>
 
-
-
-
-
-
-
-
-
-
-
           </div> <!--6th hx box -->
 
           <div class="border border-secondary rounded-bottom m-5 p-5 bg-gray-300 shadow-lg" style='background-color:white'>
 
-            <div class="text-center mb-3">
-              <button class="btn btn-primary" type="button" id="done_hx" onclick='finished()'>Submit</button>
+            <div class="form-group text-center mb-3">
+              <input class="submit btn btn-primary" type="button" id="done_hx" value='Submit'>
             </div>
-
           </div>
 
         </div> <!-- hisotry -->
       </div> <!-- algorx -->
   </body>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+
   <script
   src="https://code.jquery.com/jquery-3.5.1.min.js"
   integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
   crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   <script src=test.js></script>
+<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.js"></script>
 </html>
