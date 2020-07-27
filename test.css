@@ -1,8 +1,13 @@
 .hide {
   display: none;
-};
+}
 
+.error {
 
+  color: #ce2926 !important;
+  border-color: #ce2926;
+  padding:1px 20px 1px 20px;
+}
 .autosize {
   font-size:0.8rem !important;
 }
@@ -22,17 +27,4 @@
 @media screen and (max-width: 599px) {
   .autosize {
     font-size: 0.8rem !important;
-  }
-
-  .bg {
-    /* The image used */
-    background-image: url("Untitled_Artwork.png");
-
-    /* Full height */
-    height: 100%;
-
-    /* Center and scale the image nicely */
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
   }
