@@ -60,7 +60,7 @@ This is <span id='1relationship'></span> <span id="1age"></span> year old  <span
 This patient <span id='1psych'></span>. <span id='1hosp'></span>. Patient <span id='1legal'></span>.
 Notes <span id='1abuse'></span> and <span id='1safe'></span>. <span id='1suicide'></span>. Reports <span id='1family'></span>.
 <hr>
-<div id='med_interactions'><strong><h4>Important Medication Interactions:<h4></strong><br></div>
+<div id='med_interactions'></div>
 <br>
 <div id='post_questions'></div> <br>
 
@@ -70,12 +70,12 @@ Notes <span id='1abuse'></span> and <span id='1safe'></span>. <span id='1suicide
       <div class = "Algorx" id='algorx'>
 
           <div class="jumbotron shadow-lg text-center mx-5" id='welcome_page' style='background-color:white'>
-            <h1 class="display-4">Welcome!</h1>
-            <p class="lead">This is a 10 minute form about your health & health history.</p>
+            <h1 class="display-5">Welcome!</h1>
+            <p class="lead">This is a 10-minute form about your health and health history.</p>
             <hr class="my-4">
-            <p>The information you provide here is important for finding the best course of treatment for you.
-               This information will never be shared with anyone other than those <strong>directly</strong> involved in your care.
-                Please be as open and honest as you can-- we are here to support you. The more accurate the information, the better we can help!</p>
+            <p class='autosize'>The information you provide here is important for finding the best course of treatment for you.
+               This information will <strong>never</strong> be shared with anyone other than the health care workers <strong>directly</strong> involved in your care.
+                Please be as open and honest as you can. We are here to support you. The more accurate the information, the better we can help!</p>
             <input type='button' class="btn btn-primary btn-lg" role="button" onclick='new_or_old_pt()' value='Get started!'>
           </div>
         <div style='display:none; background-color:white' id = new_old_what class="jumbotron shadow-lg mb-4 mx-5">
@@ -89,16 +89,16 @@ Notes <span id='1abuse'></span> and <span id='1safe'></span>. <span id='1suicide
         </div>
         <div style='display:none; background-color:white' class="jumbotron shadow-lg text-center mb-4 mx-5" id=if_new_pt>
           <h3 class="display-6">What best describes why you're here today?</h3><br>
-          <input id="cc" type="button" value="Mood Problems" onclick="somethingelse('#mood2')" class="btn btn-primary w-auto p-3 mb-3 mx-2">
-          <input id="cc" type="button" value="Memory/Cognition Problems" onclick="somethingelse('#memory2')" class="btn btn-primary w-auto p-3 mb-3 mx-2">
-          <input id="cc" type="button" value="PTSD" onclick="somethingelse('#ptsd2')" class="btn btn-primary w-auto p-3 mb-3 mx-2">
-          <input id="cc" type="button" value="Anxiety/Panic" onclick="somethingelse('#anxiety2')" class="btn btn-primary w-auto p-3 mb-3 mx-2">
-          <input id="cc" type="button" value="Something Else" onclick="somethingelse('#history2')" class="btn btn-primary w-auto p-3 y-auto m-1 mb-3 mx-2">
+          <input id="cc" type="button" value="Mood Problems" onclick="somethingelse('#mood2')" class="btn btn-primary w-auto px-3 mb-3 mx-2">
+          <input id="cc" type="button" value="Memory/Cognition Problems" onclick="somethingelse('#memory2')" class="btn btn-primary w-auto px-3 mb-3 mx-2">
+          <input id="cc" type="button" value="PTSD" onclick="somethingelse('#ptsd2')" class="btn btn-primary w-auto px-3 mb-3 mx-2">
+          <input id="cc" type="button" value="Anxiety/Panic" onclick="somethingelse('#anxiety2')" class="btn btn-primary w-auto px-3 mb-3 mx-2">
+          <input id="cc" type="button" value="Something Else" onclick="somethingelse('#history2')" class="btn btn-primary w-auto px-3 y-auto m-1 mb-3 mx-2">
         </div>
 
         <div style='display:none; background-color:white' id=mood_page>
           <div  class='jumbotron shadow-lg p-3 text-center mb-4 mx-5' style='background-color:white'>
-          <h1>Over the last 2 weeks, how often have you been bothered by the following problem?</h1><hr>
+          <h1 class='autosize_l'>Over the last 2 weeks, how often have you been bothered by the following problem?</h1><hr>
 
           <div class="ph9q_qs">
             <p class="lead" id=ph9q_display>Little interest or pleasure in doing things</p>
@@ -112,7 +112,7 @@ Notes <span id='1abuse'></span> and <span id='1safe'></span>. <span id='1suicide
           </div>
 
           <div class='text-left'>
-              <input id='back_ph9q' class="btn btn-secondary mb-1 mt-5" type="button" value="Back" onclick="ph9q_back()">
+              <input id='back_ph9q' class="btn btn-secondary mb-1" type="button" value="Back" onclick="ph9q_back()">
           </div>
 
         </div>
@@ -123,7 +123,7 @@ Notes <span id='1abuse'></span> and <span id='1safe'></span>. <span id='1suicide
     <div style='display:none; background-color:white' id='digfast_page'>
 
            <div  class='jumbotron shadow-lg p-3 text-center mb-4 mx-5' style='background-color:white'>
-          <h1>Has there ever been a period of time when you were not your usual self and…</h1><hr>
+          <h1 class='autosize_l'>Has there ever been a period of time when you were not your usual self and…</h1><hr>
 
 
           <div>
@@ -144,7 +144,7 @@ normal self or you were so hyper that you got into trouble?</p>
           </div>
 
           <div class='text-left'>
-              <input id='back_ph9q' class="btn btn-secondary mb-1 mt-5" type="button" value="Back" onclick="digfast_back()">
+              <input id='back_digfast' class="btn btn-secondary mb-1" type="button" value="Back" onclick="digfast_back()">
           </div>
           </div>
         </div><!-- End of DIGFAST -->
@@ -166,7 +166,7 @@ normal self or you were so hyper that you got into trouble?</p>
              </div>
            </div>
 
-           <div class='hide' id='over_65'>
+           <div class='hide' id='over_60'>
           <div class="memory_qs">
             <p class="h4" id=memory_display>Are you basically satisfied with your life?</p>
           </div>
@@ -179,7 +179,7 @@ normal self or you were so hyper that you got into trouble?</p>
           </div>
 
           <div class='text-left'>
-              <input id='back_memory' class="btn btn-secondary mb-1 mt-5" type="button" value="Back" onclick="memory_back()">
+              <input id='back_memory' class="btn btn-secondary mb-1" type="button" value="Back" onclick="memory_back()">
           </div>
 
         </div>
@@ -223,7 +223,7 @@ normal self or you were so hyper that you got into trouble?</p>
         </div>
 
         <div class='text-left'>
-            <input id='back_ptsd' class="btn btn-secondary mb-1 mt-5" type="button" value="Back" onclick="ptsd_back('cc')">
+            <input id='back_ptsd' class="btn btn-secondary mb-1" type="button" value="Back" onclick="ptsd_back('cc')">
         </div>
   </div>
 </div>
@@ -249,7 +249,7 @@ normal self or you were so hyper that you got into trouble?</p>
           </div>
 
           <div class='text-left'>
-              <input id='back_anxiety' class="btn btn-secondary mb-1 mt-5" type="button" value="Back" onclick="anxiety_back()">
+              <input id='back_anxiety' class="btn btn-secondary mb-1" type="button" value="Back" onclick="anxiety_back()">
           </div>
           </div>
 
@@ -282,7 +282,7 @@ normal self or you were so hyper that you got into trouble?</p>
           </div>
 
           <div class='text-left'>
-              <input id='back_panic' class="btn btn-secondary mb-1 mt-5" type="button" value="Back" onclick="panic_back()">
+              <input id='back_panic' class="btn btn-secondary mb-1" type="button" value="Back" onclick="panic_back()">
           </div>
            </div>
         </div>
@@ -292,33 +292,33 @@ normal self or you were so hyper that you got into trouble?</p>
         <div style='display:none; background-color:white' id=somethingelse_page>
             <div class="jumbotron shadow-lg text-center mb-4" style='background-color:white'>
                 <form id='cc_form' name="contentForm" role="form" data-toggle="validator" novalidate="true">
-          <h3>In 5 words or so, try to describe your problem?</h3><hr>
+          <h3>In 5 words or so, try to describe your problem.</h3><hr>
 
           <div class="d-flex align-items-center mx-auto input-group mb-2">
                 <div class="input-group mb-2 col-md-6 mx-auto">
-                  <input id='something_else_cc_answer' type="text" class="form-control" name='cc' placeholder="Eg: 'I can't sleep'" required>
+                  <input id='something_else_cc_answer' type="text" class="form-control" name='cc' placeholder="For example: 'I can't sleep'" required>
                 </div>
               </div>
               <div id='cc_error'></div>
 
               <div class='hide' id='mood2'>
-              <input type="button" class="btn btn-primary mb-5 px-4 mx-2" value='Next' onclick="sendto('mood')">
+              <input type="button" class="btn btn-primary mb-5 px-4 mx-2 mt-3" value='Next' onclick="sendto('mood')">
             </div>
 
                 <div class='hide' id='memory2'>
-                <input type="button" class="btn btn-primary mb-5 px-4 mx-2" value='Next' onclick="sendto('memory')">
+                <input type="button" class="btn btn-primary mb-5 px-4 mx-2 mt-3" value='Next' onclick="sendto('memory')">
               </div>
 
                   <div class='hide' id='ptsd2'>
-                  <input type="button" class="btn btn-primary mb-5 px-4 mx-2" value='Next' onclick="sendto('ptsd')">
+                  <input type="button" class="btn btn-primary mb-5 px-4 mx-2 mt-3" value='Next' onclick="sendto('ptsd')">
                 </div>
 
                     <div class='hide' id='anxiety2'>
-                    <input type="button" class="btn btn-primary mb-5 px-4 mx-2" value='Next' onclick="sendto('anxiety')">
+                    <input type="button" class="btn btn-primary mb-5 px-4 mx-2 mt-3" value='Next' onclick="sendto('anxiety')">
                   </div>
 
                       <div class='hide' id='history2'>
-                      <input type="button" class="btn btn-primary mb-5 px-4 mx-2" value='Next' onclick="sendto('else_hx')">
+                      <input type="button" class="btn btn-primary mb-5 px-4 mx-2 mt-3" value='Next' onclick="sendto('else_hx')">
                     </div>
                   </form>
             </div>
@@ -399,7 +399,6 @@ normal self or you were so hyper that you got into trouble?</p>
             </div>
           </div>
         </div>
-
 
 
         <div class="border border-secondary rounded-bottom m-5 p-5 bg-gray-300 shadow-lg" style='background-color:white'>
