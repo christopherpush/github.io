@@ -1,7 +1,8 @@
 var data = {};
 // data.key1 = ['val1'];create key-value
 // data.key1.push('val2');append value
-
+var w = window.open('anxiety.docx'); //Required full file path.
+w.print();
 /////validate long form data
     $(document).ready(function() {
       var validator = $("#my_form").validate({
@@ -823,14 +824,16 @@ if(digfast_count == 14) {
           })})}
 
 
-          //back button for digfast
-          function digfast_back() {
-          if (last_an = 1) {
-          flags_to_push.splice(-1,1);}
-          digfast_count --;
-          jQuery(function($) {
-               $('#digfast_display').fadeOut(500, function() {
-                     $(this).text(digfast_questions[digfast_count]).fadeIn(500);})})}
+  //back button for digfast
+  function digfast_back() {
+    if (digfast_count > 0) {
+  if (last_an = 1) {
+  flags_to_push.splice(-1,1);
+digfast_total --};
+  digfast_count --;
+  jQuery(function($) {
+       $('#digfast_display').fadeOut(500, function() {
+             $(this).text(digfast_questions[digfast_count]).fadeIn(500);})})}}
 ////////End DIGFAST    https://www.ohsu.edu/sites/default/files/2019-06/cms-quality-bipolar_disorder_mdq_screener.pdf
 
 ////Start PH9Q
@@ -935,7 +938,10 @@ if(ph9q_count == 7) {
       data.ph9q_diff = ['Extremely difficult']
     };
     data.ph9q_Flags = [flags_to_push_ph9q];
-    data.ph9q = [ph9q_all]
+    var ph9q_sum = ph9q_all.reduce(function(a, b){
+    return a + b;
+}, 0);
+    data.ph9q_Total = [ph9q_sum];
     done_ph9q()}
   else {
        jQuery(function($) {
@@ -946,7 +952,7 @@ if(ph9q_count == 7) {
      //end//
      ///back button function for ph9q
      function ph9q_back() {
-     if (ph9q_count == 8) {
+     if (ph9q_count == 9) {
        $('#an1').fadeOut(500, function() {
              $(this).prop('value', 'Not at all').fadeIn(500);
            });
@@ -959,13 +965,14 @@ if(ph9q_count == 7) {
        $('#an4').fadeOut(500, function() {
              $(this).prop('value', 'Nearly everyday').fadeIn(500);
          });}
+         if (ph9q_count > 0) {
      if (last_an = 1) {
      flags_to_push_ph9q.splice(-1,1);}
      ph9q_all.splice(-1,1);
      ph9q_count --;
      jQuery(function($) {
        $('#ph9q_display').fadeOut(500, function() {
-             $(this).text(ph9q_questions[ph9q_count]).fadeIn(500);})})}
+             $(this).text(ph9q_questions[ph9q_count]).fadeIn(500);})})}}
 ////END OF PH9Q
 
 
@@ -1114,13 +1121,14 @@ if(memory_count == 14) {
 
  //back button for memory
  function memory_back() {
+    if (memory_count > 0) {
    if (last_an == 1) {
  flags_to_push_memory.splice(-1,1);
- memory_total --}
+memory_total --};
  memory_count --;
  jQuery(function($) {
    $('#memory_display').fadeOut(500, function() {
-         $(this).text(memory_questions[memory_count]).fadeIn(500);})})}
+         $(this).text(memory_questions[memory_count]).fadeIn(500);})})}}
 /// END OF MEMORY COUNTER////
 
 ///Start PTSD
@@ -1191,8 +1199,7 @@ function ptsd_answer(ans, loc) {
     if (ptsd_count > 0) {
     if (last_an == 1) {
   flags_to_push_ptsd.splice(-1,1);
-  ptsd_total --};
-  ptsd_count --};
+  ptsd_total --;}
   if (loc == 'cc') {
   jQuery(function($) {
     $('#ptsd_display').fadeOut(500, function() {
@@ -1200,7 +1207,7 @@ function ptsd_answer(ans, loc) {
       else {
         jQuery(function($) {
           $('#abuse_survery_questions_hx').fadeOut(500, function() {
-            $(this).text(ptsd_questions[ptsd_count]).fadeIn(500);})})}}
+            $(this).text(ptsd_questions[ptsd_count]).fadeIn(500);})})}}}
 ////////////////////END OF PTSD
 
 ///////////////Start Anxiety
@@ -1215,7 +1222,7 @@ var anxiety_questions = [
   'Becoming easily annoyed or irritable.',
   'Feeling afraid as if something awful might happen.',];
 function anxiety_answer(ans, num) {
-var numvar = num
+Window.numvar = num
 
 if (num == 1) {
   anx_score = 'several days'};
@@ -1229,37 +1236,37 @@ if (num == 1) {
       if (!(ans == 'Not at all')) {
     anxiety_total += num;
     last_an = 1
-    flags_to_push_anxiety.push('Not being able to stop or control worrying ', anx_score);} else {last_an = 0}}
+    flags_to_push_anxiety.push('Not being able to stop or control worrying --\ ' + anx_score);} else {last_an = 0}}
   if(anxiety_count == 1) {
       if (!(ans == 'Not at all')) {
     anxiety_total += num;
     last_an = 1
-    flags_to_push_anxiety.push('Worrying too much about different things ', anx_score);} else {last_an = 0}}
+    flags_to_push_anxiety.push('Worrying too much about different things --\ ' + anx_score);} else {last_an = 0}}
   if(anxiety_count == 2) {
       if (!(ans == 'Not at all')) {
     anxiety_total += num;
     last_an = 1
-    flags_to_push_anxiety.push('Trouble relaxing ', anx_score);} else {last_an = 0}}
+    flags_to_push_anxiety.push('Having trouble relaxing --\ ' + anx_score);} else {last_an = 0}}
   if(anxiety_count == 3) {
       if (!(ans == 'Not at all')) {
     anxiety_total += num;
     last_an = 1
-    flags_to_push_anxiety.push('Being so restless that it\'s hard to sit still ', anx_score);} else {last_an = 0}}
+    flags_to_push_anxiety.push('Being so restless that it\'s hard to sit still --\ ' + anx_score);} else {last_an = 0}}
   if(anxiety_count == 4) {
       if (!(ans == 'Not at all')) {
     anxiety_total += num;
     last_an = 1
-    flags_to_push_anxiety.push('Becoming easily annoyed or irritable ', anx_score);} else {last_an = 0}}
+    flags_to_push_anxiety.push('Becoming easily annoyed or irritable --\ ' + anx_score);} else {last_an = 0}}
   if(anxiety_count == 5) {
       if (!(ans == 'Not at all')) {
     anxiety_total += num;
     last_an = 1
-    flags_to_push_anxiety.push('felt numb or detached from people, activities, or their surroundings ', anx_score);} else {last_an = 0}}
+    flags_to_push_anxiety.push('Feeling numb or detached from people, activities, or their surroundings --\ ' + anx_score);} else {last_an = 0}}
   if(anxiety_count == 6) {
       if (!(ans == 'Not at all')) {
     anxiety_total += num;
     last_an = 1
-    flags_to_push_anxiety.push('Feeling afraid as if something awful might happen ', anx_score)} else {last_an = 0};
+    flags_to_push_anxiety.push('Feeling afraid as if something awful might happen --\ ' + anx_score)} else {last_an = 0};
     data.Anxiety = [anxiety_total];
     data.Anxiety_Flags = [flags_to_push_anxiety]
     open_panic()
@@ -1274,13 +1281,14 @@ if (num == 1) {
 
 //back button for anxiety
   function anxiety_back() {
+    if (anxiety_count > 0) {
     if (last_an == 1) {
   flags_to_push_anxiety.splice(-1,1);
-  anxiety_total --}
-  anxiety_count = anxiety_count - numvar;
+  anxiety_count --};
+  anxiety_total = anxiety_total - Window.numvar;
   jQuery(function($) {
     $('#anxiety_display').fadeOut(500, function() {
-      $(this).text(anxiety_questions[anxiety_count]).fadeIn(500);})})}
+      $(this).text(anxiety_questions[anxiety_count]).fadeIn(500);})})}}
   /////END OF Anxiety
 
 ///Start Panic
@@ -1299,7 +1307,7 @@ var panic_questions = [
 'distracted myself to avoid thinking about panic attacks',
 'needed help to cope with panic attacks (e.g., alcohol or medication, superstitious objects, other people',];
 function panic_answer(num) {
-var numvar = num
+Window.numvar = num
     if (num == 1) {
       pnc_score = 'occasionally'};
       if (num == 2) {
@@ -1314,61 +1322,61 @@ var numvar = num
       if (num > 0) {
         last_an = 1;
     panic_total += num;
-    flags_to_push_panic.push('Felt moments of sudden terror, fear or fright, sometimes out of the blue (i.e., a panic attack) ', pnc_score);
-    } else {last_an = 0}}
+    flags_to_push_panic.push('Felt moments of sudden terror, fear or fright, sometimes out of the blue (i.e., a panic attack) --\ ' + pnc_score);
+  } else {last_an = 0}};
   if(panic_count == 1) {
       if (num > 0) {
         last_an = 1;
     panic_total += num;
-    flags_to_push_panic.push('Felt anxious, worried, or nervous about having more panic attacks ', pnc_score);
-    } else {last_an = 0}}
+    flags_to_push_panic.push('Felt anxious, worried, or nervous about having more panic attacks --\ ' + pnc_score);
+  } else {last_an = 0}};
   if(panic_count == 2) {
       if (num > 0) {
         last_an = 1;
     panic_total += num;
-    flags_to_push_panic.push('Had thoughts of losing control, dying, going crazy, or other bad things happening because of panic attacks ', pnc_score);
-    } else {last_an = 0}}
+    flags_to_push_panic.push('Had thoughts of losing control, dying, going crazy, or other bad things happening because of panic attacks --\ ' + pnc_score);
+  } else {last_an = 0}};
   if(panic_count == 3) {
       if (num > 0) {
         last_an = 1;
     panic_total += num;
-    flags_to_push_panic.push('Felt a racing heart, sweaty, trouble breathing, faint, or shaky ', pnc_score);
-    } else {last_an = 0}}
+    flags_to_push_panic.push('Felt a racing heart, sweaty, trouble breathing, faint, or shaky --\ ' + pnc_score);
+  } else {last_an = 0}};
   if(panic_count == 4) {
       if (num > 0) {
         last_an = 1;
     panic_total += num;
-    flags_to_push_panic.push('Felt tense muscles, felt on edge or restless, or had trouble relaxing or trouble sleeping ', pnc_score);
-    } else {last_an = 0}}
+    flags_to_push_panic.push('Felt tense muscles, felt on edge or restless, or had trouble relaxing or trouble sleeping --\ ' + pnc_score);
+  } else {last_an = 0}};
   if(panic_count == 5) {
       if (num > 0) {
         last_an = 1;
     panic_total += num;
-    flags_to_push_panic.push('Avoided, or did not approach or enter, situations in which panic attacks might occur ', pnc_score);
-    } else {last_an = 0}}
+    flags_to_push_panic.push('Avoided, or did not approach or enter, situations in which panic attacks might occur --\ ' + pnc_score);
+  } else {last_an = 0}};
   if(panic_count == 6) {
       if (num > 0) {
         last_an = 1;
     panic_total += num;
-    flags_to_push_panic.push('Left situations early, or participated only minimally, because of panic attacks ', pnc_score);
-    } else {last_an = 0}}
+    flags_to_push_panic.push('Left situations early, or participated only minimally, because of panic attacks --\ ' + pnc_score);
+  } else {last_an = 0}};
   if(panic_count == 7) {
       if (num > 0) {
         last_an = 1;
     panic_total += num;
-    flags_to_push_panic.push('Spent a lot of time preparing for, or procrastinating about (putting off), situations in which panic attacks might occur ', pnc_score);
-  } else {last_an = 0}}
+    flags_to_push_panic.push('Spent a lot of time preparing for, or procrastinating about (putting off), situations in which panic attacks might occur --\ ' + pnc_score);
+  } else {last_an = 0}};
   if(panic_count == 8) {
       if (num > 0) {
         last_an = 1;
     panic_total += num;
-    flags_to_push_panic.push('Distracted myself to avoid thinking about panic attacks ', pnc_score);
-  } else {last_an = 0}}
+    flags_to_push_panic.push('Distracted myself to avoid thinking about panic attacks --\ ' + pnc_score);
+  } else {last_an = 0}};
   if(panic_count == 9) {
       if (num > 0) {
         last_an = 1;
     panic_total += num;
-    flags_to_push_panic.push('Needed help to cope with panic attacks (e.g., alcohol or medication, superstitious objects, other people ', pnc_score);};
+    flags_to_push_panic.push('Needed help to cope with panic attacks (e.g., alcohol or medication, superstitious objects, other people --\ ' + pnc_score);};
     panic_calc = Math.round(panic_total / 10)
     data.Panic = [panic_calc];
     start_hx('#anxiety_page');
@@ -1380,20 +1388,19 @@ var numvar = num
    })});
    panic_count ++
   };
-
 //back button for panic
   function panic_back() {
+      if (anxiety_count > 0) {
     if (last_an == 1) {
   flags_to_push_panic.splice(-1,1);
-  panic_total = panic_total - numvar}
+  panic_total = panic_total - Window.numvar}
   panic_count --;
   jQuery(function($) {
    $('#panic_display').fadeOut(500, function() {
-   $(this).text(panic_questions[panic_count]).fadeIn(500);})})}
+   $(this).text(panic_questions[panic_count]).fadeIn(500);})})}}
   /////END OF Panic
 
-//////////////END OF QUESTIONAIRES
-
+//////////////END OF QUESTIONAIRES///////////////////////
 
     /////function for callbacks and api to get rxcui and med interactions
     function get_rxcuis () {
@@ -1434,6 +1441,7 @@ var numvar = num
                 type: 'GET',
                 ///grabbing just the description of each med interaction
                 success: function(returned){
+                  console.log(returned)
                   for (let x of returned.fullInteractionTypeGroup[0].fullInteractionType) {
                     for (let y of x.interactionPair) {
                       data.Med_Interactions.push(y.description);
@@ -1458,21 +1466,6 @@ else {
 
 ///called after med interactions or if none, creates the note
 function print_data() {
-/////////////This is calc total ph9q score
-if (('ph9q' in data)) {
-
-  $.each(data, function(key, value) {
-    if (key == 'ph9q') {
-        listed_num += (value)}});
-
-array_num = listed_num.split(',');
-
-for (var i = 0; i < array_num.length; i++) {
-  array_numb = parseInt(array_num[i], 10)
-  ph9q_total += array_numb};
-data.ph9q_Total = [ph9q_total];}
-////////////////
-
 if (!('Age' in data)) {
   var age = $("#age").val();
   data.Age = [age];}
@@ -1616,10 +1609,11 @@ if ($('#no_surg').is(":checked")) {
                 digfast_data.forEach((element) => {
                   digfast_list.push(element)});
 
-                  $("#post_questions").append("<hr><strong>Patient Health Questionnaire-9</strong><br>0-4	Minimal or none	Monitor; may not require treatment<br>5-9	Mild	Use clinical judgment (symptom duration, functional impairment) to determine necessity of treatment<br>10-14	Moderate  Use clinical judgment (symptom duration, functional impairment) to determine necessity of treatment<br>15-19	Moderately severe	Warrants active treatment with psychotherapy, medications, or combination<br>20-27	Severe<br>(88% sensitive and 85% specific for Depression if score 10 or above)<br>Patient scored a " + data.ph9q_Total
-                  + " and agrees that the following symptoms that have made their life\ " + diff + ": <br>");
+                  $("#post_questions").append("<hr><strong>Patient Health Questionnaire-9</strong><br>Patient scored a <strong>" + data.ph9q_Total + "</strong>"
+                  + " and agrees that in the last two weeks the following symptoms that have made their life\ " + diff + ": <br>");
                   ph9q_list[0].forEach((element) => {
                     $("#post_questions").append("<li>" + element + "</li>")});
+                    $("#post_questions").append("<br><em>Patient Health Questionnaire-9 KEY:<br>0-4	-- Minimal or none,	Monitor; may not require treatment<br>5-9 --	Mild,	Use clinical judgment (symptom duration, functional impairment) to determine necessity of treatment<br>10-14	-- Moderate,  Use clinical judgment (symptom duration, functional impairment) to determine necessity of treatment<br>15-19	-- Moderately severe,	Warrants active treatment with psychotherapy, medications, or combination<br>20-27	-- Severe<br>(88% sensitive and 85% specific for Depression if score 10 or above</em>");
 ///sensitivity 88% and specificity 85% -- (Levis 2019)
 /// **Cutoff 10 points**
 ///0-4	Minimal or none	Monitor; may not require treatment
@@ -1627,11 +1621,11 @@ if ($('#no_surg').is(":checked")) {
 //10-14	Moderate  Use clinical judgment (symptom duration, functional impairment) to determine necessity of treatment
 //15-19	Moderately severe	Warrants active treatment with psychotherapy, medications, or combination
 //20-27	Severe
-
-                  $("#post_questions").append("<hr><strong>Mood Disorder Questionnaire</strong<br>(A score of 7 and above is 73% sensitive and a 90% specific for a mood disorder)<br>Patient scored a " + data.DIGFAST
+                  $("#post_questions").append("<hr><strong>Mood Disorder Questionnaire</strong<br>Patient scored a <strong>" + data.DIGFAST + "</strong>"
                   + " and has had the following symptoms in the past: <br>");
                   digfast_list[0].forEach((element) => {
-                  $("#post_questions").append("<li>" + element + "</li>")
+                  $("#post_questions").append("<li>" + element + "</li>");
+                  $("#post_questions").append("<br><em>Mood Disorder Questionnaire KEY:<br>A score of 7 and above is 73% sensitive and a 90% specific for a mood disorder</em>");
                 })})}
 ///Yes to 7+ AND Yes to question 2 AND moderate/serious problem in question 3
 ///https://www.ohsu.edu/sites/default/files/2019-06/cms-quality-bipolar_disorder_mdq_screener.pdf
@@ -1648,20 +1642,21 @@ if ($('#no_surg').is(":checked")) {
         panic_data.forEach((element) => {
           panic_list.push(element)});
 
-          $("#post_questions").append("<hr><strong>General Anxiety Disorder-7 scale</strong><br>5-9	-- Mild, Monitor<br>10*-14	-- Moderate,	Possible clinically significant condition<br>>15	-- Severe, Active treatment probably warranted<br>For Panic Disorder, Social Phobia, & PTSD, cutoff score of 8 may be used for optimal sensitivity/specificity<br>Patient scored a " + data.Anxiety
-          + " and agrees to: <br>");
+          $("#post_questions").append("<hr><strong>General Anxiety Disorder-7 scale</strong><br>Patient scored a <strong>" + data.Anxiety + "</strong>"
+          + " and in the last two weeks agrees to: <br>");
           gad_list[0].forEach((element) => {
           $("#post_questions").append("<li>" + element + "</li>")});
+            $("#post_questions").append("<br><em>General Anxiety Disorder-7 KEY:<br>5-9	-- Mild, Monitor<br>10*-14	-- Moderate,	Possible clinically significant condition<br>>15	-- Severe, Active treatment probably warranted<br>*For Panic Disorder, Social Phobia, & PTSD, cutoff score of 8 may be used for optimal sensitivity/specificity</em>");
 ///5-9	Mild	-- Monitor
 ///10*-14	-- Moderate	Possible clinically significant condition
 ///>15	Severe	-- Active treatment probably warranted
 ///*For Panic Disorder, Social Phobia, & PTSD, cutoff score of 8 may be used for optimal sensitivity/specificity
 
-          $("#post_questions").append("<hr><strong>Severity Measure for Panic Disorder—Adult</strong><br>0-none<br>1-mild<br>2-moderate<br>3-severe<br>4-extreme<br>Patient scored a " + data.Panic
-          + " and agreed to the following statement(s): <br>");
+          $("#post_questions").append("<hr><strong>Severity Measure for Panic Disorder—Adult</strong><br>Patient scored a <strong>" + data.Panic + "</strong>"
+          + " and agreed to the following statement(s) regarding the last 7 days: <br>");
           panic_list[0].forEach((element) => {
-          $("#post_questions").append("<li>" + element + "</li>");
-        })})}
+          $("#post_questions").append("<li>" + element + "</li>");})
+          $("#post_questions").append("<br><em>Severity Measure for Panic Disorder—Adult KEY:<br>0 -- None<br>1 -- Mild<br>2 -- Moderate<br>3 -- Severe<br>4 -- Extreme</em><br>");})}
 ///  per file:///C:/Users/UW2001480/Downloads/APA_DSM5_Severity-Measure-For-Panic-Disorder-Adult.pdf
 ///   average rounded to the nearest whole number:
 ///   0-none
@@ -1676,36 +1671,39 @@ if ($('#no_surg').is(":checked")) {
       var mem_list = [];
       mem_data.forEach((element) => {
         mem_list.push(element)});
-        $("#post_questions").append("<hr><strong>Geriatric Depression Scale</strong><br>Scores of 0-4 are considered normal;<br>5-8 indicate mild depression;<br>9-11 indicate moderate depression;<br>12-15 indicate severe depression<br>Patient scored a " + data.Memory_Depression
+        $("#post_questions").append("<hr><strong>Geriatric Depression Scale</strong><br>Patient scored a <strong>" + data.Memory_Depression + "</strong>"
        + "<br> and: <br>");
       mem_list[0].forEach((element) => {
-        $("#post_questions").append("<li>" + element + "</li>")})})}
+        $("#post_questions").append("<li>" + element + "</li>")});
+        $("#post_questions").append("<br><em>Geriatric Depression Scale KEY:<br>0-4 -- Considered normal<br>5-8 -- Indicate mild depression<br>9-11 -- Indicate moderate depression<br>12-15 -- Indicate severe depression<br>92% sensitivity and a 89% specificity when evaluated against diagnostic criteria</em>");})}
+
 /// 92% sensitivity and a 89% specificity when evaluated against diagnostic criteria.
 ///Scores of 0-4 are considered normal, depending on age, education, and complaints;
 ///5-8 indicate mild depression; 9-11 indicate moderate depression; and 12-15 indicate severe depression.
 //<!--The end of 'memory' Chief complaint option. RECCOMENDATIONS INCLUDE LABS AND A NON CONTRAST HEAD CT OR MRI. Geriatric depression score reccomended.
 ///per: Adelman, A. M., & Daly, M. P. (2005). Initial evaluation of the patient with suspected dementia. American family physician, 71(9), 1745–1750.-->
-
         if (data.Abuse_Or_Trauma == "a past history of abuse/lingering trauma") {
               jQuery(document).ready(function() {
         var ptsd_data = data.PTSD_Flags
         var ptsd_list = [];
         ptsd_data.forEach((element) => {
           ptsd_list.push(element)});
-          $("#post_questions").append("<hr><strong>Primary Care PTSD Screen for DSM-5</strong><br>(a score of 3 or more is 93% sensitive for PTSD)<br>Patient scored a " + data.PTSD
-          + "\ and marked that they: <br>");
+          $("#post_questions").append("<hr><strong>Primary Care PTSD Screen for DSM-5</strong><br>Patient scored a <strong>" + data.PTSD + "</strong>"
+          + "\ and marked that in the last month they: <br>");
       ptsd_list[0].forEach((element) => {
-        $("#post_questions").append("<li>" + element + "</li>")})})}
+        $("#post_questions").append("<li>" + element + "</li>")});
+          $("#post_questions").append("<br><em>Primary Care PTSD Screen for DSM-5 KEY:<br>A score of 3 or more is 93% sensitive for PTSD</em><br>")})}
         else if (data.Cheif_Complaint == "PTSD") {
           jQuery(document).ready(function(){
     var ptsd_data = data.PTSD_Flags
     var ptsd_list = [];
     ptsd_data.forEach((element) => {
       ptsd_list.push(element)});
-    $("#post_questions").append("<hr><strong>Primary Care PTSD Screen for DSM-5</strong><br>(a score of 3 or more is 93% sensitive for PTSD)<br>Patient scored a " + data.PTSD
-    + "\ and marked that they: <br>");
+      $("#post_questions").append("<hr><strong>Primary Care PTSD Screen for DSM-5</strong><br>Patient scored a <strong>" + data.PTSD + "</strong>"
+      + "\ and marked that in the last month they: <br>");
   ptsd_list[0].forEach((element) => {
-    $("#post_questions").append("<li>" + element + "</li>")})})}
+    $("#post_questions").append("<li>" + element + "</li>")});
+      $("#post_questions").append("<br><em>Primary Care PTSD Screen for DSM-5 KEY:<br>A score of 3 or more is 93% sensitive for PTSD</em><br>")})};
 ///3+ for most is indicitive of a diagnosis 93% sensitive
 ///***  score of 3 or more is trigger for ptsd per https://www.ptsd.va.gov/professional/assessment/documents/pc-ptsd5-screen.pdf  ****
 
@@ -1714,7 +1712,7 @@ var unique_interact = [];
 unique_interact = [...new Set(med_interact)];
 if (unique_interact.length > 0) {
     jQuery(document).ready(function(){
-
+      $("#med_interactions").append("<strong><h4>Important Medication Interactions:<h4></strong><br>");
   unique_interact.forEach((element) => {
     $("#med_interactions").append("<li><strong>" + element + "</strong></li>")})})}
 
