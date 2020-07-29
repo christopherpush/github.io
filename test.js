@@ -1408,7 +1408,7 @@ Window.numvar = num
       var rxcui = []
       var med_list = data.MedsToCheck;
       ///going to get rxcui for drugs
-      data.MedsToCheck.forEach((element) => {med_list_url.push(element)});
+      data.MedsToCheck.forEach((element) {med_list_url.push(element)});
         ///  data.MedsToCheck.forEach(element => med_list_url.push(element));
       med_list_url.forEach((element) => {
         if (typeof url_for_rxui === 'undefined') {
