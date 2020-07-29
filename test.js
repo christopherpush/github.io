@@ -1441,8 +1441,8 @@ data.MedsToCheck.forEach(function(element) {med_list_url.push(element)});
                 ///grabbing just the description of each med interaction
                 success: function(returned){
                   console.log(returned)
-                  for (x of returned.fullInteractionTypeGroup[0].fullInteractionType) {
-                    for (y of x.interactionPair) {
+                  for (var x = 0; x > returned.fullInteractionTypeGroup[0].fullInteractionType; x++) {
+                    for (var y = 0; y > x.interactionPair; y++) {
                       data.Med_Interactions.push(y.description);
                     }}
                   print_data()
