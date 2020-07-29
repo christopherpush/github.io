@@ -1408,13 +1408,13 @@ Window.numvar = num
       var med_list = data.MedsToCheck;
       ///going to get rxcui for drugs
 data.MedsToCheck.forEach(function(element) {med_list_url.push(element)});
-      med_list_url.forEach((element) => {
+      med_list_url.forEach(function(element) {
         if (typeof url_for_rxui === 'undefined') {
           url_for_rxui = [("https://rxnav.nlm.nih.gov/REST/approximateTerm.json?term=" + element + "&maxEntries=1&option=0")]}
         else {
           url_for_rxui.push(("https://rxnav.nlm.nih.gov/REST/approximateTerm.json?term=" + element + "&maxEntries=1&option=0"))}});
 
-    url_for_rxui.forEach((element) => {
+    url_for_rxui.forEach(function(element){
           $(document).ready(function() {
             $.ajax({
                 url: element,
@@ -1564,10 +1564,10 @@ if ($('#no_surg').is(":checked")) {
       $("#1chiefc").append(data.Cheif_Complaint);
 
       med_data = data.Medications
-      data.Medications.forEach((element) => {
+      data.Medications.forEach(function(element) {
       $("#1medications").append("   " + element + "<br/>");})
 
-      data.MedAllergy.forEach((element) => {
+      data.MedAllergy.forEach(function(element) {
       $("#1allergies").append(element + " , ");})
 
       $("#1medical_cond").append(data.Medical_Condition);
@@ -1602,15 +1602,15 @@ if ($('#no_surg').is(":checked")) {
       var diff = data.ph9q_diff
       var digfast_data = data.DIGFAST_Flags;
       var ph9q_list = [];
-            ph9q_data.forEach((element) => {
+            ph9q_data.forEach(function(element) {
               ph9q_list.push(element)});
           var digfast_list = [];
-                digfast_data.forEach((element) => {
+                digfast_data.forEach(function(element) {
                   digfast_list.push(element)});
 
                   $("#post_questions").append("<hr><strong>Patient Health Questionnaire-9</strong><br>Patient scored a <strong>" + data.ph9q_Total + "</strong>"
                   + " and agrees that in the last two weeks the following symptoms that have made their life\ " + diff + ": <br>");
-                  ph9q_list[0].forEach((element) => {
+                  ph9q_list[0].forEach(function(element) {
                     $("#post_questions").append("<li>" + element + "</li>")});
                     $("#post_questions").append("<br><em>Patient Health Questionnaire-9 KEY:<br>0-4	-- Minimal or none,	Monitor; may not require treatment<br>5-9 --	Mild,	Use clinical judgment (symptom duration, functional impairment) to determine necessity of treatment<br>10-14	-- Moderate,  Use clinical judgment (symptom duration, functional impairment) to determine necessity of treatment<br>15-19	-- Moderately severe,	Warrants active treatment with psychotherapy, medications, or combination<br>20-27	-- Severe<br>(88% sensitive and 85% specific for Depression if score 10 or above</em>");
 ///sensitivity 88% and specificity 85% -- (Levis 2019)
@@ -1622,7 +1622,7 @@ if ($('#no_surg').is(":checked")) {
 //20-27	Severe
                   $("#post_questions").append("<hr><strong>Mood Disorder Questionnaire</strong<br>Patient scored a <strong>" + data.DIGFAST + "</strong>"
                   + " and has had the following symptoms in the past: <br>");
-                  digfast_list[0].forEach((element) => {
+                  digfast_list[0].forEach(function(element) {
                   $("#post_questions").append("<li>" + element + "</li>");
                   $("#post_questions").append("<br><em>Mood Disorder Questionnaire KEY:<br>A score of 7 and above is 73% sensitive and a 90% specific for a mood disorder</em>");
                 })})}
@@ -1634,16 +1634,16 @@ if ($('#no_surg').is(":checked")) {
           jQuery(document).ready(function(){
       var gad_data = data.Anxiety_Flags
       var gad_list = [];
-      gad_data.forEach((element) => {
+      gad_data.forEach(function(element) {
         gad_list.push(element)});
         var panic_data = data.Panic_Flags
         var panic_list = [];
-        panic_data.forEach((element) => {
+        panic_data.forEach(function(element) {
           panic_list.push(element)});
 
           $("#post_questions").append("<hr><strong>General Anxiety Disorder-7 scale</strong><br>Patient scored a <strong>" + data.Anxiety + "</strong>"
           + " and in the last two weeks agrees to: <br>");
-          gad_list[0].forEach((element) => {
+          gad_list[0].forEach(function(element) {
           $("#post_questions").append("<li>" + element + "</li>")});
             $("#post_questions").append("<br><em>General Anxiety Disorder-7 KEY:<br>5-9	-- Mild, Monitor<br>10*-14	-- Moderate,	Possible clinically significant condition<br>>15	-- Severe, Active treatment probably warranted<br>*For Panic Disorder, Social Phobia, & PTSD, cutoff score of 8 may be used for optimal sensitivity/specificity</em>");
 ///5-9	Mild	-- Monitor
@@ -1653,7 +1653,7 @@ if ($('#no_surg').is(":checked")) {
 
           $("#post_questions").append("<hr><strong>Severity Measure for Panic Disorder—Adult</strong><br>Patient scored a <strong>" + data.Panic + "</strong>"
           + " and agreed to the following statement(s) regarding the last 7 days: <br>");
-          panic_list[0].forEach((element) => {
+          panic_list[0].forEach(function(element) {
           $("#post_questions").append("<li>" + element + "</li>");})
           $("#post_questions").append("<br><em>Severity Measure for Panic Disorder—Adult KEY:<br>0 -- None<br>1 -- Mild<br>2 -- Moderate<br>3 -- Severe<br>4 -- Extreme</em><br>");})}
 ///  per file:///C:/Users/UW2001480/Downloads/APA_DSM5_Severity-Measure-For-Panic-Disorder-Adult.pdf
@@ -1668,11 +1668,11 @@ if ($('#no_surg').is(":checked")) {
         jQuery(document).ready(function(){
       var mem_data = data.Memory_Depression_Flags
       var mem_list = [];
-      mem_data.forEach((element) => {
+      mem_data.forEach(function(element) {
         mem_list.push(element)});
         $("#post_questions").append("<hr><strong>Geriatric Depression Scale</strong><br>Patient scored a <strong>" + data.Memory_Depression + "</strong>"
        + "<br> and: <br>");
-      mem_list[0].forEach((element) => {
+      mem_list[0].forEach(function(element) {
         $("#post_questions").append("<li>" + element + "</li>")});
         $("#post_questions").append("<br><em>Geriatric Depression Scale KEY:<br>0-4 -- Considered normal<br>5-8 -- Indicate mild depression<br>9-11 -- Indicate moderate depression<br>12-15 -- Indicate severe depression<br>92% sensitivity and a 89% specificity when evaluated against diagnostic criteria</em>");})}
 
@@ -1685,22 +1685,22 @@ if ($('#no_surg').is(":checked")) {
               jQuery(document).ready(function() {
         var ptsd_data = data.PTSD_Flags
         var ptsd_list = [];
-        ptsd_data.forEach((element) => {
+        ptsd_data.forEach(function(element) {
           ptsd_list.push(element)});
           $("#post_questions").append("<hr><strong>Primary Care PTSD Screen for DSM-5</strong><br>Patient scored a <strong>" + data.PTSD + "</strong>"
           + "\ and marked that in the last month they: <br>");
-      ptsd_list[0].forEach((element) => {
+      ptsd_list[0].forEach(function(element) {
         $("#post_questions").append("<li>" + element + "</li>")});
           $("#post_questions").append("<br><em>Primary Care PTSD Screen for DSM-5 KEY:<br>A score of 3 or more is 93% sensitive for PTSD</em><br>")})}
         else if (data.Cheif_Complaint == "PTSD") {
           jQuery(document).ready(function(){
     var ptsd_data = data.PTSD_Flags
     var ptsd_list = [];
-    ptsd_data.forEach((element) => {
+    ptsd_data.forEach(function(element) {
       ptsd_list.push(element)});
       $("#post_questions").append("<hr><strong>Primary Care PTSD Screen for DSM-5</strong><br>Patient scored a <strong>" + data.PTSD + "</strong>"
       + "\ and marked that in the last month they: <br>");
-  ptsd_list[0].forEach((element) => {
+  ptsd_list[0].forEach(function(element) {
     $("#post_questions").append("<li>" + element + "</li>")});
       $("#post_questions").append("<br><em>Primary Care PTSD Screen for DSM-5 KEY:<br>A score of 3 or more is 93% sensitive for PTSD</em><br>")})};
 ///3+ for most is indicitive of a diagnosis 93% sensitive
@@ -1712,7 +1712,7 @@ unique_interact = [...new Set(med_interact)];
 if (unique_interact.length > 0) {
     jQuery(document).ready(function(){
       $("#med_interactions").append("<strong><h4>Important Medication Interactions:<h4></strong><br>");
-  unique_interact.forEach((element) => {
+  unique_interact.forEach(function(element) {
     $("#med_interactions").append("<li><strong>" + element + "</strong></li>")})})}
 
 });
