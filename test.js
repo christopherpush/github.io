@@ -1441,12 +1441,24 @@ data.MedsToCheck.forEach(function(element) {med_list_url.push(element)});
                 ///grabbing just the description of each med interaction
                 success: function(returned){
                   console.log(returned)
-                  for (let x of returned.fullInteractionTypeGroup[0].fullInteractionType) {
-                    for (let y of x.interactionPair) {
+                  for (x of returned.fullInteractionTypeGroup[0].fullInteractionType) {
+                    for (y of x.interactionPair) {
                       data.Med_Interactions.push(y.description);
                     }}
                   print_data()
             }});})}}
+
+
+
+
+             //   success: function(returned){
+        //          console.log(returned)
+       //           for (let x of returned.fullInteractionTypeGroup[0].fullInteractionType) {
+       //             for (let y of x.interactionPair) {
+       //               data.Med_Interactions.push(y.description);
+        //            }}
+        //          print_data()
+       //     }});})}}
 
 ///necessary vars for finished
   var listed_num = []
