@@ -1,8 +1,7 @@
 var data = {};
 // data.key1 = ['val1'];create key-value
 // data.key1.push('val2');append value
-var w = window.open('anxiety.docx'); //Required full file path.
-w.print();
+
 /////validate long form data
     $(document).ready(function() {
       var validator = $("#my_form").validate({
