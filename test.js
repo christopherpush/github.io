@@ -1722,7 +1722,7 @@ if ($('#no_surg').is(":checked")) {
         ///get uniques only
 function getUniqueValues(array) {
     return array.map(function(item) { return item; })
-    .filter(function (item, index, self){ return self.indexOf(item) === index; }); // distinc
+    .filter(function (item, index, self){ return self.indexOf(item) === index; });} // distinc
         
         
 var med_interact = data.Med_Interactions;
