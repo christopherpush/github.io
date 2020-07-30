@@ -58,7 +58,7 @@ This is <span id='1relationship'></span> <span id="1age"></span> year old  <span
     </div>
 <br>
 This patient <span id='1psych'></span>. <span id='1hosp'></span>. Patient <span id='1legal'></span>.
-Notes <span id='1abuse'></span> and <span id='1safe'></span>. <span id='1suicide'></span>. Reports <span id='1family'></span>.
+Notes <span id='1abuse'></span> ; <span id='1safe'></span>. <span id='1suicide'></span>. Reports <span id='1family'></span>.
 <hr>
 <div id='med_interactions'></div>
 <br>
@@ -332,15 +332,15 @@ normal self or you were so hyper that you got into trouble?</p>
 
 
             <div class='row'>
-              <div id='age_q'>
-                <div class="d-flex align-items-center col-md-6">
+              <div id='age_q' class="d-flex align-items-center mx-auto col-md-6">
+                <!-- <div class="d-flex align-items-center mx-auto col-md-6"> -->
                   <span class="input-group-text mt-5">Age: </span>
-                <input id='age' class="form-control mt-5" name='age' type='number' placeholder="Age" required>
+                <input id='age' style='width: 100%' class="form-control mt-5" name='age' type='number' placeholder="Age" required>
+<div class='d-flex align-items-left text-left' id='error_age'></div>
               </div>
-              <div class='d-flex align-items-left text-left' id='error_age'></div>
-            </div>
+            <!-- </div> -->
 
-              <div class="input-group-prepend d-flex align-items-center text-left col-md-6 mt-5">
+              <div class="input-group-prepend d-flex align-items-center mx-auto col-md-6 mt-5">
                 <span class="input-group-text">Sex: </span>
               <div class="btn-group btn-group-toggle" data-toggle="buttons">
                 <label class="btn btn-primary">
@@ -350,9 +350,9 @@ normal self or you were so hyper that you got into trouble?</p>
                   <input type="radio" id="Female" autocomplete="off" name='sex' value='Female'> Female
                 </label>
               </div>
+                <div class='d-flex align-items-center text-left' id='error_sex'></div>
             </div>
           </div>
-          <div class='d-flex align-items-center text-left' id='error_sex'></div>
 
 
           <div class="form-row">
@@ -361,10 +361,10 @@ normal self or you were so hyper that you got into trouble?</p>
               <label for="employment">Employment status: </label>
                 <select class="custom-select" name='employment' id=employment required>
                   <option selected value="" >Select one</option>
-                  <option value="dropdown-item" id='full-time'>Full-time</option>
-                  <option value="dropdown-item" id='part-time'>Part-time</option>
-                  <option value="dropdown-item" id='looking'>Looking</option>
-                  <option value="dropdown-item" id='disability'>Disability</option>
+                  <option value="dropdown-item" id='Full-time'>Full-time</option>
+                  <option value="dropdown-item" id='Part-time'>Part-time</option>
+                  <option value="dropdown-item" id='Looking'>Looking</option>
+                  <option value="dropdown-item" id='Disability'>Disability</option>
                   <option value="dropdown-item" id='Retired'>Retired</option>
                   <option value="dropdown-item" id='Student'>Student</option>
                   <option value="dropdown-item" id='At_home_homemaker'>At home/homemaker</option>
