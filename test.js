@@ -320,12 +320,10 @@ function no_ptsd_start() {
     data.Age = [age];
     if (age > 59) {
       jQuery(function($) {
-        console.log('>');
           $("#age_bar").slideUp(750);
           $( "#over_60" ).delay(1000).slideDown(750);
         $( "#age_q" ).css("display", "none");})}
     else {
-      console.log("<");
       jQuery(function($) {
           $("#memory_page").slideUp(750);
           $( "#history" ).delay(1000).slideDown(750);
@@ -1214,6 +1212,7 @@ var anxiety_total = 0;
 var flags_to_push_anxiety = [];
 var anxiety_count = 0
 var anxiety_questions = [
+  'Feeling nervous, anxious, or on edge',
   'Not being able to stop or control worrying.',
   'Worrying too much about different things.',
   'Trouble relaxing.',
@@ -1240,27 +1239,27 @@ if (num == 1) {
       if (!(ans == 'Not at all')) {
     anxiety_total += num;
     last_an = 1
-    flags_to_push_anxiety.push('Worrying too much about different things --\ ' + anx_score);} else {last_an = 0}}
+    flags_to_push_anxiety.push('Not being able to stop or control worrying --\ ' + anx_score);} else {last_an = 0}}
   if(anxiety_count == 2) {
       if (!(ans == 'Not at all')) {
     anxiety_total += num;
     last_an = 1
-    flags_to_push_anxiety.push('Having trouble relaxing --\ ' + anx_score);} else {last_an = 0}}
+    flags_to_push_anxiety.push('Worrying too much about different things --\ ' + anx_score);} else {last_an = 0}}
   if(anxiety_count == 3) {
       if (!(ans == 'Not at all')) {
     anxiety_total += num;
     last_an = 1
-    flags_to_push_anxiety.push('Being so restless that it\'s hard to sit still --\ ' + anx_score);} else {last_an = 0}}
+    flags_to_push_anxiety.push('Having trouble relaxing --\ ' + anx_score);} else {last_an = 0}}
   if(anxiety_count == 4) {
       if (!(ans == 'Not at all')) {
     anxiety_total += num;
     last_an = 1
-    flags_to_push_anxiety.push('Becoming easily annoyed or irritable --\ ' + anx_score);} else {last_an = 0}}
+    flags_to_push_anxiety.push('Being so restless that it\'s hard to sit still --\ ' + anx_score);} else {last_an = 0}}
   if(anxiety_count == 5) {
       if (!(ans == 'Not at all')) {
     anxiety_total += num;
     last_an = 1
-    flags_to_push_anxiety.push('Feeling numb or detached from people, activities, or their surroundings --\ ' + anx_score);} else {last_an = 0}}
+    flags_to_push_anxiety.push('Becoming easily annoyed or irritable --\ ' + anx_score);} else {last_an = 0}}
   if(anxiety_count == 6) {
       if (!(ans == 'Not at all')) {
     anxiety_total += num;
@@ -1401,6 +1400,7 @@ Window.numvar = num
 
 //////////////END OF QUESTIONAIRES///////////////////////
 
+
     /////function for callbacks and api to get rxcui and med interactions
     function get_rxcuis () {
       var med_list_url = [];
@@ -1441,10 +1441,11 @@ data.MedsToCheck.forEach(function(element) {med_list_url.push(element)});
                 ///grabbing just the description of each med interaction
                 success: function(returned){
                   console.log(returned)
-                    
-                  for (var x = 0; x > returned.fullInteractionTypeGroup[0].fullInteractionType; x++) {
-                    for (var y = 0; y > x.interactionPair; y++) {
-                      data.Med_Interactions.push(y.description);
+
+                  for (var x = 0; x < returned.fullInteractionTypeGroup[0].fullInteractionType.length; x++) {
+                    for (var y = 0; y < returned.fullInteractionTypeGroup[0].fullInteractionType[x].interactionPair.length; y++) {
+                      data.Med_Interactions.push(returned.fullInteractionTypeGroup[0].fullInteractionType[x].interactionPair[y].description);
+                    console.log(returned.fullInteractionTypeGroup[0].fullInteractionType[x].interactionPair[y].description);
                     }}
                   print_data()
             }});})}}
@@ -1545,7 +1546,7 @@ data.Hospital = [hosp_data];}
 
 var what_treatment = $("#what_treatment").val();
 var last_treatment = $("#last_treatment").val();
-var treatment_push =  "has been previously treated for\ " + "\"" + what_treatment + "\"" + "and their last appointment was\ " + "\"" + last_treatment + "\"" ;
+var treatment_push =  "has been previously treated for\ " + "\"" + what_treatment + "\"" + "\ and their last appointment was\ " + "\"" + last_treatment + "\"" ;
 if (data.Psych_Care == "Yes") {
 data.Psych_Care = [treatment_push];};
 
@@ -1636,9 +1637,9 @@ if ($('#no_surg').is(":checked")) {
                   $("#post_questions").append("<hr><strong>Mood Disorder Questionnaire</strong<br>Patient scored a <strong>" + data.DIGFAST + "</strong>"
                   + " and has had the following symptoms in the past: <br>");
                   digfast_list[0].forEach(function(element) {
-                  $("#post_questions").append("<li>" + element + "</li>");
+                  $("#post_questions").append("<li>" + element + "</li>");})
                   $("#post_questions").append("<br><em>Mood Disorder Questionnaire KEY:<br>A score of 7 and above is 73% sensitive and a 90% specific for a mood disorder</em>");
-                })})}
+                })}
 ///Yes to 7+ AND Yes to question 2 AND moderate/serious problem in question 3
 ///https://www.ohsu.edu/sites/default/files/2019-06/cms-quality-bipolar_disorder_mdq_screener.pdf
 ///0.73 sensitivity and a 0.90 specificity
@@ -1719,12 +1720,11 @@ if ($('#no_surg').is(":checked")) {
 ///3+ for most is indicitive of a diagnosis 93% sensitive
 ///***  score of 3 or more is trigger for ptsd per https://www.ptsd.va.gov/professional/assessment/documents/pc-ptsd5-screen.pdf  ****
 
-        ///get uniques only
+///get uniques only
 function getUniqueValues(array) {
-    return array.map(function(item) { return item; })
-    .filter(function (item, index, self){ return self.indexOf(item) === index; });} // distinc
-        
-        
+return array.map(function(item) { return item; })
+.filter(function (item, index, self){ return self.indexOf(item) === index; });} // distinc
+
 var med_interact = data.Med_Interactions;
 var unique_interact = [];
 unique_interact = getUniqueValues(med_interact);
