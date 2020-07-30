@@ -1441,6 +1441,7 @@ data.MedsToCheck.forEach(function(element) {med_list_url.push(element)});
                 ///grabbing just the description of each med interaction
                 success: function(returned){
                   console.log(returned)
+                    
                   for (var x = 0; x > returned.fullInteractionTypeGroup[0].fullInteractionType; x++) {
                     for (var y = 0; y > x.interactionPair; y++) {
                       data.Med_Interactions.push(y.description);
@@ -1718,9 +1719,16 @@ if ($('#no_surg').is(":checked")) {
 ///3+ for most is indicitive of a diagnosis 93% sensitive
 ///***  score of 3 or more is trigger for ptsd per https://www.ptsd.va.gov/professional/assessment/documents/pc-ptsd5-screen.pdf  ****
 
+        ///get uniques only
+function getUniqueValues(array) {
+    return array.map(function(item) { return item; })
+    .filter(function (item, index, self){ return self.indexOf(item) === index; }); // distinc
+        
+        
 var med_interact = data.Med_Interactions;
 var unique_interact = [];
-unique_interact = [...new Set(med_interact)];
+unique_interact = getUniqueValues(med_interact);
+///unique_interact = [...new Set(med_interact)];
 if (unique_interact.length > 0) {
     jQuery(document).ready(function(){
       $("#med_interactions").append("<strong><h4>Important Medication Interactions:<h4></strong><br>");
