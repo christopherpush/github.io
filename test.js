@@ -807,13 +807,31 @@ if(digfast_count == 13) {
     if (digfast_total > 1) {
       if (digfast_ans == 0) {
         last_an = 1;
-  flags_to_push.push(' AND SEVERAL OF THESE HAPPENED DURING THE SAME PERIOD OF TIME');
+  data.DIGFAST_Same_Time = ['**patient states several of these symptoms happened during the same period of time**'];
 }}};
 //pushes the answer to the 4 answer type to flags
 if(digfast_count == 14) {
   flags_to_push.push(digfast_val);
   start_hx('#digfast_page')
   data.DIGFAST = [digfast_total]
+var dig_pop = data.DIGFAST_Flags;
+   /////////////////// data.DIGFAST_Dif = 
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
   data.DIGFAST_Flags.push(flags_to_push)
   jQuery(function($) {
        $('#digfast_display').fadeOut(500, function() {
@@ -1652,6 +1670,7 @@ if ($('#no_surg').is(":checked")) {
                 $("#post_questions").append("<br>");
                   digfast_list[0].forEach(function(element) {
                   $("#post_questions").append("<li>" + element + "</li>");})
+                    $("#post_questions").append(data.DIGFAST_Same_Time);
                   $("#post_questions").append("<br><em>Mood Disorder Questionnaire KEY:<br>A score of 7 and above is 73% sensitive and a 90% specific for a mood disorder</em>");
                 })}
 ///Yes to 7+ AND Yes to question 2 AND moderate/serious problem in question 3
