@@ -1626,7 +1626,7 @@ if ($('#no_surg').is(":checked")) {
                   + " and agrees that in the last two weeks the following symptoms that have made their life\ " + diff + ": <br>");
                   ph9q_list[0].forEach(function(element) {
                     $("#post_questions").append("<li>" + element + "</li>")});
-                    $("#post_questions").append("<br><em>Patient Health Questionnaire-9 KEY:<br>0-4	-- Minimal or none,	Monitor; may not require treatment<br>5-9 --	Mild,	Use clinical judgment (symptom duration, functional impairment) to determine necessity of treatment<br>10-14	-- Moderate,  Use clinical judgment (symptom duration, functional impairment) to determine necessity of treatment<br>15-19	-- Moderately severe,	Warrants active treatment with psychotherapy, medications, or combination<br>20-27	-- Severe<br>(88% sensitive and 85% specific for Depression if score 10 or above</em>");
+                    $("#post_questions").append("<br><em>Patient Health Questionnaire-9 (Depression) KEY:<br>0-4	-- Minimal or none,	Monitor; may not require treatment<br>5-9 --	Mild,	Use clinical judgment (symptom duration, functional impairment) to determine necessity of treatment<br>10-14	-- Moderate,  Use clinical judgment (symptom duration, functional impairment) to determine necessity of treatment<br>15-19	-- Moderately severe,	Warrants active treatment with psychotherapy, medications, or combination<br>20-27	-- Severe<br>(88% sensitive and 85% specific for Depression if score 10 or above</em>");
 ///sensitivity 88% and specificity 85% -- (Levis 2019)
 /// **Cutoff 10 points**
 ///0-4	Minimal or none	Monitor; may not require treatment
