@@ -1586,7 +1586,14 @@ if ($('#no_surg').is(":checked")) {
 
       $("#1medical_cond").append(data.Medical_Condition);
       $("#1surgeries").append(data.Surgical_History);
-      $("#1employment").append(data.Employment);
+        
+        var emp_b = data.Employment;
+        var emp_a = emp_b.toString().replace("_", "\ ")
+      $("#1employment").emp_a;
+        
+                
+        var edu_b = data.School;
+        var edu_a = edu_b.toString().replace("_", "\ ")
       $("#1education").append(data.School);
       $("#1smoke").append(data.Smoker);
       $("#1drink").append(data.Alcohol);
@@ -1624,6 +1631,7 @@ if ($('#no_surg').is(":checked")) {
 
                   $("#post_questions").append("<hr><strong>Patient Health Questionnaire-9</strong><br>Patient scored a <strong>" + data.ph9q_Total + "</strong>"
                   + " and agrees that in the last two weeks the following symptoms that have made their life\ " + diff + ": <br>");
+                       $("#post_questions").append("<br>");
                   ph9q_list[0].forEach(function(element) {
                     $("#post_questions").append("<li>" + element + "</li>")});
                     $("#post_questions").append("<br><em>Patient Health Questionnaire-9 (Depression) KEY:<br>0-4	-- Minimal or none,	Monitor; may not require treatment<br>5-9 --	Mild,	Use clinical judgment (symptom duration, functional impairment) to determine necessity of treatment<br>10-14	-- Moderate,  Use clinical judgment (symptom duration, functional impairment) to determine necessity of treatment<br>15-19	-- Moderately severe,	Warrants active treatment with psychotherapy, medications, or combination<br>20-27	-- Severe<br>(88% sensitive and 85% specific for Depression if score 10 or above</em>");
@@ -1634,8 +1642,9 @@ if ($('#no_surg').is(":checked")) {
 //10-14	Moderate  Use clinical judgment (symptom duration, functional impairment) to determine necessity of treatment
 //15-19	Moderately severe	Warrants active treatment with psychotherapy, medications, or combination
 //20-27	Severe
-                  $("#post_questions").append("<hr><strong>Mood Disorder Questionnaire</strong<br>Patient scored a <strong>" + data.DIGFAST + "</strong>"
+                  $("#post_questions").append("<hr><strong>Mood Disorder Questionnaire</strong><br>Patient scored a <strong>" + data.DIGFAST + "</strong>"
                   + " and has had the following symptoms in the past: <br>");
+                $("#post_questions").append("<br>");
                   digfast_list[0].forEach(function(element) {
                   $("#post_questions").append("<li>" + element + "</li>");})
                   $("#post_questions").append("<br><em>Mood Disorder Questionnaire KEY:<br>A score of 7 and above is 73% sensitive and a 90% specific for a mood disorder</em>");
@@ -1657,6 +1666,7 @@ if ($('#no_surg').is(":checked")) {
 
           $("#post_questions").append("<hr><strong>General Anxiety Disorder-7 scale</strong><br>Patient scored a <strong>" + data.Anxiety + "</strong>"
           + " and in the last two weeks agrees to: <br>");
+                     $("#post_questions").append("<br>");
           gad_list[0].forEach(function(element) {
           $("#post_questions").append("<li>" + element + "</li>")});
             $("#post_questions").append("<br><em>General Anxiety Disorder-7 KEY:<br>5-9	-- Mild, Monitor<br>10*-14	-- Moderate,	Possible clinically significant condition<br>>15	-- Severe, Active treatment probably warranted<br>*For Panic Disorder, Social Phobia, & PTSD, cutoff score of 8 may be used for optimal sensitivity/specificity</em>");
@@ -1667,6 +1677,7 @@ if ($('#no_surg').is(":checked")) {
 
           $("#post_questions").append("<hr><strong>Severity Measure for Panic Disorder—Adult</strong><br>Patient scored a <strong>" + data.Panic + "</strong>"
           + " and agreed to the following statement(s) regarding the last 7 days: <br>");
+                     $("#post_questions").append("<br>");
           panic_list[0].forEach(function(element) {
           $("#post_questions").append("<li>" + element + "</li>");})
           $("#post_questions").append("<br><em>Severity Measure for Panic Disorder—Adult KEY:<br>0 -- None<br>1 -- Mild<br>2 -- Moderate<br>3 -- Severe<br>4 -- Extreme</em><br>");})}
@@ -1686,6 +1697,7 @@ if ($('#no_surg').is(":checked")) {
         mem_list.push(element)});
         $("#post_questions").append("<hr><strong>Geriatric Depression Scale</strong><br>Patient scored a <strong>" + data.Memory_Depression + "</strong>"
        + "<br> and: <br>");
+                   $("#post_questions").append("<br>");
       mem_list[0].forEach(function(element) {
         $("#post_questions").append("<li>" + element + "</li>")});
         $("#post_questions").append("<br><em>Geriatric Depression Scale KEY:<br>0-4 -- Considered normal<br>5-8 -- Indicate mild depression<br>9-11 -- Indicate moderate depression<br>12-15 -- Indicate severe depression<br>92% sensitivity and a 89% specificity when evaluated against diagnostic criteria</em>");})}
@@ -1703,6 +1715,7 @@ if ($('#no_surg').is(":checked")) {
           ptsd_list.push(element)});
           $("#post_questions").append("<hr><strong>Primary Care PTSD Screen for DSM-5</strong><br>Patient scored a <strong>" + data.PTSD + "</strong>"
           + "\ and marked that in the last month they: <br>");
+                         $("#post_questions").append("<br>");
       ptsd_list[0].forEach(function(element) {
         $("#post_questions").append("<li>" + element + "</li>")});
           $("#post_questions").append("<br><em>Primary Care PTSD Screen for DSM-5 KEY:<br>A score of 3 or more is 93% sensitive for PTSD</em><br>")})}
@@ -1714,6 +1727,7 @@ if ($('#no_surg').is(":checked")) {
       ptsd_list.push(element)});
       $("#post_questions").append("<hr><strong>Primary Care PTSD Screen for DSM-5</strong><br>Patient scored a <strong>" + data.PTSD + "</strong>"
       + "\ and marked that in the last month they: <br>");
+                     $("#post_questions").append("<br>");
   ptsd_list[0].forEach(function(element) {
     $("#post_questions").append("<li>" + element + "</li>")});
       $("#post_questions").append("<br><em>Primary Care PTSD Screen for DSM-5 KEY:<br>A score of 3 or more is 93% sensitive for PTSD</em><br>")})};
@@ -1731,7 +1745,7 @@ unique_interact = getUniqueValues(med_interact);
 ///unique_interact = [...new Set(med_interact)];
 if (unique_interact.length > 0) {
     jQuery(document).ready(function(){
-      $("#med_interactions").append("<strong><h4>Important Medication Interactions:<h4></strong><br>");
+      $("#med_interactions").append("<strong><h4>Important Medication Interactions to Consider:<h4></strong><br>");
   unique_interact.forEach(function(element) {
     $("#med_interactions").append("<li><strong>" + element + "</strong></li>")})})}
 
