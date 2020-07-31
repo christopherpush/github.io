@@ -322,12 +322,17 @@ function no_ptsd_start() {
       jQuery(function($) {
           $("#age_bar").slideUp(750);
           $( "#over_60" ).delay(1000).slideDown(750);
-        $( "#age_q" ).css("display", "none");})}
+        $( "#age_q" ).css("display", "none");
+      $( "#age_1" ).toggle(500);
+          $( "#age_2" ).toggle(500);
+      })}
     else {
       jQuery(function($) {
           $("#memory_page").slideUp(750);
           $( "#history" ).delay(1000).slideDown(750);
-        $( "#age_q" ).toggle(500);})}};
+        $( "#age_q" ).toggle(500);
+      $( "#age_1" ).toggle(500);
+      $( "#age_2" ).toggle(500);})}};
 
               function else_hx() {
                   jQuery(function($) {
