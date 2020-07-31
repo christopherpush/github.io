@@ -1,30 +1,20 @@
-.hide {
-  display: none;
-}
-
-.error {
-
-  color: #ce2926 !important;
-  border-color: #ce2926;
-  padding:1px 20px 1px 20px;
-}
-.autosize {
-  font-size:0.8rem !important;
-}
-
-@media screen and (min-width: 1000px) {
-  .autosize {
-    font-size: 1.3rem !important;
+  .autosize_l {
+    font-size:3rem !important;
   }
-}
 
-@media screen and (min-width: 600px) {
-  .autosize {
-    font-size: 1rem !important;
+  @media screen and (min-width: 1000px) {
+    .autosize_l {
+      font-size: 3rem !important;
+    }
   }
-}
 
-@media screen and (max-width: 599px) {
-  .autosize {
-    font-size: 0.8rem !important;
+  @media screen and (min-width: 600px) {
+    .autosize_l {
+      font-size: 2rem !important;
+    }
   }
+
+  @media screen and (max-width: 599px) {
+    .autosize_l {
+      font-size: 1rem !important;
+    }
