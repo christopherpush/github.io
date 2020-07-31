@@ -96,8 +96,7 @@ Notes <span id='1abuse'></span> ; <span id='1safe'></span>. <span id='1suicide'>
           <input id="cc" type="button" value="Something Else" onclick="somethingelse('#history2')" class="btn btn-primary w-auto px-3 y-auto m-1 mb-3 mx-2">
         </div>
 
-        <div style='display:none; background-color:white' id=mood_page>
-          <div  class='jumbotron shadow-lg p-3 text-center mb-4 mx-5' style='background-color:white'>
+        <div style='display:none; background-color:white' class="jumbotron shadow-lg text-center mb-4 mx-5" id=mood_page>
           <h1 class='autosize_l'>Over the last 2 weeks, how often have you been bothered by the following problem?</h1><hr>
 
           <div class="ph9q_qs">
@@ -114,20 +113,15 @@ Notes <span id='1abuse'></span> ; <span id='1safe'></span>. <span id='1suicide'>
           <div class='text-left'>
               <input id='back_ph9q' class="btn btn-secondary mb-1" type="button" value="Back" onclick="ph9q_back()">
           </div>
-
-        </div>
-
         </div> <!--The end of 'mood problems' Chief complaint option -->
 
 
-    <div style='display:none; background-color:white' id='digfast_page'>
-
-           <div  class='jumbotron shadow-lg p-3 text-center mb-4 mx-5' style='background-color:white'>
+     <div style='display:none; background-color:white' class="jumbotron shadow-lg text-center mb-4 mx-5" id='digfast_page'>
           <h1 class='autosize_l'>Has there ever been a period of time when you were not your usual self and…</h1><hr>
 
 
           <div>
-            <p class="lead" id=digfast_display>…you felt so good or so hyper that other people thought you were not your
+            <p class="autosize_1" id=digfast_display>…you felt so good or so hyper that other people thought you were not your
 normal self or you were so hyper that you got into trouble?</p>
           </div>
 
@@ -145,7 +139,6 @@ normal self or you were so hyper that you got into trouble?</p>
 
           <div class='text-left'>
               <input id='back_digfast' class="btn btn-secondary mb-1" type="button" value="Back" onclick="digfast_back()">
-          </div>
           </div>
         </div><!-- End of DIGFAST -->
 
@@ -187,9 +180,7 @@ normal self or you were so hyper that you got into trouble?</p>
         </div>
 
         <div style='display:none; background-color:white' id=ptsd_page class="jumbotron shadow-lg p-3 text-center mb-4 mx-5">
-
     <div id='ptsd_1q'>
-
         <h1 class="h3">Sometimes things happen to people that are unusually or especially frightening, horrible, or traumatic. For example:</h1><br>
 
             <li class='h6'> A serious accident or fire</li>
@@ -229,8 +220,7 @@ normal self or you were so hyper that you got into trouble?</p>
 </div>
          <!--The end of 'ptsd' Chief complaint option -->
 
-         <div id='anxiety_page' class='hide'>
-        <div class='jumbotron shadow-lg p-3 text-center mb-4 mx-5' style='background-color:white'> <!-- start of anxiety page -->
+         <div style='display:none; background-color:white' class="jumbotron shadow-lg text-center mb-4 mx-5" id='anxiety_page'> <!-- start of anxiety page -->
           <div id='anx'>
 
          <div>
@@ -285,12 +275,10 @@ normal self or you were so hyper that you got into trouble?</p>
               <input id='back_panic' class="btn btn-secondary mb-1" type="button" value="Back" onclick="panic_back()">
           </div>
            </div>
-        </div>
       </div><!--The end of 'anxiety' Chief complaint option-->
 
 
-        <div style='display:none; background-color:white' id=somethingelse_page>
-            <div class="jumbotron shadow-lg text-center mb-4" style='background-color:white'>
+        <div style='display:none; background-color:white' class="jumbotron shadow-lg text-center mb-4 mx-5" id=somethingelse_page>
                 <form id='cc_form' name="contentForm" role="form" data-toggle="validator" novalidate="true">
           <h3>In 5 words or so, try to describe your problem.</h3><hr>
 
@@ -321,8 +309,7 @@ normal self or you were so hyper that you got into trouble?</p>
                       <input type="button" class="btn btn-primary mb-5 px-4 mx-2 mt-3" value='Next' onclick="sendto('else_hx')">
                     </div>
                   </form>
-            </div>
-</form>
+            </form>
         </div> <!--The end of 'something else' Chief complaint option -->
 
 
