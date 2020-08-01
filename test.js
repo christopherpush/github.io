@@ -1443,9 +1443,10 @@ data.MedsToCheck.forEach(function(element) {med_list_url.push(element)});
                 url: element,
                 type: 'GET',
                 success: function(returned){
+                    if (!(returned.approximateGroup.candidate[0].rxcui == undefined)) {
                   rxcui.push(returned.approximateGroup.candidate[0].rxcui);
 
-                  send_rxcui_list(rxcui, med_list)}
+                  send_rxcui_list(rxcui, med_list)}}
             });})})}
 
 
