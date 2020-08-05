@@ -159,23 +159,21 @@ var data = {};
                   // $("#error_survey_d").focus();
                   $('html, body').animate({
                       scrollTop: $("#abuse_hx_box").offset().top
-                    });}
-
-            }}});});
+                    });}}},
+          });});
 
 
     $('#done_hx').click(function() {
         if ($("#my_form").valid()) {
           // $("#my_form").submit();
-          finished()
-        }
+          finished();}
         else {return false};
     });
 ///end of log form validator
 
 
 
-///validater spelled different tahn other validate form, do I need a unique variable? Who knows.
+///validater spelled different than other validate form, do I need a unique variable? Who knows.
     $(document).ready(function() {
       var validater = $("#cc_form").validate({
         rules: {},
@@ -212,6 +210,33 @@ $(document).ready(function() {
         if (errors) {
             validater.errorList[0].element.focus();}
     }});});
+
+
+
+///////php trial
+// $(document).ready(function() {
+//   $('#php_post_show').click(function(){
+//     var post_data = data;
+//     console.log(post_data)
+//     $.ajax({
+//       type: "POST",
+//       url: "http://localhost:80/php_beginner/post_results.php",
+//       data: {'post_data': post_data},
+//       success: function(r_data){
+// console.log(JSON.parse(r_data));
+//if it returns any data
+      // $("#if_sent").append(r_data);},
+
+// $.post('http://localhost:80/php_beginner/post_results.php', {'post_data':post_data}, function(data){
+//                 //now data is an object, so put the message in the div
+//     $('#response').text(data.message);
+// }, 'json');
+
+error: function( jqXHR,textStatus,errorThrown ){
+console.log("There is some error");
+console.log(errorThrown);
+}})})});
+
 
 ///functions for button presses at beginning of survey
 function new_pt() {
@@ -363,6 +388,7 @@ function sendto(cc) {
 //function called when next, sends to validate an age was input
   function age_valid(cc) {
     if ($("#age_form").valid()) {
+      send_php(age);
       age_pre_60()}
     else {return false};}
 
@@ -815,23 +841,23 @@ if(digfast_count == 14) {
   start_hx('#digfast_page')
   data.DIGFAST = [digfast_total]
 var dig_pop = data.DIGFAST_Flags;
-   /////////////////// data.DIGFAST_Dif = 
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+   /////////////////// data.DIGFAST_Dif =
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   data.DIGFAST_Flags.push(flags_to_push)
   jQuery(function($) {
        $('#digfast_display').fadeOut(500, function() {
@@ -1610,12 +1636,12 @@ if ($('#no_surg').is(":checked")) {
 
       $("#1medical_cond").append(data.Medical_Condition);
       $("#1surgeries").append(data.Surgical_History);
-        
+
         var emp_b = data.Employment;
         var emp_a = emp_b.toString().replace("_", "\ ")
       $("#1employment").emp_a;
-        
-                
+
+
         var edu_b = data.School;
         var edu_a = edu_b.toString().replace("_", "\ ")
       $("#1education").append(data.School);
