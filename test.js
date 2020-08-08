@@ -172,7 +172,6 @@ var data = {};
 ///end of log form validator
 
 
-
 ///validater spelled different than other validate form, do I need a unique variable? Who knows.
     $(document).ready(function() {
       var validater = $("#cc_form").validate({
@@ -214,28 +213,34 @@ $(document).ready(function() {
 
 
 ///////php trial
+// var pt_packet = {"Packet" : data}
+// function send_to_php() {
 // $(document).ready(function() {
-//   $('#php_post_show').click(function(){
-//     var post_data = data;
-//     console.log(post_data)
-//     $.ajax({
-//       type: "POST",
-//       url: "http://localhost:80/php_beginner/post_results.php",
-//       data: {'post_data': post_data},
-//       success: function(r_data){
-// console.log(JSON.parse(r_data));
-//if it returns any data
-      // $("#if_sent").append(r_data);},
+// console.log(pt_packet)
+// pt_packets = JSON.stringify(pt_packet)
+// var request = $.ajax({
+//     url: "post_results.php",
+//     type: 'POST',
+//     data: pt_packets,
+//     success: function(result) {
+//     $("#note").append(result)}})
+// })}
 
-// $.post('http://localhost:80/php_beginner/post_results.php', {'post_data':post_data}, function(data){
-//                 //now data is an object, so put the message in the div
-//     $('#response').text(data.message);
-// }, 'json');
 
-error: function( jqXHR,textStatus,errorThrown ){
-console.log("There is some error");
-console.log(errorThrown);
-}})})});
+function send_to_php() {
+$(document).ready(function() {
+  // var pt_packets = JSON.stringify(data);
+// pt_packet = JSON.stringify(pt_packets)
+console.log(data)
+// console.log(pt_packet)
+$.ajax({
+    url: "post_results.php",
+    type: 'POST',
+    data: JSON.stringify(data),
+    contentType: 'application/json',
+    success: function(result) {
+    $("#note").append(result)}})
+})}
 
 
 ///functions for button presses at beginning of survey
@@ -246,12 +251,54 @@ function new_pt() {
         data.Patient_Type = ['New Patient'];
       };
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 function old_pt() {
     jQuery(function($) {
         $("#new_old_what").slideUp(750);
-        $( "#if_new_pt" ).delay(1000).slideDown(750);})
-        data.Patient_Type = ['Returning Patient'];
-      };
+      //   $( "#if_new_pt" ).delay(1000).slideDown(750);})
+      //   data.Patient_Type = ['Returning Patient'];
+      // };
+data.Chief_Complaint = ['Mood issues'];
+  data.Panic = ['Denies'];
+  data.Age = ['25'];
+    data.Anxiety = ["12"];
+      data.Medical_Condition = ["bum knee", "head hurt"];
+      data.School = ["studet"];
+      data.Employment = ['Full-time'];
+print_data()})}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 function new_or_old_pt() {
     jQuery(function($) {
@@ -265,7 +312,7 @@ function mood() {
       data.CC = [cc_var];
         $("#somethingelse_page").slideUp(750);
         $( "#mood_page" ).delay(1000).slideDown(750);})
-        data.Cheif_Complaint = ['Mood issues'];
+        data.Chief_Complaint = ['Mood issues'];
       };
 
 function memory() {
@@ -274,7 +321,7 @@ function memory() {
       data.CC = [cc_var];
         $("#somethingelse_page").slideUp(750);
         $( "#memory_page" ).delay(1000).slideDown(750);})
-        data.Cheif_Complaint = ['Memory issues'];
+        data.Chief_Complaint = ['Memory issues'];
       };
 
 function ptsd() {
@@ -283,7 +330,7 @@ function ptsd() {
       data.CC = [cc_var];
         $("#somethingelse_page").slideUp(750);
         $( "#ptsd_page" ).delay(1000).slideDown(750);})
-        data.Cheif_Complaint = ['PTSD'];
+        data.Chief_Complaint = ['PTSD'];
         $("#ptsd_in_hx").css("display", "none")
       };
 
@@ -293,11 +340,12 @@ function anxiety() {
       data.CC = [cc_var];
         $("#somethingelse_page").slideUp(750);
         $( "#anxiety_page" ).delay(1000).slideDown(750);})
-        data.Cheif_Complaint = ['Anxiety'];
+        data.Chief_Complaint = ['Anxiety'];
       };
 
 function somethingelse(site) {
     jQuery(function($) {
+        data.Chief_Complaint = ['Something Else'];
         $("#if_new_pt").slideUp(750);
         $( "#somethingelse_page" ).delay(1000).slideDown(750);
         $(site).delay(1000).slideDown(750);
@@ -825,6 +873,7 @@ jQuery(function($) {
              $("#first_answers_digfast").slideUp(750);
              $( "#last_answers_digfast" ).delay(1000).slideDown(750);});}
 else {
+  //FIX THIS WTF
   start_hx('#digfast_page')
   data.DIGFAST = [digfast_total]
   data.DIGFAST_Flags.push(flags_to_push)}}
@@ -843,21 +892,6 @@ if(digfast_count == 14) {
 var dig_pop = data.DIGFAST_Flags;
    /////////////////// data.DIGFAST_Dif =
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   data.DIGFAST_Flags.push(flags_to_push)
   jQuery(function($) {
        $('#digfast_display').fadeOut(500, function() {
@@ -868,7 +902,6 @@ var dig_pop = data.DIGFAST_Flags;
       $('#digfast_display').fadeOut(500, function() {
             $(this).text(digfast_questions[digfast_count]).fadeIn(500);
           })})}
-
 
   //back button for digfast
   function digfast_back() {
@@ -894,7 +927,7 @@ var ph9q_questions = [
 "Poor appetite or overeating",
 "Feeling bad about yourself or that you are a failure or have let yourself or your family down",
 "Trouble concentrating on things, such as reading the newspaper or watching television",
-"Moving or speaking so slowly that other people could have noticed. Or the opposite; being so fidgety or restless that you have been moving around a lot more than usual",
+"Moving or speaking so slowly that other people could have noticed. Or being so fidgety or restless that you have been moving around a lot more than usual",
 "Thoughts that you would be better off dead or of hurting yourself in some way"];
 function ph9q_but(ph9q_ans, typed_ans) {
 
@@ -1500,18 +1533,6 @@ data.MedsToCheck.forEach(function(element) {med_list_url.push(element)});
                   print_data()
             }});})}}
 
-
-
-
-             //   success: function(returned){
-        //          console.log(returned)
-       //           for (let x of returned.fullInteractionTypeGroup[0].fullInteractionType) {
-       //             for (let y of x.interactionPair) {
-       //               data.Med_Interactions.push(y.description);
-        //            }}
-        //          print_data()
-       //     }});})}}
-
 ///necessary vars for finished
   var listed_num = []
   var ph9q_total = 0;
@@ -1625,7 +1646,7 @@ if ($('#no_surg').is(":checked")) {
       $("#1relationship").append(data.Relationship);
       $("#1age").append(data.Age);
       $("#1sex").append(data.Sex);
-      $("#1chiefc").append(data.Cheif_Complaint);
+      $("#1chiefc").append(data.Chief_Complaint);
 
       med_data = data.Medications
       data.Medications.forEach(function(element) {
@@ -1639,7 +1660,7 @@ if ($('#no_surg').is(":checked")) {
 
         var emp_b = data.Employment;
         var emp_a = emp_b.toString().replace("_", "\ ")
-      $("#1employment").emp_a;
+      $("#1employment").append(emp_a);
 
 
         var edu_b = data.School;
@@ -1667,7 +1688,7 @@ if ($('#no_surg').is(":checked")) {
       $("#cur_preg_q").append(data.Pregnant);})};
 
 ////putting all the questionaire data into a neat format, flagging all the positive answers for each questionaire
-      if (data.Cheif_Complaint == "Mood issues") {
+      if (data.Chief_Complaint == "Mood issues") {
             jQuery(document).ready(function(){
       var ph9q_data = data.ph9q_Flags;
       var diff = data.ph9q_diff
@@ -1704,7 +1725,7 @@ if ($('#no_surg').is(":checked")) {
 ///https://www.ohsu.edu/sites/default/files/2019-06/cms-quality-bipolar_disorder_mdq_screener.pdf
 ///0.73 sensitivity and a 0.90 specificity
 
-      if (data.Cheif_Complaint == "Anxiety") {
+      if (data.Chief_Complaint == "Anxiety") {
           jQuery(document).ready(function(){
       var gad_data = data.Anxiety_Flags
       var gad_list = [];
@@ -1740,7 +1761,7 @@ if ($('#no_surg').is(":checked")) {
 ///   3-severe
 ///   4- extreme
 
-      if (data.Cheif_Complaint == "Memory issues") {
+      if (data.Chief_Complaint == "Memory issues") {
         jQuery(document).ready(function(){
       var mem_data = data.Memory_Depression_Flags
       var mem_list = [];
@@ -1770,7 +1791,7 @@ if ($('#no_surg').is(":checked")) {
       ptsd_list[0].forEach(function(element) {
         $("#post_questions").append("<li>" + element + "</li>")});
           $("#post_questions").append("<br><em>Primary Care PTSD Screen for DSM-5 KEY:<br>A score of 3 or more is 93% sensitive for PTSD</em><br>")})}
-        else if (data.Cheif_Complaint == "PTSD") {
+        else if (data.Chief_Complaint == "PTSD") {
           jQuery(document).ready(function(){
     var ptsd_data = data.PTSD_Flags
     var ptsd_list = [];
@@ -1799,7 +1820,6 @@ if (unique_interact.length > 0) {
       $("#med_interactions").append("<strong><h4>Important Medication Interactions to Consider:<h4></strong><br>");
   unique_interact.forEach(function(element) {
     $("#med_interactions").append("<li><strong>" + element + "</strong></li>")})})}
-
 });
-
+send_to_php();
 }; ////end of creating note 'finished'
