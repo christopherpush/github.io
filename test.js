@@ -1,4 +1,4 @@
-////work stuff
+////work stuff--back button all surv. not on count of 0--
 //change the color of radiobutton when clicked
 $("radio").click(function(){
   $("button").removeClass("active");
@@ -786,6 +786,13 @@ $('#yes_abuse_survey').delay(500).css('color','white');
 ];
 ///called every answer inputted for DIGFAST
      function digfast_but(digfast_ans, digfast_val) {
+       
+if (digfast_count == 0) {
+            jQuery(function($) {
+                $("#back_digfast").toggle(750);})}
+if (digfast_count > 0) {
+            jQuery(function($) {
+                $("#back_digfast").toggle(750);})}
 
 if (!('DIGFAST_Depression_Flags' in data)) {
   data.DIGFAST_Flags = []}
@@ -1097,6 +1104,13 @@ if(ph9q_count == 7) {
 ///score AND marks it to minus the answer if back button pressed after (last_an=1).
 ///else last_an=0 does not take away answer in list.
 
+if (memory_count == 0) {
+    jQuery(function($) {
+        $("#back_memory").toggle(750);})}
+if (memory_count > 0) {
+            jQuery(function($) {
+                $("#back_memory").toggle(750);})}
+       
 if(memory_count == 0) {
   if (memory_ans == 0) {
     memory_total ++;
@@ -1236,6 +1250,14 @@ var ptsd_questions = [
   'felt guilty or unable to stop blaming yourself or others for the event(s) or any problems the event(s) may have caused?',];
 function ptsd_answer(ans, loc) {
 
+if (ptsd_count == 0) {
+    jQuery(function($) {
+        $("#back_ptsd").toggle(750);})}
+if (ptsd_count > 0) {
+            jQuery(function($) {
+                $("#back_ptsd").toggle(750);})}
+  
+  
   if(ptsd_count == 0) {
       if (ans == 1) {
     ptsd_total ++;
@@ -1318,6 +1340,14 @@ var anxiety_questions = [
 function anxiety_answer(ans, num) {
 Window.numvar = num
 
+if (anxiety_count == 0) {
+    jQuery(function($) {
+        $("#back_anxiety").toggle(750);})}
+if (anxiety_count > 0) {
+            jQuery(function($) {
+                $("#back_anxiety").toggle(750);})}
+  
+  
 if (num == 1) {
   anx_score = 'several days'};
   if (num == 2) {
@@ -1410,7 +1440,13 @@ Window.numvar = num
           pnc_score = 'most of the time'};
           if (num == 4) {
             pnc_score = 'all of the time'};
-
+  
+if (panic_count == 0) {
+    jQuery(function($) {
+        $("#back_panic").toggle(750);})}
+if (panic_count > 0) {
+            jQuery(function($) {
+                $("#back_panic").toggle(750);})}
 
   if(panic_count == 0) {
       if (num > 0) {
