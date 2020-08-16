@@ -789,10 +789,7 @@ $('#yes_abuse_survey').delay(500).css('color','white');
        
 if (digfast_count == 0) {
             jQuery(function($) {
-                $("#back_digfast").toggle(750);})}
-if (digfast_count > 0) {
-            jQuery(function($) {
-                $("#back_digfast").toggle(750);})}
+                $("#back_digfast").hide(750);})}
 
 if (!('DIGFAST_Depression_Flags' in data)) {
   data.DIGFAST_Flags = []}
@@ -950,10 +947,8 @@ function ph9q_but(ph9q_ans, typed_ans) {
 
  if (ph9q_count == 0) {
                   jQuery(function($) {
-                      $("#back_ph9q").toggle(750);})}
- if (ph9q_count > 0 ) {
-                  jQuery(function($) {
-                      $("#back_ph9q").toggle(750);})}
+                      $("#back_ph9q").hide(750);})}
+
 
   /// For each question in the set, if it flags as positive, add 1 to total
   ///score AND marks it to minus the answer if back button pressed after (last_an=1).
