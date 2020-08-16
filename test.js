@@ -1,3 +1,11 @@
+////work stuff
+//change the color of radiobutton when clicked
+$("radio").click(function(){
+  $("button").removeClass("active");
+  $(this).addClass("active");
+});
+
+
 var data = {};
 // data.key1 = ['val1'];create key-value
 // data.key1.push('val2');append value
