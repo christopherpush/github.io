@@ -1,4 +1,5 @@
 ////work stuff--back button on count of 0 + add div class on html--changed size of autosize text in CSS
+///add <form onkeypress="return event.keyCode != 13">      to forms so they dont submit on pressing enter
 //change the color of radiobutton when clicked
 $("radio").click(function(){
   $("button").removeClass("active");
