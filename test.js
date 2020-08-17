@@ -786,10 +786,11 @@ $('#yes_abuse_survey').delay(500).css('color','white');
 ];
 ///called every answer inputted for DIGFAST
      function digfast_but(digfast_ans, digfast_val) {
+       $("#back_digfast").hide(750);
 jQuery(function($) {
-if (digfast_count == 0) {
-                $("#back_digfast").hide(750);}
-else {$("#back_digfast").show(750);}})
+if (digfast_count > 0) {
+  $("#back_digfast").show(750);}
+})
 
 if (!('DIGFAST_Depression_Flags' in data)) {
   data.DIGFAST_Flags = []}
