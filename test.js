@@ -1092,14 +1092,10 @@ if(ph9q_count == 7) {
 ///score AND marks it to minus the answer if back button pressed after (last_an=1).
 ///else last_an=0 does not take away answer in list.
 
-if (memory_count == 0) {
-    jQuery(function($) {
-        $("#back_memory").toggle(750);})}
-if (memory_count > 0) {
-            jQuery(function($) {
-                $("#back_memory").toggle(750);})}
        
 if(memory_count == 0) {
+      jQuery(function($) {
+    $("#back_mem_div").slideDown(1000)})
   if (memory_ans == 0) {
     memory_total ++;
     last_an = 1
@@ -1237,16 +1233,10 @@ var ptsd_questions = [
   'felt numb or detached from people, activities, or your surroundings?',
   'felt guilty or unable to stop blaming yourself or others for the event(s) or any problems the event(s) may have caused?',];
 function ptsd_answer(ans, loc) {
-
-if (ptsd_count == 0) {
-    jQuery(function($) {
-        $("#back_ptsd").toggle(750);})}
-if (ptsd_count > 0) {
-            jQuery(function($) {
-                $("#back_ptsd").toggle(750);})}
-  
   
   if(ptsd_count == 0) {
+        jQuery(function($) {
+    $("#back_ptsd_div").slideDown(1000)})
       if (ans == 1) {
     ptsd_total ++;
     last_an = 1;
@@ -1327,15 +1317,6 @@ var anxiety_questions = [
   'Feeling afraid as if something awful might happen.',];
 function anxiety_answer(ans, num) {
 Window.numvar = num
-
-if (anxiety_count == 0) {
-    jQuery(function($) {
-        $("#back_anxiety").toggle(750);})}
-if (anxiety_count > 0) {
-            jQuery(function($) {
-                $("#back_anxiety").toggle(750);})}
-  
-  
 if (num == 1) {
   anx_score = 'several days'};
   if (num == 2) {
@@ -1345,6 +1326,8 @@ if (num == 1) {
 
 
   if(anxiety_count == 0) {
+        jQuery(function($) {
+    $("#back_anxiety_div").slideDown(1000)})
       if (!(ans == 'Not at all')) {
     anxiety_total += num;
     last_an = 1
@@ -1428,15 +1411,10 @@ Window.numvar = num
           pnc_score = 'most of the time'};
           if (num == 4) {
             pnc_score = 'all of the time'};
-  
-if (panic_count == 0) {
-    jQuery(function($) {
-        $("#back_panic").toggle(750);})}
-if (panic_count > 0) {
-            jQuery(function($) {
-                $("#back_panic").toggle(750);})}
 
   if(panic_count == 0) {
+        jQuery(function($) {
+    $("#back_panic_div").slideDown(1000)})
       if (num > 0) {
         last_an = 1;
     panic_total += num;
