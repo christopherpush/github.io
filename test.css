@@ -14,7 +14,7 @@
   border-color: #ce2926;
   padding:1px 20px 1px 20px;
 }
-.autosize {
+/* .autosize {
   font-size:0.8rem !important;
 }
 
@@ -33,8 +33,26 @@
 @media screen and (max-width: 599px) {
   .autosize {
     font-size: 0.8rem !important;
-  }
+  } */
 
+
+  @media (min-width: 544px) {  
+.autosize {
+    font-size: 0.8rem !important;
+  }}
+@media (min-width: 768px) {
+    .autosize {
+    font-size: 1rem !important;
+  }}
+ @media (min-width: 992px) { 
+   .autosize {
+    font-size: 1.3rem !important;
+  }}
+ @media (min-width: 1200px) {    
+    .autosize {
+    font-size: 1.8rem !important;
+  }}
+  
 
   .autosize_l {
     font-size:3rem !important;
