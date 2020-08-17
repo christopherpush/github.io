@@ -1,4 +1,4 @@
-////work stuff--back button all surv. not on count of 0--
+////work stuff--back button on count of 0 + add div class on html--changed size of autosize text in CSS
 //change the color of radiobutton when clicked
 $("radio").click(function(){
   $("button").removeClass("active");
