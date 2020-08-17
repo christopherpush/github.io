@@ -791,6 +791,7 @@ if (!('DIGFAST_Depression_Flags' in data)) {
   data.DIGFAST_Flags = []}
 //for each question, if yes adds to total score, marks last answer yes for back button functionality, pushes andwer to provider note
 if(digfast_count == 0) {
+    $("#back_digfast_div").slideDown(1000)})
   if (digfast_ans == 0) {
     digfast_total ++;
     last_an = 1;
@@ -798,7 +799,6 @@ if(digfast_count == 0) {
   } else {last_an = 0}};
 if(digfast_count == 1) {
   jQuery(function($) {
-  $("#back_digfast_div").slideDown(1000)})
   if (digfast_ans == 0) {
     digfast_total ++;
     last_an = 1;
@@ -946,12 +946,12 @@ function ph9q_but(ph9q_ans, typed_ans) {
   ///else last_an=0 does not take away answer in list.
   if(ph9q_count == 0) {
     if (ph9q_ans > 0) {
+        $("#back_ph9q_div").slideDown(1000)})
       last_an = 1;
       flags_to_push_ph9q.push('Little interest or pleasure in doing things--' + typed_ans);
     }  else {last_an = 0}}
     if(ph9q_count == 1) {
       jQuery(function($) {
-  $("#back_digfast_div").slideDown(1000)})
       if (ph9q_ans > 0) {
         last_an = 1;
         flags_to_push_ph9q.push('Feeling down, depressed, or hopeless--' + typed_ans);
