@@ -945,7 +945,7 @@ var ph9q_questions = [
 function ph9q_but(ph9q_ans, typed_ans) {
 
 jQuery(function($) {
-if (ph9q_count == 0) {
+if (ph9q_count > 0) {
                 $("#back_ph9q").show(750)}})
 
   /// For each question in the set, if it flags as positive, add 1 to total
