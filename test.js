@@ -945,9 +945,9 @@ function ph9q_but(ph9q_ans, typed_ans) {
   ///score AND marks it to minus the answer if back button pressed after (last_an=1).
   ///else last_an=0 does not take away answer in list.
   if(ph9q_count == 0) {
-    if (ph9q_ans > 0) {
-        jQuery(function($) {
+            jQuery(function($) {
         $("#back_ph9q_div").slideDown(1000)})
+    if (ph9q_ans > 0) {
       last_an = 1;
       flags_to_push_ph9q.push('Little interest or pleasure in doing things--' + typed_ans);
     }  else {last_an = 0}}
