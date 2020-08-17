@@ -38,11 +38,11 @@
 
   @media (min-width: 544px) {  
 .autosize {
-    font-size: 0.8rem !important;
+    font-size: 1rem !important;
   }}
 @media (min-width: 768px) {
     .autosize {
-    font-size: 1.2rem !important;
+    font-size: 1.4rem !important;
   }}
  @media (min-width: 992px) { 
    .autosize {
@@ -50,7 +50,7 @@
   }}
  @media (min-width: 1200px) {    
     .autosize {
-    font-size: 2.2rem !important;
+    font-size: 2rem !important;
   }}
   
 
