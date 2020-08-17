@@ -798,7 +798,7 @@ if(digfast_count == 0) {
   } else {last_an = 0}};
 if(digfast_count == 1) {
   jQuery(function($) {
-  $("#back_ph9q").slideDown(1000)})
+  $("#back_digfast_div").slideDown(1000)})
   if (digfast_ans == 0) {
     digfast_total ++;
     last_an = 1;
@@ -951,7 +951,7 @@ function ph9q_but(ph9q_ans, typed_ans) {
     }  else {last_an = 0}}
     if(ph9q_count == 1) {
       jQuery(function($) {
-  $("#back_ph9q").slideDown(1000)})
+  $("#back_digfast_div").slideDown(1000)})
       if (ph9q_ans > 0) {
         last_an = 1;
         flags_to_push_ph9q.push('Feeling down, depressed, or hopeless--' + typed_ans);
