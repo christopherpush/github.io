@@ -42,15 +42,15 @@
   }}
 @media (min-width: 768px) {
     .autosize {
-    font-size: 1rem !important;
+    font-size: 1.2rem !important;
   }}
  @media (min-width: 992px) { 
    .autosize {
-    font-size: 1.3rem !important;
+    font-size: 1.8rem !important;
   }}
  @media (min-width: 1200px) {    
     .autosize {
-    font-size: 1.8rem !important;
+    font-size: 2.2rem !important;
   }}
   
 
