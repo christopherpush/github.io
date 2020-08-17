@@ -787,11 +787,6 @@ $('#yes_abuse_survey').delay(500).css('color','white');
 ///called every answer inputted for DIGFAST
      function digfast_but(digfast_ans, digfast_val) {
 
-jQuery(function($) {
-if (digfast_count > 0) {
-  $("#back_digfast").show(750);}
-})
-
 if (!('DIGFAST_Depression_Flags' in data)) {
   data.DIGFAST_Flags = []}
 //for each question, if yes adds to total score, marks last answer yes for back button functionality, pushes andwer to provider note
@@ -802,6 +797,8 @@ if(digfast_count == 0) {
     flags_to_push.push('felt so good or so hyper that other people thought they were not their normal self or were so hyper that they got into trouble');
   } else {last_an = 0}};
 if(digfast_count == 1) {
+  jQuery(function($) {
+  $("#back_ph9q").slideDown(1000)})
   if (digfast_ans == 0) {
     digfast_total ++;
     last_an = 1;
@@ -944,10 +941,6 @@ var ph9q_questions = [
 "Thoughts that you would be better off dead or of hurting yourself in some way"];
 function ph9q_but(ph9q_ans, typed_ans) {
 
-jQuery(function($) {
-if (ph9q_count > 0) {
-                $("#back_ph9q").show(750)}})
-
   /// For each question in the set, if it flags as positive, add 1 to total
   ///score AND marks it to minus the answer if back button pressed after (last_an=1).
   ///else last_an=0 does not take away answer in list.
@@ -957,6 +950,8 @@ if (ph9q_count > 0) {
       flags_to_push_ph9q.push('Little interest or pleasure in doing things--' + typed_ans);
     }  else {last_an = 0}}
     if(ph9q_count == 1) {
+      jQuery(function($) {
+  $("#back_ph9q").slideDown(1000)})
       if (ph9q_ans > 0) {
         last_an = 1;
         flags_to_push_ph9q.push('Feeling down, depressed, or hopeless--' + typed_ans);
