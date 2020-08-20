@@ -236,20 +236,20 @@ $(document).ready(function() {
 // })}
 
 
-function send_to_php() {
-$(document).ready(function() {
-  // var pt_packets = JSON.stringify(data);
-// pt_packet = JSON.stringify(pt_packets)
-console.log(data)
-// console.log(pt_packet)
-$.ajax({
-    url: "post_results.php",
-    type: 'POST',
-    data: JSON.stringify(data),
-    contentType: 'application/json',
-    success: function(result) {
-    $("#note").append(result)}})
-})}
+// function send_to_php() {
+// $(document).ready(function() {
+//   // var pt_packets = JSON.stringify(data);
+// // pt_packet = JSON.stringify(pt_packets)
+// console.log(data)
+// // console.log(pt_packet)
+// $.ajax({
+//     url: "post_results.php",
+//     type: 'POST',
+//     data: JSON.stringify(data),
+//     contentType: 'application/json',
+//     success: function(result) {
+//     $("#note").append(result)}})
+// })}
 
 
 ///functions for button presses at beginning of survey
@@ -1838,5 +1838,4 @@ if (unique_interact.length > 0) {
   unique_interact.forEach(function(element) {
     $("#med_interactions").append("<li><strong>" + element + "</strong></li>")})})}
 });
-send_to_php();
 }; ////end of creating note 'finished'
